@@ -22,7 +22,7 @@
                         <Insets top="20.0" />
                     </VBox.margin>
                     <font>
-                        <Font name="Arial" size="23.0" />
+                        <Font size="23.0" />
                     </font>
                 </Text>
             </children>
