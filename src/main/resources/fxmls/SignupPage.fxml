@@ -1,14 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="fxmls.SignupPage"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1300.0" style="-fx-background-color: #faf0e5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="authentication.view.SignUpPageView">
+    <center>
+        <AnchorPane prefHeight="762.0" prefWidth="1240.0" BorderPane.alignment="CENTER">
+            <children>
+                <VBox alignment="TOP_CENTER" layoutX="113.0" layoutY="1.0" prefHeight="752.0" prefWidth="1115.0">
+                    <children>
+                        <Label alignment="CENTER" prefHeight="124.0" prefWidth="834.0" text="Account Registration" textFill="#66382a">
+                            <font>
+                                <Font name="Impact" size="64.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets top="7.0" />
+                            </VBox.margin>
+                        </Label>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="701.0">
+                            <children>
+                                <Label text="Full Name">
+                                    <font>
+                                        <Font name="Garamond" size="28.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="10.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <TextField fx:id="fullNameTextField" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="38.0" promptText="Charlotte Dupont">
+                                    <font>
+                                        <Font name="Garamond" size="16.0" />
+                                    </font>
+                                </TextField>
+                                <Label text="Username">
+                                    <font>
+                                        <Font name="Garamond" size="28.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="8.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <TextField fx:id="userNameTextField" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="497.0" promptText="CharCharm">
+                                    <font>
+                                        <Font name="Garamond" size="16.0" />
+                                    </font>
+                                </TextField>
+                                <Label text="Address">
+                                    <font>
+                                        <Font name="Garamond" size="28.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="8.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <TextField fx:id="addressTextField" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="445.0" promptText="Rimando Road, Baguio City">
+                                    <font>
+                                        <Font name="Garamond" size="16.0" />
+                                    </font>
+                                </TextField>
+                                <Label text="Email">
+                                    <font>
+                                        <Font name="Garamond" size="28.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="8.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <TextField fx:id="emailTextField" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="38.0" promptText="charlottie@gmail.com">
+                                    <font>
+                                        <Font name="Garamond" size="16.0" />
+                                    </font>
+                                </TextField>
+                                <Label text="Password">
+                                    <font>
+                                        <Font name="Garamond" size="28.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="8.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <PasswordField fx:id="passwordField" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="38.0" promptText="Minimum of Six Characters">
+                                    <font>
+                                        <Font name="Garamond" size="16.0" />
+                                    </font>
+                                </PasswordField>
+                        <HBox alignment="CENTER" prefHeight="76.0" prefWidth="702.0">
+                           <children>
+                                      <Button fx:id="createAccountButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onMouseEntered="#createAccountButtonEntered" onMouseExited="#createAccountButtonExited" prefHeight="50.0" prefWidth="584.0" style="-fx-background-color: #A38157;" text="CREATE ACCOUNT" textFill="WHITE">
+                                          <font>
+                                              <Font name="Copperplate Gothic Light" size="24.0" />
+                                          </font>
+                                      </Button>
+                           </children>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </HBox>
+                                <Label fx:id="noticeLabel" textFill="RED">
+                                    <font>
+                                        <Font name="Arial" size="14.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="4.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <Line endX="700.5393676757812" endY="-0.0029976130463182926" stroke="#c8bca9" strokeWidth="1.5" style="-fx-stroke: #C8BCA9;">
+                                    <VBox.margin>
+                                        <Insets />
+                                    </VBox.margin>
+                                </Line>
+                            </children>
+                        </VBox>
+                        <CheckBox fx:id="termsAndServicesCheckBox" mnemonicParsing="false" text="By submitting your request you agree to our " textFill="#545454">
+                            <font>
+                                <Font name="Arial" size="18.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets top="5.0" />
+                            </VBox.margin>
+                        </CheckBox>
+                        <Label text="Terms of Service and Privacy Policy" textFill="#593117">
+                            <font>
+                                <Font name="Arial" size="18.0" />
+                            </font>
+                        </Label>
+                  <Line endX="700.5393676757812" endY="-0.0029976130463182926" stroke="#c8bca9" strokeWidth="1.5" style="-fx-stroke: #C8BCA9;">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="5.0" />
+                     </VBox.margin>
+                  </Line>
+                      <Button fx:id="homeButton" mnemonicParsing="false" onMouseEntered="#homePageButtonEntered" onMouseExited="#homePageButtonExited" prefHeight="37.0" prefWidth="244.0" style="-fx-background-color: #66382a;" text="Back To Home" textFill="WHITE">
+                          <font>
+                              <Font name="Garamond" size="18.0" />
+                          </font>
+                      </Button>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>
