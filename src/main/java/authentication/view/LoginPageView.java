@@ -3,80 +3,102 @@ package authentication.view;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 public class LoginPageView {
+
+
     @FXML
-    private Button homeButton;
+    private Button signUpButton;
 
     @FXML
     private Button loginButton;
-    @FXML
-    private TextField usernameTextField;
-    @FXML
-    private PasswordField passwordField;
+
     @FXML
     private Label noticeLabel;
-    private FXMLLoader loader;
-    private Parent root;
 
-    /**This method receives action implementation from the login controller*/
-    public void setActionHomeButton(EventHandler<ActionEvent> event){
-        homeButton.setOnAction(event);
+    @FXML
+    private PasswordField passwordField;
+
+    @FXML
+    private TextField usernameTextField;
+
+    @FXML
+    void homePageButtonEntered(MouseEvent event) {
+
     }
 
-    /**This method receives action implementation from the login controller*/
+    @FXML
+    void homePageButtonExited(MouseEvent event) {
+
+    }
+
+    @FXML
+    void loginPageButtonEntered(MouseEvent event) {
+
+    }
+
+    @FXML
+    void loginPageButtonExited(MouseEvent event) {
+
+    }
+
+    /**This method implements action for login button*/
     public void setActionLoginButton(EventHandler<ActionEvent> event){
-        loginButton.setOnAction(event);
+        this.loginButton.setOnAction(event);
+    }
+
+    /**This method implements action for sign up button*/
+    public void setActionSignUpButton(EventHandler<ActionEvent> event){
+        this.signUpButton.setOnAction(event);
     }
 
 
-    public void loginPageButtonEntered(){
-        loginButton.setStyle("-fx-background-color: #c7a97f;");
-    }
-    public void loginPageButtonExited(){
-        loginButton.setStyle("-fx-background-color:  #A38157;");
+    public Button setSignUpButton() {
+        return signUpButton;
     }
 
-    public void homePageButtonEntered(){
-        homeButton.setStyle("-fx-background-color: #8d5a47;");
+    public void setSignUpButton(Button signUpButton) {
+        this.signUpButton = signUpButton;
     }
 
-    public void homePageButtonExited(){
-        homeButton.setStyle("-fx-background-color:  #66382a;");
+    public Button getLoginButton() {
+        return loginButton;
     }
 
-    public TextField getUsernameTextField() {
-        return usernameTextField;
-    }
-
-    public PasswordField getPasswordField() {
-        return passwordField;
+    public void setLoginButton(Button loginButton) {
+        this.loginButton = loginButton;
     }
 
     public Label getNoticeLabel() {
         return noticeLabel;
     }
 
-    public FXMLLoader getLoader() {
-        return loader;
+    public void setNoticeLabel(Label noticeLabel) {
+        this.noticeLabel = noticeLabel;
     }
 
-    public void setLoader(FXMLLoader loader) {
-        this.loader = loader;
+    public PasswordField getPasswordField() {
+        return passwordField;
     }
 
-    public Parent getRoot() {
-        return root;
+    public void setPasswordField(PasswordField passwordField) {
+        this.passwordField = passwordField;
     }
 
-    public void setRoot(Parent root) {
-        this.root = root;
+    public TextField getUsernameTextField() {
+        return usernameTextField;
+    }
+
+    public void setUsernameTextField(TextField usernameTextField) {
+        this.usernameTextField = usernameTextField;
+    }
+
+    public Button getSignUpButton() {
+        return signUpButton;
     }
 }
-

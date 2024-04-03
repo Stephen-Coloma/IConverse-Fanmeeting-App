@@ -20,6 +20,22 @@ public class User {
         this.status = status;
     }
 
+    // Constructor
+    public User(String username, String name, String password, String email, String userType, String status) {
+        this.username = username;
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.userType = userType;
+        this.status = status;
+    }
+
+    // Constructor
+    public User(String username, String password){
+        this.username = username;
+        this.password = password;
+    }
+
     // Getters and setters
     public int getUserID() {
         return userID;

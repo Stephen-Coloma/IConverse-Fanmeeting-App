@@ -34,7 +34,7 @@
                                         <Insets top="40.0" />
                                     </VBox.margin>
                                 </Label>
-                                <TextField fx:id="usernameField" prefHeight="57.0" prefWidth="573.0" promptText="Enter Username">
+                                <TextField fx:id="usernameTextField" prefHeight="57.0" prefWidth="573.0" promptText="Enter Username">
                                     <font>
                                         <Font size="22.0" />
                                     </font>
@@ -47,14 +47,14 @@
                                         <Insets top="28.0" />
                                     </VBox.margin>
                                 </Label>
-                                <PasswordField fx:id="passwordField" onAction="#passwordField" prefHeight="57.0" prefWidth="573.0" promptText="Enter Password">
+                                <PasswordField fx:id="passwordField" prefHeight="57.0" prefWidth="573.0" promptText="Enter Password">
                                     <font>
                                         <Font size="22.0" />
                                     </font>
                                 </PasswordField>
                         <HBox alignment="CENTER">
                            <VBox.margin>
-                              <Insets top="10.0" />
+                              <Insets top="82.0" />
                            </VBox.margin>
                            <children>
                                       <Button fx:id="loginButton" mnemonicParsing="false" onMouseEntered="#loginPageButtonEntered" onMouseExited="#loginPageButtonExited" prefHeight="46.0" prefWidth="383.0" style="-fx-background-color: transparent; -fx-border-color: #1b4994; -fx-background-radius: 5; -fx-border-radius: 5;" text="LOG IN" textFill="#1b4994">
@@ -62,14 +62,6 @@
                                               <Font name="Arial" size="15.0" />
                                           </font>
                               </Button>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                           <children>
-                              <Button fx:id="signUpButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="381.0" style="-fx-background-color: #1b478f33;" text="SIGN UP" textFill="#1b478f">
-                                 <font>
-                                    <Font name="Arial" size="15.0" />
-                                 </font></Button>
                            </children>
                         </HBox>
                                 <Label fx:id="noticeLabel" textFill="RED">
@@ -102,6 +94,11 @@
                         </HBox>
                             </children>
                         </VBox>
+                      <Button fx:id="signupButton" mnemonicParsing="false" onMouseEntered="#homePageButtonEntered" onMouseExited="#homePageButtonExited" prefHeight="50.0" prefWidth="281.0" style="-fx-background-color: #1b4994; -fx-background-radius: 5; -fx-border-radius: 5;" text="SIGN UP" textFill="WHITE">
+                          <font>
+                              <Font name="Arial" size="15.0" />
+                          </font>
+                      </Button>
                     </children>
             </VBox>
             </children>
