@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-
-<HBox prefHeight="760.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="authentication.view.LoginPageView">
+<HBox prefHeight="760.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="authentication.view.LoginPageView">
    <children>
       <ImageView fitHeight="760.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true" />
         <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="650.0" style="-fx-background-color: #ffffff;">
@@ -55,7 +49,7 @@
                                 </PasswordField>
                         <HBox alignment="CENTER">
                            <VBox.margin>
-                              <Insets top="82.0" />
+                              <Insets top="10.0" />
                            </VBox.margin>
                            <children>
                                       <Button fx:id="loginButton" mnemonicParsing="false" onMouseEntered="#loginPageButtonEntered" onMouseExited="#loginPageButtonExited" prefHeight="46.0" prefWidth="383.0" style="-fx-background-color: transparent; -fx-border-color: #1b4994; -fx-background-radius: 5; -fx-border-radius: 5;" text="LOG IN" textFill="#1b4994">
@@ -63,6 +57,11 @@
                                               <Font name="Arial" size="15.0" />
                                           </font>
                               </Button>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="381.0" text="Sign Up" />
                            </children>
                         </HBox>
                                 <Label fx:id="noticeLabel" textFill="RED">
