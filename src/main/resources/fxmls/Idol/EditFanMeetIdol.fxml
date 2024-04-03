@@ -15,10 +15,10 @@
     <children>
         <Pane>
             <children>
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1b4994" height="55.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: blue;" width="801.0" />
-                <Label alignment="CENTER" layoutY="9.0" prefHeight="38.0" prefWidth="341.0" text="Edit Fan Meet Details" textFill="WHITE">
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1b4994" height="55.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: TRANSPARENT;" width="801.0" />
+                <Label alignment="TOP_LEFT" layoutX="18.0" layoutY="11.0" prefHeight="38.0" prefWidth="341.0" text="Edit Fan Meet Details" textFill="WHITE">
                <font>
-                  <Font name="Arial Black" size="25.0" />
+                  <Font name="Arial Black" size="20.0" />
                </font>
             </Label>
             </children>
@@ -29,7 +29,7 @@
                <children>
                   <Label alignment="TOP_LEFT" text="Edit Date">
                      <font>
-                        <Font name="Arial" size="22.0" />
+                        <Font name="Arial" size="20.0" />
                      </font>
                      <VBox.margin>
                         <Insets left="30.0" top="10.0" />
@@ -37,18 +37,21 @@
                   </Label>
                   <Pane prefHeight="63.0" prefWidth="399.0">
                      <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="62.0" layoutX="29.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #f0f3f7; -fx-stroke: #1b4994;" width="341.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="62.0" layoutX="29.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: TRANSPARENT; -fx-stroke: #1b4994;" width="341.0" />
                         <Label alignment="TOP_LEFT" layoutX="56.0" layoutY="17.0" text="02-16-2024">
                            <font>
                               <Font name="Arial" size="25.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="52.0" fitWidth="51.0" layoutX="308.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="313.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../resources/idol/images/profile-user.png" />
+                              <Image url="@../../idol/images/calendar.png" />
                            </image>
                         </ImageView>
                      </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
                   </Pane>
                </children>
             </VBox>
@@ -56,7 +59,7 @@
                <children>
                   <Label prefHeight="26.0" prefWidth="111.0" text="Edit Time">
                      <font>
-                        <Font name="Arial" size="22.0" />
+                        <Font name="Arial" size="20.0" />
                      </font>
                      <VBox.margin>
                         <Insets left="30.0" top="10.0" />
@@ -64,10 +67,10 @@
                   </Label>
                   <Pane prefHeight="63.0" prefWidth="399.0">
                      <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="62.0" layoutX="29.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #f0f3f7; -fx-stroke: #1b4994;" width="341.0" />
-                        <ImageView fitHeight="52.0" fitWidth="51.0" layoutX="314.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="62.0" layoutX="29.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: TRANSPARENT; -fx-stroke: #1b4994;" width="341.0" />
+                        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="316.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../resources/idol/images/profile-user.png" />
+                              <Image url="@../../idol/images/clock.png" />
                            </image>
                         </ImageView>
                         <Label alignment="TOP_LEFT" layoutX="72.0" layoutY="17.0" text="8:00 - 9:00 PM">
@@ -76,28 +79,31 @@
                            </font>
                         </Label>
                      </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
                   </Pane>
                   <Pane prefHeight="233.0" prefWidth="402.0">
                      <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1b4994" height="194.0" layoutX="28.0" layoutY="39.0" stroke="BLACK" strokeType="INSIDE" width="341.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="45.0" layoutX="43.0" layoutY="86.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #f0f3f7; -fx-stroke: #1b4994;" width="307.0" />
-                        <Label alignment="TOP_LEFT" layoutX="151.0" layoutY="94.0" text="8:00 AM">
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1b478f" height="207.0" layoutX="28.0" layoutY="26.0" stroke="WHITE" strokeType="INSIDE" width="341.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="45.0" layoutX="43.0" layoutY="76.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #f0f3f7; -fx-stroke: #1b4994;" width="307.0" />
+                        <Label alignment="TOP_LEFT" layoutX="152.0" layoutY="84.0" text="8:00 AM">
                            <font>
                               <Font name="Arial" size="25.0" />
                            </font>
                         </Label>
-                        <Label layoutX="43.0" layoutY="52.0" prefHeight="26.0" prefWidth="111.0" text="Start Time" textFill="WHITE">
+                        <Label layoutX="43.0" layoutY="42.0" prefHeight="26.0" prefWidth="111.0" text="Start Time" textFill="WHITE">
                            <font>
-                              <Font name="Arial" size="22.0" />
+                              <Font name="Arial" size="20.0" />
                            </font>
                         </Label>
-                        <Label layoutX="43.0" layoutY="143.0" prefHeight="26.0" prefWidth="111.0" text="End Time" textFill="WHITE">
+                        <Label layoutX="43.0" layoutY="138.0" prefHeight="26.0" prefWidth="111.0" text="End Time" textFill="WHITE">
                            <font>
-                              <Font name="Arial" size="22.0" />
+                              <Font name="Arial" size="20.0" />
                            </font>
                         </Label>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="45.0" layoutX="43.0" layoutY="175.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #f0f3f7; -fx-stroke: #1b4994;" width="307.0" />
-                        <Label alignment="TOP_LEFT" layoutX="152.0" layoutY="182.0" text="8:30 AM">
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="45.0" layoutX="43.0" layoutY="171.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #f0f3f7; -fx-stroke: #1b4994;" width="307.0" />
+                        <Label alignment="TOP_LEFT" layoutX="152.0" layoutY="178.0" text="8:30 AM">
                            <font>
                               <Font name="Arial" size="25.0" />
                            </font>
