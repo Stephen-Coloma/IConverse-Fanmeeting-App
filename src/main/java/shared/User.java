@@ -8,9 +8,11 @@ public class User {
     private String email;
     private String userType;
     private String status;
+    private String bio;
+    private byte[] profilePicture;
 
     // Constructor
-    public User(int userID, String username, String name, String password, String email, String userType, String status) {
+    public User(int userID, String username, String name, String password, String email, String userType, String status, byte[] profilePicture, String bio) {
         this.userID = userID;
         this.username = username;
         this.name = name;
@@ -18,16 +20,20 @@ public class User {
         this.email = email;
         this.userType = userType;
         this.status = status;
+        this.profilePicture = profilePicture;
+        this.bio = bio;
     }
 
     // Constructor
-    public User(String username, String name, String password, String email, String userType, String status) {
+    public User(String username, String name, String password, String email, String userType, String status, byte[] profilePicture, String bio) {
         this.username = username;
         this.name = name;
         this.password = password;
         this.email = email;
         this.userType = userType;
         this.status = status;
+        this.bio = bio;
+        this.profilePicture = profilePicture;
     }
 
     // Constructor
@@ -91,5 +97,21 @@ public class User {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public byte[] getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(byte[] profilePicture) {
+        this.profilePicture = profilePicture;
     }
 }

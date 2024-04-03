@@ -3,17 +3,13 @@ package authentication.controller;
 import authentication.model.LoginPageModel;
 import authentication.model.SignUpModel;
 import authentication.view.LoginPageView;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.controlsfx.control.action.Action;
-import shared.User;
 
 import java.io.IOException;
-import java.sql.SQLOutput;
 
 public class LoginPageController {
     private LoginPageView view;

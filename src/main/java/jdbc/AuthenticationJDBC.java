@@ -20,20 +20,18 @@ public class AuthenticationJDBC {
 
     private static String query;
     private static Statement statement;
+    private static PreparedStatement preparedStatement;
     private static ResultSet resultSet;
     /**This method checks the signs up the user to the database*/
     public static void login(User userLogin ) throws Exception{
-        String query = "SELECT Username, Password" +
+        query = "SELECT Username, Password" +
                 " FROM users" +
                 " WHERE Username = ?" +
                 " AND Password = ?";
 
-        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, userLogin.getUsername());
         preparedStatement.setString(2, userLogin.getPassword());
-
-        System.out.println(userLogin.getUsername());
-        System.out.println(userLogin.getPassword());
 
         resultSet = preparedStatement.executeQuery();
 
@@ -44,7 +42,45 @@ public class AuthenticationJDBC {
     }
 
     /**This method checks the login of the user to the database*/
-    public static void signUp(User userSignUp) throws Exception{
-        //todo: implement the method
+    public static synchronized void signUp(User userSignUp) throws Exception{
+        //check if there are any username exists
+        query = "SELECT username" +
+                " FROM users" +
+                " WHERE username = ?";
+
+        preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, userSignUp.getUsername());
+
+        resultSet = preparedStatement.executeQuery();
+
+        while (resultSet.next()){
+            throw new Exception("Account exists");
+        }
+
+        //if it reaches here, means there is no account for that existing username
+        insertNewUser(userSignUp);
     }
+
+    /**Helper method to the signup method*/
+    private static void insertNewUser(User userSignUp) {
+        try {
+            query = "INSERT INTO users(Username, Name, Password, Bio, Email, UserType, Status, ProfilePicture)" +
+                    " VALUES(?,?,?,?,?,?,?,?);";
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, userSignUp.getUsername());
+            preparedStatement.setString(2, userSignUp.getName());
+            preparedStatement.setString(3, userSignUp.getPassword());
+            preparedStatement.setString(4, userSignUp.getBio());
+            preparedStatement.setString(5, userSignUp.getEmail());
+            preparedStatement.setString(6, userSignUp.getUserType());
+            preparedStatement.setString(7, userSignUp.getStatus());
+            preparedStatement.setBytes(8, userSignUp.getProfilePicture());
+
+            preparedStatement.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 }

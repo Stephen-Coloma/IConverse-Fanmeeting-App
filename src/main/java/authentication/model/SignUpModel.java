@@ -15,7 +15,7 @@ public class SignUpModel {
     private String userType;
 
     public boolean signUp() throws Exception{
-        User userSignUp = new User(username, name, password, email, userType, "Active");
+        User userSignUp = new User(username, name, password, email, userType, "Active", null, null);
 
         AuthenticationJDBC.signUp(userSignUp);
         return false; //todo: to be changed the return type
