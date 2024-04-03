@@ -33,7 +33,7 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTGRAY" height="254.0" layoutX="16.0" layoutY="31.0" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-arc-height: 30; -fx-arc-width: 30;" width="250.0" />
                   <ImageView fitHeight="185.0" fitWidth="179.0" layoutX="53.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../idol/images/profile-user.png" />
+                        <Image url="@../../fan/images/profile-user.png" />
                      </image>
                   </ImageView>
                </children>
