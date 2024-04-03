@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane prefHeight="116.0" prefWidth="974.0" style="-fx-background-color: #f0f3f7; -fx-border-color: #1b4994; -fx-border-radius: 5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="17.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IdolName" wrappingWidth="126.67007446289062">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="15.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot; Lorem Ipsum dolor slt amet, consectetur adipiscing Lorem Ipsum dolor slt amet, consectetur adipiscing Lorem Ipsum dolor slt amet, consectetur adipiscing Lorem Ipsum dolor slt amet, consectetur adipiscing L" wrappingWidth="787.0333862304688">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="87.0" fitWidth="109.0" layoutX="851.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../fan/images/profile-user.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>
