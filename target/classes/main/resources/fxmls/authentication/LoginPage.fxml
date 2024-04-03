@@ -94,7 +94,7 @@
                         </HBox>
                             </children>
                         </VBox>
-                      <Button fx:id="signupButton" mnemonicParsing="false" onMouseEntered="#homePageButtonEntered" onMouseExited="#homePageButtonExited" prefHeight="50.0" prefWidth="281.0" style="-fx-background-color: #1b4994; -fx-background-radius: 5; -fx-border-radius: 5;" text="SIGN UP" textFill="WHITE">
+                      <Button fx:id="signUpButton" mnemonicParsing="false" onMouseEntered="#homePageButtonEntered" onMouseExited="#homePageButtonExited" prefHeight="50.0" prefWidth="281.0" style="-fx-background-color: #1b4994; -fx-background-radius: 5; -fx-border-radius: 5;" text="SIGN UP" textFill="WHITE">
                           <font>
                               <Font name="Arial" size="15.0" />
                           </font>

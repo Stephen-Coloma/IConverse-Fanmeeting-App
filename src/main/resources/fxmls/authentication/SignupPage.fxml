@@ -87,14 +87,14 @@
                                                 <Font name="Copperplate Gothic Light" size="18.0" />
                                             </font>
                                         </Button>
-                              <Button fx:id="createIdolAccount" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onMouseEntered="#createAccountButtonEntered" onMouseExited="#createAccountButtonExited" prefHeight="50.0" prefWidth="329.0" style="-fx-background-color: transparent; -fx-border-color: #1b4994; -fx-background-radius: 5; -fx-border-radius: 5;" text="CREATE idol account" textFill="#1b4994">
-                                 <font>
-                                    <Font name="Copperplate Gothic Light" size="18.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                              </Button>
+                                        <Button fx:id="createIdolAccount" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onMouseEntered="#createAccountButtonEntered" onMouseExited="#createAccountButtonExited" prefHeight="50.0" prefWidth="329.0" style="-fx-background-color: transparent; -fx-border-color: #1b4994; -fx-background-radius: 5; -fx-border-radius: 5;" text="CREATE idol account" textFill="#1b4994">
+                                            <font>
+                                                <Font name="Copperplate Gothic Light" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets left="20.0" />
+                                            </HBox.margin>
+                                        </Button>
                                     </children>
                                     <padding>
                                         <Insets top="10.0" />
@@ -120,7 +120,7 @@
                                 <Insets bottom="20.0" top="10.0" />
                             </VBox.margin>
                         </Line>
-                        <Button fx:id="backButton" mnemonicParsing="false" onMouseEntered="#homePageButtonEntered" onMouseExited="#homePageButtonExited" prefHeight="37.0" prefWidth="252.0" style="-fx-background-color: #1b4994; -fx-border-color: #1b4994; -fx-border-radius: 5; -fx-background-radius: 5;" text="Back" textFill="WHITE">
+                        <Button fx:id="backButton" mnemonicParsing="false" prefHeight="37.0" prefWidth="252.0" style="-fx-background-color: #1b4994; -fx-border-color: #1b4994; -fx-border-radius: 5; -fx-background-radius: 5;" text="Back" textFill="WHITE">
                             <font>
                                 <Font name="Copperplate Gothic Light" size="18.0" />
                             </font>

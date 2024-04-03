@@ -12,6 +12,9 @@ import javafx.scene.input.MouseEvent;
 public class SignUpPageView {
 
     @FXML
+    private Button backButton;
+
+    @FXML
     private Button createFanAccount;
 
     @FXML
@@ -22,9 +25,6 @@ public class SignUpPageView {
 
     @FXML
     private TextField fullNameTextField;
-
-    @FXML
-    private Button backButton;
 
     @FXML
     private Label noticeLabel;
@@ -57,22 +57,12 @@ public class SignUpPageView {
 
     }
 
-    @FXML
-    void homePageButtonEntered(MouseEvent event) {
-
+    public Button getBackButton() {
+        return backButton;
     }
 
-    @FXML
-    void homePageButtonExited(MouseEvent event) {
-
-    }
-
-    public TextField getUserNameTextField() {
-        return userNameTextField;
-    }
-
-    public void setUserNameTextField(TextField userNameTextField) {
-        this.userNameTextField = userNameTextField;
+    public void setBackButton(Button backButton) {
+        this.backButton = backButton;
     }
 
     public Button getCreateFanAccount() {
@@ -107,14 +97,6 @@ public class SignUpPageView {
         this.fullNameTextField = fullNameTextField;
     }
 
-    public Button setBackButton() {
-        return backButton;
-    }
-
-    public void setBackButton(Button backButton) {
-        this.backButton = backButton;
-    }
-
     public Label getNoticeLabel() {
         return noticeLabel;
     }
@@ -129,5 +111,13 @@ public class SignUpPageView {
 
     public void setPasswordField(PasswordField passwordField) {
         this.passwordField = passwordField;
+    }
+
+    public TextField getUserNameTextField() {
+        return userNameTextField;
+    }
+
+    public void setUserNameTextField(TextField userNameTextField) {
+        this.userNameTextField = userNameTextField;
     }
 }

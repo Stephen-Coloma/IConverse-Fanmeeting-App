@@ -11,7 +11,8 @@ import javafx.scene.input.MouseEvent;
 
 public class LoginPageView {
 
-
+    @FXML
+    public TextField usernameTextField;
     @FXML
     private Button signUpButton;
 
@@ -23,9 +24,6 @@ public class LoginPageView {
 
     @FXML
     private PasswordField passwordField;
-
-    @FXML
-    private TextField usernameTextField;
 
     @FXML
     void homePageButtonEntered(MouseEvent event) {
@@ -47,6 +45,7 @@ public class LoginPageView {
 
     }
 
+
     /**This method implements action for login button*/
     public void setActionLoginButton(EventHandler<ActionEvent> event){
         this.loginButton.setOnAction(event);
@@ -55,15 +54,6 @@ public class LoginPageView {
     /**This method implements action for sign up button*/
     public void setActionSignUpButton(EventHandler<ActionEvent> event){
         this.signUpButton.setOnAction(event);
-    }
-
-
-    public Button setSignUpButton() {
-        return signUpButton;
-    }
-
-    public void setSignUpButton(Button signUpButton) {
-        this.signUpButton = signUpButton;
     }
 
     public Button getLoginButton() {
@@ -90,15 +80,19 @@ public class LoginPageView {
         this.passwordField = passwordField;
     }
 
+    public Button getSignupButton() {
+        return signUpButton;
+    }
+
+    public void setSignupButton(Button signupButton) {
+        this.signUpButton = signupButton;
+    }
+
     public TextField getUsernameTextField() {
         return usernameTextField;
     }
 
     public void setUsernameTextField(TextField usernameTextField) {
         this.usernameTextField = usernameTextField;
-    }
-
-    public Button getSignUpButton() {
-        return signUpButton;
     }
 }

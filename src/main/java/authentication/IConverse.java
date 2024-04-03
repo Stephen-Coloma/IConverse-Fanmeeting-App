@@ -11,7 +11,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class IConverse extends Application {
-    public static Stage stage;
+    public static Stage STAGE;
     public FXMLLoader loader;
     public Parent root;
     private LoginPageController loginPageController;
@@ -22,16 +22,18 @@ public class IConverse extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         try {
-            loader = new FXMLLoader(getClass().getResource("/fxmls/LoginPage.fxml"));
-            root = loader.getRoot();
+            STAGE = stage;
+
+            loader = new FXMLLoader(getClass().getResource("/fxmls/authentication/LoginPage.fxml"));
+            root = loader.load();
 
             loginPageController  = new LoginPageController(loader.getController(), new LoginPageModel());
-            Scene scene = new Scene(loader.load());
-            stage.setTitle("IConverse");
-            this.stage.setResizable(false);
-            this.stage.setFullScreen(false);
-            this.stage.setScene(scene);
-            this.stage.show();
+            STAGE.setTitle("IConverse");
+            Scene scene = new Scene(root);
+            STAGE.setResizable(false);
+            STAGE.setFullScreen(false);
+            STAGE.setScene(scene);
+            STAGE.show();
         }catch (Exception e){
             e.printStackTrace();
         }

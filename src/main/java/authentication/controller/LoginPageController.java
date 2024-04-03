@@ -1,13 +1,25 @@
 package authentication.controller;
 
 import authentication.model.LoginPageModel;
+import authentication.model.SignUpModel;
 import authentication.view.LoginPageView;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import org.controlsfx.control.action.Action;
 import shared.User;
+
+import java.io.IOException;
+import java.sql.SQLOutput;
 
 public class LoginPageController {
     private LoginPageView view;
     private LoginPageModel model;
+    private FXMLLoader loader;
+    private Parent root;
 
     public LoginPageController(LoginPageView view, LoginPageModel model) {
         this.view = view;
@@ -15,13 +27,25 @@ public class LoginPageController {
 
         //setting up the button action for login page
         this.view.setActionSignUpButton(event -> {
-            //todo: load the sign up button
+            //load the view before getting its controller
+            try {
+                loader = new FXMLLoader(getClass().getResource("/fxmls/authentication/SignupPage.fxml"));
+                root = loader.load();
+
+                new SignUpPageController(loader.getController(), new SignUpModel());
+
+                Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            }catch (IOException e){
+                e.printStackTrace();
+            }
         });
 
-        this.view.setActionLoginButton( event ->{
+        this.view.setActionLoginButton(event ->{
             String username = view.getUsernameTextField().getText();
             String password = view.getPasswordField().getText();
-
 
             model.setUsername(username);
             model.setPassword(password);
