@@ -12,11 +12,10 @@ public class Booking {
     private LocalTime startTime;
     private int duration;
     private double price;
-    private String status;
     private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd h:mm a");
     private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("h:mm a");
 
-    public Booking(int bookingID, User userID, Fanmeet fanMeetID, LocalDateTime timeStamp, LocalTime startTime, int duration, double price, String status) {
+    public Booking(int bookingID, User userID, Fanmeet fanMeetID, LocalDateTime timeStamp, LocalTime startTime, int duration, double price) {
         this.bookingID = bookingID;
         this.userID = userID;
         this.fanMeetID = fanMeetID;
@@ -24,7 +23,6 @@ public class Booking {
         this.startTime = startTime;
         this.duration = duration;
         this.price = price;
-        this.status = status;
     }
 
     public void setBookingID(int bookingID) {
@@ -81,14 +79,6 @@ public class Booking {
 
     public double getPrice() {
         return this.price;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getStatus() {
-        return this.status;
     }
 
     public String getFormattedTimeStamp() {

@@ -22,7 +22,7 @@ public class FinishedFanMeetsViewCardController {
     }
 
     public void setData() {
-        view.getDateLabel().setText(model.getFanmeet().getStartTime().toString());
+        view.getDateLabel().setText(model.getFanmeet().getDate().toString());
         view.getTimeLabel().setText(model.getFanmeet().getStartTime() + " - " + model.getFanmeet().getEndTime());
     }
 }

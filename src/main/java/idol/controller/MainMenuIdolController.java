@@ -1,5 +1,9 @@
 package idol.controller;
 
+import idol.model.FinishedFanMeetsViewCardModel;
+import idol.model.IdolFanMeetsModel;
+import idol.view.FinishedFanMeetsViewCardView;
+import idol.view.IdolFanMeetsView;
 import idol.view.MainMenuIdolPageView;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -24,15 +28,21 @@ public class MainMenuIdolController {
         });
 
         this.view.setUpActionBookingsButton(event -> {
-            //todo: optional
+            //todo: clear pane
+            StackPane stackPane = view.getStackPane();
+            stackPane.getChildren().clear();
         });
 
         this.view.setUpActionProfileButton(event -> {
-            //todo: optional
+            //todo: clear pane
+            StackPane stackPane = view.getStackPane();
+            stackPane.getChildren().clear();
         });
 
         this.view.setUpActionSettingsButton(event -> {
-            //todo: optional
+            //todo: clear pane
+            StackPane stackPane = view.getStackPane();
+            stackPane.getChildren().clear();
         });
     }
 
@@ -43,8 +53,15 @@ public class MainMenuIdolController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
         try {
             Node anotherFXMLRoot = loader.load();
+
+            IdolFanMeetsModel idolFanMeetsModel = new IdolFanMeetsModel();
+            IdolFanMeetsView idolFanMeetsView = loader.getController();
+            IdolFanMeetsController idolFanMeetsController = new IdolFanMeetsController(idolFanMeetsView, idolFanMeetsModel);
+
             // Add the root node of the loaded FXML to the StackPane
             stackPane.getChildren().add(anotherFXMLRoot);
+
+
         } catch (IOException e) {
             e.printStackTrace();
             // Handle exception appropriately

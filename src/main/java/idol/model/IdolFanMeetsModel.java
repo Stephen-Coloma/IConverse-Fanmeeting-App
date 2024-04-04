@@ -10,21 +10,13 @@ public class IdolFanMeetsModel {
     private List<Fanmeet> upcomingFanMeets;
 
     public List<Fanmeet> loadFinishedFanMeets() throws Exception{
-        finishedFanMeets = IdolJDBC.loadFinishedFanmeets(1);
-        if (finishedFanMeets != null){
-            return loadUnfinishedFanMeets();
-        }else {
-            throw new Exception("An error occurred");
-        }
+        finishedFanMeets = IdolJDBC.loadFinishedFanmeets(11); //todo: temporary data yung 2
+        return finishedFanMeets;
     }
 
     public List<Fanmeet> loadUnfinishedFanMeets() throws Exception{
-        upcomingFanMeets = IdolJDBC.loadFinishedFanmeets(1);
-        if (upcomingFanMeets != null){
-            return loadUnfinishedFanMeets();
-        }else {
-            throw new Exception("An error occurred");
-        }
+        upcomingFanMeets = IdolJDBC.loadFinishedFanmeets(11); //todo: temporary data yung 2
+        return upcomingFanMeets;
     }
 
     public List<Fanmeet> getFinishedFanMeets() {
