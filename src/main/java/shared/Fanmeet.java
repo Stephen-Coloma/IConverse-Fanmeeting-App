@@ -12,6 +12,14 @@ public class Fanmeet {
     private LocalTime startTime;
     private LocalTime endTime;
     private double pricePerMinute;
+    public Fanmeet(){
+        this.fanMeetID = 0;
+        this.idolName = null;
+        this.date = null;
+        this.startTime = null;
+        this.endTime = null;
+        this.pricePerMinute = 0.0;
+    }
 
     // Constructor
     public Fanmeet(int fanMeetID, User idolName, LocalDate date, LocalTime startTime, LocalTime endTime, double pricePerMinute) {

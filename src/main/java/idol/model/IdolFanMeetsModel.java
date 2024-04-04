@@ -10,7 +10,7 @@ public class IdolFanMeetsModel {
     private List<Fanmeet> upcomingFanMeets;
 
     public List<Fanmeet> loadFinishedFanMeets() throws Exception{
-        finishedFanMeets = IdolJDBC.loadFinishedFanmeets();
+        finishedFanMeets = IdolJDBC.loadFinishedFanmeets(1);
         if (finishedFanMeets != null){
             return loadUnfinishedFanMeets();
         }else {
@@ -19,7 +19,7 @@ public class IdolFanMeetsModel {
     }
 
     public List<Fanmeet> loadUnfinishedFanMeets() throws Exception{
-        upcomingFanMeets = IdolJDBC.loadFinishedFanmeets();
+        upcomingFanMeets = IdolJDBC.loadFinishedFanmeets(1);
         if (upcomingFanMeets != null){
             return loadUnfinishedFanMeets();
         }else {
