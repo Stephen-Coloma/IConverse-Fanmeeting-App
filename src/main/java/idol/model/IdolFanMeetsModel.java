@@ -1,5 +1,6 @@
 package idol.model;
 
+import jdbc.IdolJDBC;
 import shared.Fanmeet;
 
 import java.util.List;
@@ -8,16 +9,23 @@ public class IdolFanMeetsModel {
     private List<Fanmeet> finishedFanMeets;
     private List<Fanmeet> upcomingFanMeets;
 
-    public List<Fanmeet> loadFinishedFanMeets(){
-        //todo: marius
-        return null;
+    public List<Fanmeet> loadFinishedFanMeets() throws Exception{
+        finishedFanMeets = IdolJDBC.loadFinishedFanmeets();
+        if (finishedFanMeets != null){
+            return loadUnfinishedFanMeets();
+        }else {
+            throw new Exception("An error occurred");
+        }
     }
 
-    public List<Fanmeet> loadUnfinishedFanMeets(){
-        //todo: marius
-        return null;
+    public List<Fanmeet> loadUnfinishedFanMeets() throws Exception{
+        upcomingFanMeets = IdolJDBC.loadFinishedFanmeets();
+        if (upcomingFanMeets != null){
+            return loadUnfinishedFanMeets();
+        }else {
+            throw new Exception("An error occurred");
+        }
     }
-
 
     public List<Fanmeet> getFinishedFanMeets() {
         return finishedFanMeets;

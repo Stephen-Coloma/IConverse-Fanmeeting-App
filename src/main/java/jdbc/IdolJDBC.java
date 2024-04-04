@@ -23,7 +23,7 @@ public class IdolJDBC {
     private static PreparedStatement preparedStatement;
     private static ResultSet resultSet;
 
-    public List<Fanmeet> loadFinishedFanmeets(){
+    public static List<Fanmeet> loadFinishedFanmeets(){
         return null;
     }
 

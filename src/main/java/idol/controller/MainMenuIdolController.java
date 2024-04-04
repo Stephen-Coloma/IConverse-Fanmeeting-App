@@ -40,7 +40,7 @@ public class MainMenuIdolController {
         StackPane stackPane = view.getStackPane();
 
         // Load another FXML file
-        loader = new FXMLLoader(getClass().getResource(fxmlPath));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
         try {
             Node anotherFXMLRoot = loader.load();
             // Add the root node of the loaded FXML to the StackPane
