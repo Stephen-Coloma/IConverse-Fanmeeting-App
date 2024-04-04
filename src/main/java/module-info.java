@@ -8,9 +8,13 @@ module leonardos{
     opens authentication to javafx.fxml;
     opens authentication.controller to  javafx.fxml;
     opens authentication.view to javafx.fxml;
-
+    opens fan.view to javafx.fxml;
+    opens fan.view.cards to javafx.fxml;
 
     exports authentication;
     exports authentication.view;
     exports authentication.controller;
+    exports fan.controller;
+    exports fan.view;
+    exports fan.view.cards;
 }
