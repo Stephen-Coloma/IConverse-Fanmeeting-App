@@ -10,20 +10,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1013.6" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1013.6" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="idol.view.IdolFanMeetsView">
      <children>
-         <Pane prefHeight="67.0" prefWidth="1039.0" style="-fx-background-color: #1b4994;">
+         <Pane prefHeight="67.0" prefWidth="1039.0" style="-fx-background-color: #1b4994;" />
+         <Pane prefHeight="698.0" prefWidth="790.0" style="-fx-background-color: white;">
              <children>
-                 <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="20.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                         <Image url="@../../../resources/idol/images/back-button.png" />
-                     </image>
-                 </ImageView>
-             </children>
-         </Pane>
-         <Pane prefHeight="698.0" prefWidth="1026.0" style="-fx-background-color: white;">
-             <children>
-                 <Button layoutX="66.0" layoutY="14.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="236.0" style="-fx-background-color: #1b4994; -fx-background-radius: 8; -fx-border-radius: 8;" text="Create Another Fan Meet" textFill="WHITE">
+                 <Button fx:id="createFanmeetButton" layoutX="66.0" layoutY="14.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="236.0" style="-fx-background-color: #1b4994; -fx-background-radius: 8; -fx-border-radius: 8;" text="Create Another Fan Meet" textFill="WHITE">
                      <graphic>
                          <ImageView fitHeight="42.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                              <image>
@@ -35,19 +27,19 @@
                          <Font name="Arial" size="14.0" />
                      </font>
                  </Button>
-            <Button layoutX="383.0" layoutY="15.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="236.0" style="-fx-background-color: #1b4994; -fx-background-radius: 8; -fx-border-radius: 8;" text="Finished Fan Meets" textFill="WHITE">
+            <Button fx:id="finishedFanmeetsButton" layoutX="383.0" layoutY="15.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="236.0" style="-fx-background-color: #1b4994; -fx-background-radius: 8; -fx-border-radius: 8;" text="Finished Fan Meets" textFill="WHITE">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
             </Button>
-            <Button layoutX="704.0" layoutY="16.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="236.0" style="-fx-background-color: #1b4994; -fx-background-radius: 8; -fx-border-radius: 8;" text="Upcoming Fan Meets" textFill="WHITE">
+            <Button fx:id="upcomingFanmeetsButton" layoutX="704.0" layoutY="16.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="236.0" style="-fx-background-color: #1b4994; -fx-background-radius: 8; -fx-border-radius: 8;" text="Upcoming Fan Meets" textFill="WHITE">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
             </Button>
-            <ScrollPane layoutX="66.0" layoutY="172.0" prefHeight="484.0" prefWidth="895.0">
+            <ScrollPane fx:id="scrollPane" layoutX="66.0" layoutY="172.0" prefHeight="484.0" prefWidth="895.0">
                <content>
-                  <FlowPane prefHeight="488.0" prefWidth="883.0" />
+                  <FlowPane fx:id="flowPane" prefHeight="488.0" prefWidth="883.0" />
                </content>
             </ScrollPane>
             <Label layoutX="70.0" layoutY="125.0" prefHeight="38.0" prefWidth="419.0" text="Label (Depending on finished or Upcoming Fan meets)">
