@@ -29,94 +29,84 @@ public class IdolJDBC {
     private static PreparedStatement preparedStatement;
     private static ResultSet resultSet;
 
-    public static List<Fanmeet> loadFinishedFanmeets(List<User> userList, int userID)throws Exception{
+    public static List<Fanmeet> loadFinishedFanmeets(List<User> userList,int userID)throws Exception{
         List<Fanmeet> fanmeetList = new ArrayList<>();
-        int fanMeetID;
-        int idolNumber;
-        User idolName;
-        LocalDate date;
-        LocalTime startTime;
-        LocalTime endTime;
-        double pricePerMinute;
-
-        query= "SELECT * " +
+        query= "SELECT distinct(fanmeets.fanmeetID) , fanmeets.IdolName, fanmeets.Date, fanmeets.StartTime, fanmeets.EndTime, fanmeets.PricePerMinute, " +
+                "users.UserID, users.Username, users.Name, users.Password, users.Bio, users.email, users.userType, users.status, users.profilepicture "+
                 "FROM fanmeets " +
-                "WHERE Date < ? && IdolName = ?";
-
-
+                "INNER JOIN bookings ON fanmeets.FanmeetID = bookings.fanmeetID " +
+                "INNER JOIN users ON fanmeets.idolname = users.userid " +
+                "WHERE bookings.status = \"Finished\" " +
+                "ANd Idolname = ?";
 
         PreparedStatement preparedStatement = connection.prepareStatement(query);
-        java.sql.Date currentDate = new java.sql.Date(System.currentTimeMillis());
-        preparedStatement.setDate(1, currentDate);
-        preparedStatement.setInt(2, userID);
+        //java.sql.Date currentDate = new java.sql.Date(System.currentTimeMillis());
+        preparedStatement.setInt(1, userID);
         resultSet = preparedStatement.executeQuery();
 
         while(resultSet.next()){
-            fanMeetID = resultSet.getInt("FanMeetID");
-            idolNumber = resultSet.getInt("idolName");
             User idol = new User();
+            idol.setUserID(resultSet.getInt("UserID"));
+            idol.setUsername(resultSet.getString("Username"));
+            idol.setName(resultSet.getString("Name"));
+            idol.setPassword(resultSet.getString("Password"));
+            idol.setEmail(resultSet.getString("Email"));
+            idol.setUserType(resultSet.getString("UserType"));
+            idol.setStatus(resultSet.getString("Status"));
+            idol.setBio(resultSet.getString("Bio"));
+            idol.setProfilePicture(resultSet.getBytes("ProfilePicture"));
+            Fanmeet fanmeet = new Fanmeet();
 
-            for(User user: userList){
-                if(user.getUserID() == idolNumber){
-                    idol = user;
-                    break;
-                }
-            }
-            if (idol != null) {
-                Fanmeet fanmeet = new Fanmeet();
-                fanmeet.setFanMeetID(fanMeetID);
-                fanmeet.setIdolName(idol);
-                fanmeet.setDate(resultSet.getDate("Date").toLocalDate());
-                fanmeet.setStartTime(resultSet.getTime("StartTime").toLocalTime());
-                fanmeet.setEndTime(resultSet.getTime("EndTime").toLocalTime());
-                fanmeet.setPricePerMinute(resultSet.getDouble("PricePerMinute"));
+            fanmeet.setFanMeetID(resultSet.getInt("FanMeetID"));
+            fanmeet.setIdolName(idol);
+            fanmeet.setDate(resultSet.getDate("Date").toLocalDate());
+            fanmeet.setStartTime(resultSet.getTime("StartTime").toLocalTime());
+            fanmeet.setEndTime(resultSet.getTime("EndTime").toLocalTime());
+            fanmeet.setPricePerMinute(resultSet.getDouble("PricePerMinute"));
 
-                fanmeetList.add(fanmeet);
-            }
+            fanmeetList.add(fanmeet);
+
         }
     return fanmeetList;
     }
     public static List<Fanmeet> loadUnFinishedFanmeets(List<User> userList, int userID)throws Exception{
         List<Fanmeet> fanmeetList = new ArrayList<>();
-        int fanMeetID;
-        int idolNumber;
-        User idolName;
-        LocalDate date;
-        LocalTime startTime;
-        LocalTime endTime;
-        double pricePerMinute;
 
-        query= "SELECT * " +
+        query= "SELECT distinct(fanmeets.fanmeetID) , fanmeets.IdolName, fanmeets.Date, fanmeets.StartTime, fanmeets.EndTime, fanmeets.PricePerMinute, " +
+                "users.UserID, users.Username, users.Name, users.Password, users.Bio, users.email, users.userType, users.status, users.profilepicture "+
                 "FROM fanmeets " +
-                "WHERE Date >= ? && IdolName = ?";
+                "INNER JOIN bookings ON fanmeets.FanmeetID = bookings.fanmeetID " +
+                "INNER JOIN users ON fanmeets.idolname = users.userid " +
+                "WHERE bookings.status = \"Unfinished\" " +
+                "ANd Idolname = ?";
+
 
         PreparedStatement preparedStatement = connection.prepareStatement(query);
-        java.sql.Date currentDate = new java.sql.Date(System.currentTimeMillis());
-        preparedStatement.setDate(1, currentDate);
-        preparedStatement.setInt(2, userID);
+        //java.sql.Date currentDate = new java.sql.Date(System.currentTimeMillis());
+
+        preparedStatement.setInt(1, userID);
         resultSet = preparedStatement.executeQuery();
         while(resultSet.next()){
-            fanMeetID = resultSet.getInt("FanMeetID");
-            idolNumber = resultSet.getInt("idolName");
             User idol = new User();
+            idol.setUserID(resultSet.getInt("UserID"));
+            idol.setUsername(resultSet.getString("Username"));
+            idol.setName(resultSet.getString("Name"));
+            idol.setPassword(resultSet.getString("Password"));
+            idol.setEmail(resultSet.getString("Email"));
+            idol.setUserType(resultSet.getString("UserType"));
+            idol.setStatus(resultSet.getString("Status"));
+            idol.setBio(resultSet.getString("Bio"));
+            idol.setProfilePicture(resultSet.getBytes("ProfilePicture"));
+            Fanmeet fanmeet = new Fanmeet();
+            fanmeet.setFanMeetID(resultSet.getInt("FanMeetID"));
+            fanmeet.setIdolName(idol);
+            fanmeet.setDate(resultSet.getDate("Date").toLocalDate());
+            fanmeet.setStartTime(resultSet.getTime("StartTime").toLocalTime());
+            fanmeet.setEndTime(resultSet.getTime("EndTime").toLocalTime());
+            fanmeet.setPricePerMinute(resultSet.getDouble("PricePerMinute"));
 
-            for(User user: userList){
-                if(user.getUserID() == idolNumber){
-                    idol = user;
-                    break;
-                }
-            }
-            if (idol != null) {
-                Fanmeet fanmeet = new Fanmeet();
-                fanmeet.setFanMeetID(fanMeetID);
-                fanmeet.setIdolName(idol);
-                fanmeet.setDate(resultSet.getDate("Date").toLocalDate());
-                fanmeet.setStartTime(resultSet.getTime("StartTime").toLocalTime());
-                fanmeet.setEndTime(resultSet.getTime("EndTime").toLocalTime());
-                fanmeet.setPricePerMinute(resultSet.getDouble("PricePerMinute"));
+            fanmeetList.add(fanmeet);
 
-                fanmeetList.add(fanmeet);
-            }
         }
         return fanmeetList;
     }
@@ -153,7 +143,7 @@ public class IdolJDBC {
             for(User user : listOfUsers){
                 List<Fanmeet> listOfFinishedFanmeets = loadFinishedFanmeets(listOfUsers, user.getUserID());
 
-                System.out.println("\nFINISHED FANMEETS of userID " +user.getUserID());
+                System.out.println("\nFINISHED BOOKING OF FANMEET of IDOLNAME " +user.getUserID());
                 for(Fanmeet fanmeet: listOfFinishedFanmeets){
                     System.out.println("FMID: " +fanmeet.getFanMeetID());
                     System.out.println("IDOLNAME/ID: " +fanmeet.getIdolName().getUserID());
@@ -164,7 +154,7 @@ public class IdolJDBC {
                     System.out.println("=========================\n");
                 }
                 List<Fanmeet> listOfUnFinishedFanmeets = loadUnFinishedFanmeets(listOfUsers, user.getUserID());
-                System.out.println("\nUNFINISHED FANMEETS of userID " +user.getUserID());
+                System.out.println("\nUNFINISHED BOOKING OF FANMEET of IDOLNAME " +user.getUserID());
                 for(Fanmeet fanmeet: listOfUnFinishedFanmeets){
                     System.out.println("FMID: " +fanmeet.getFanMeetID());
                     System.out.println("IDOLNAME/ID: " +fanmeet.getIdolName().getUserID());
