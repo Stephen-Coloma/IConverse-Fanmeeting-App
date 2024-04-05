@@ -1,6 +1,7 @@
 package fan.controller;
 
 import authentication.IConverse;
+import fan.Fan;
 import fan.model.BookingsModel;
 import fan.model.FanMenuModel;
 import fan.model.MainPageModel;
@@ -10,8 +11,10 @@ import fan.view.MainPageView;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -38,6 +41,9 @@ public class MainPage {
         MAIN_PAGE.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/fan/main-page.css")).toExternalForm());
 
         IConverse.STAGE.setScene(MAIN_PAGE); // set the application stage to the main page
+
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(Fan.PROFILE_PICTURE);
+        view.getProfilePicture().setImage(new Image(byteArrayInputStream));
 
         setUpMenuViewControllers(); // instantiate all view controllers
 

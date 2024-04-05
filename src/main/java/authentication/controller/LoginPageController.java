@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class LoginPageController {
     private LoginPageView view;
@@ -50,11 +51,14 @@ public class LoginPageController {
                 model.setUsername(username);
                 model.setPassword(password);
 
-                model.login();
-                //todo: if it reaches here, load the main menu for which account it is
+                boolean isFan = model.login();
 
-                Fan fan = new Fan();
-                fan.start();
+                if (isFan) {
+                    Fan fan = new Fan();
+                    fan.start();
+                } else {
+                    // TODO: start the idol side
+                }
             }catch (Exception e){
                 view.getNoticeLabel().setText(e.getMessage());
                 view.getNoticeLabel().setVisible(true);

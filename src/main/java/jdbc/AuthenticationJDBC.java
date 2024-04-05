@@ -24,8 +24,8 @@ public class AuthenticationJDBC {
     private static PreparedStatement preparedStatement;
     private static ResultSet resultSet;
     /**This method checks the signs up the user to the database*/
-    public static void login(User userLogin ) throws Exception{
-        query = "SELECT UserID, UserType FROM users WHERE Username = ? AND Password = ?";
+    public static boolean login(User userLogin ) throws Exception{
+        query = "SELECT UserID, UserType, ProfilePicture FROM users WHERE Username = ? AND Password = ?";
 
         preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, userLogin.getUsername());
@@ -36,8 +36,11 @@ public class AuthenticationJDBC {
         if (resultSet.next()) {
             if (resultSet.getString("UserType").equalsIgnoreCase("Fan")) {
                 Fan.USER_ID = resultSet.getInt("UserID");
+                Fan.PROFILE_PICTURE = resultSet.getBytes("ProfilePicture");
+                return true;
             } else {
                 // TODO add the userID in the Idol class
+                return false;
             }
         } else {
             throw new Exception("Account Does Not Exist");
