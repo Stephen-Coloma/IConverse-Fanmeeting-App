@@ -2,24 +2,38 @@ package idol.controller;
 
 import idol.model.FinishedFanMeetsViewCardModel;
 import idol.model.IdolFanMeetsModel;
+import idol.model.MainMenuIdolModel;
 import idol.view.FinishedFanMeetsViewCardView;
 import idol.view.IdolFanMeetsView;
 import idol.view.MainMenuIdolPageView;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 
+import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 
 public class MainMenuIdolController {
     private MainMenuIdolPageView view;
+    private  MainMenuIdolModel model;
 
     private FXMLLoader loader;
     private Parent root;
 
-    public MainMenuIdolController(MainMenuIdolPageView view) {
+    public MainMenuIdolController(MainMenuIdolPageView view, MainMenuIdolModel model) {
         this.view = view;
+        this.model = model;
+        //setting up the image
+        byte[] image = model.getUser().getProfilePicture();
+        ByteArrayInputStream byteArray = new ByteArrayInputStream(image);
+        Image userImage = new Image(byteArray);
+        view.getImageView().setImage(userImage);
+
+
         loadContent("/fxmls/idol/IdolFanMeetsView.fxml");
 
         //set up button actions

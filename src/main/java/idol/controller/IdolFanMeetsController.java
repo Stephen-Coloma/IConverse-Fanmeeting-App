@@ -3,8 +3,10 @@ package idol.controller;
 import fan.Fan;
 import idol.model.FinishedFanMeetsViewCardModel;
 import idol.model.IdolFanMeetsModel;
+import idol.model.UpcomingFanMeetsViewCardModel;
 import idol.view.FinishedFanMeetsViewCardView;
 import idol.view.IdolFanMeetsView;
+import idol.view.UpcomingFanMeetsViewCardView;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -52,8 +54,8 @@ public class IdolFanMeetsController {
                 //todo: UNFINISHED FANMEETS
                 //setting the heading label
                 view.getHeadingLabel().setText("List of Unfinished Fanmeets");
-                List<Fanmeet> finishedFanmeets = model.loadUnfinishedFanMeets();
-
+                List<Fanmeet> unfinishedFanMeets = model.loadUnfinishedFanMeets();
+                populateScrollPaneWithUnfinishedFanmeet(unfinishedFanMeets);
             }catch (Exception e){
                 e.printStackTrace();
             }
@@ -75,6 +77,30 @@ public class IdolFanMeetsController {
                 FinishedFanMeetsViewCardView finishedFanMeetsViewCardView = loader.getController();
                 FinishedFanMeetsViewCardController finishedFanMeetsViewCardController = new FinishedFanMeetsViewCardController(finishedFanMeetsViewCardView, finishedFanMeetsViewCardModel);
                 finishedFanMeetsViewCardController.setData();
+                // Add the root node of the loaded FXML to the FlowPane
+                flowPane.getChildren().add(anotherFXMLRoot);
+            } catch (IOException e) {
+                e.printStackTrace();
+                // Handle exception appropriately
+            }
+        }
+    }
+
+    private void populateScrollPaneWithUnfinishedFanmeet(List<Fanmeet> fanmeetsList){
+        ScrollPane scrollPane = view.getScrollPane();
+        FlowPane flowPane = (FlowPane) scrollPane.getContent();
+        flowPane.getChildren().clear();
+
+        for (Fanmeet fanmeet: fanmeetsList) {
+            // Load another FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/idol/UpcomingFanMeetsViewCard.fxml"));
+
+            try {
+                Node anotherFXMLRoot = loader.load();
+                UpcomingFanMeetsViewCardModel upcomingFanMeetsViewCardModel = new UpcomingFanMeetsViewCardModel(fanmeet);
+                UpcomingFanMeetsViewCardView upcomingFanMeetsViewCardView = loader.getController();
+                UpcomingFanMeetsViewCardController upcomingFanMeetsViewCardController = new UpcomingFanMeetsViewCardController(upcomingFanMeetsViewCardView, upcomingFanMeetsViewCardModel);
+                upcomingFanMeetsViewCardController.setData();
                 // Add the root node of the loaded FXML to the FlowPane
                 flowPane.getChildren().add(anotherFXMLRoot);
             } catch (IOException e) {

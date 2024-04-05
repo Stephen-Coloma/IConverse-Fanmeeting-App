@@ -53,6 +53,12 @@ public class User {
     }
 
     // Constructor
+    public User(int userID, byte[] profilePicture){
+        this.userID = userID;
+        this.profilePicture = profilePicture;
+    }
+
+    // Constructor
     public User(String username, byte[] profilePicture){
         this.username = username;
         this.profilePicture = profilePicture;

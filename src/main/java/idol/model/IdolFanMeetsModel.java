@@ -1,5 +1,6 @@
 package idol.model;
 
+import idol.Idol;
 import jdbc.IdolJDBC;
 import shared.Fanmeet;
 
@@ -10,12 +11,12 @@ public class IdolFanMeetsModel {
     private List<Fanmeet> upcomingFanMeets;
 
     public List<Fanmeet> loadFinishedFanMeets() throws Exception{
-        finishedFanMeets = IdolJDBC.loadFinishedFanmeets(11); //todo: temporary data yung 11
+        finishedFanMeets = IdolJDBC.loadFinishedFanmeets(Idol.USERID);
         return finishedFanMeets;
     }
 
     public List<Fanmeet> loadUnfinishedFanMeets() throws Exception{
-        upcomingFanMeets = IdolJDBC.loadFinishedFanmeets(11); //todo: temporary data yung 11
+        upcomingFanMeets = IdolJDBC.loadUnFinishedFanmeets(Idol.USERID);
         return upcomingFanMeets;
     }
 

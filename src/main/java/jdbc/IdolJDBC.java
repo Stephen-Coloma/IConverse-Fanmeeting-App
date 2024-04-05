@@ -9,6 +9,7 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Queue;
 
@@ -88,7 +89,7 @@ public class IdolJDBC {
     }
 
     public static List<Feedback> loadFeedbacks(int fanmeetID) throws Exception{
-        String query = "SELECT feedbacks.feedback, users.username, users.ProfilePicture " +
+        query = "SELECT feedbacks.feedback, users.username, users.ProfilePicture " +
                 "FROM feedbacks " +
                 "INNER JOIN users on feedbacks.userID = users.userID " +
                 "WHERE feedbacks.fanmeetID = ?";
@@ -113,7 +114,34 @@ public class IdolJDBC {
 
         return feedbackList;
     }
+    public static HashMap<String, User> loadBookedFans(int fanMeetID) throws Exception{
+        query = "SELECT users.Name, users.Username, users.Email, bookings.TimeStamp, users.ProfilePicture " +
+                "FROM fanmeets " +
+                "INNER JOIN bookings on fanmeets.FanMeetID = bookings.FanMeetID " +
+                "INNER JOIN users on bookings.UserID = users.UserID " +
+                "WHERE fanmeets.FanMeetID = ?";
 
+        preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1, fanMeetID);
+        resultSet = preparedStatement.executeQuery();
+
+        HashMap<String, User> userTimeStampList = new HashMap<>();
+        while (resultSet.next()){
+            String timeStamp = resultSet.getTimestamp("TimeStamp").toString();
+
+            User user = new User();
+            user.setName(resultSet.getString("Name"));
+            user.setUsername(resultSet.getString("Username"));
+            user.setEmail(resultSet.getString("Email"));
+
+            Blob profilePicture = resultSet.getBlob("ProfilePicture");
+            byte[] byteArray = profilePicture.getBytes(1, (int) profilePicture.length());
+            user.setProfilePicture(byteArray);
+
+            userTimeStampList.put(timeStamp, user);
+        }
+        return userTimeStampList;
+    }
     /**For testing purposes only*/
     public static void main(String[] args) {
 
