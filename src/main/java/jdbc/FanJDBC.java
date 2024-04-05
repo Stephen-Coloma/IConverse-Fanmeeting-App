@@ -124,9 +124,54 @@ public class FanJDBC {
         return null;
     } // end of getBookingList
 
-    public static List<Fanmeet> getFanMeetList(int idolID) {
-        // TODO: obtain the fanmeet list of idol using the idolID
 
+    // TODO: obtain the fanmeet list of idol using the idolID
+    public static List<Fanmeet> getFanMeetList(int idolID) {
+
+        List<Fanmeet> fanmeetList = new ArrayList<>();
+
+        StringBuilder sql = new StringBuilder();
+
+         sql.append("f.FanMeetID, f.IdolName, f.Date, f.StartTime, f.EndTime, f.PricePerMinute, f.Status, ");
+         sql.append("u.UserID, u.Username, u.Name, u.Password, u.Bio, u.Email, u.UserType, u.Status, u.ProfilePicture ");
+         sql.append("FROM fanmeets f ");
+         sql.append("JOIN users u ON f.idolName = u.UserID ");
+         sql.append("WHERE f.idolName = ?");
+
+
+        try (PreparedStatement stmt = connection.prepareStatement(sql.toString())) {
+
+            stmt.setInt(1,idolID);
+
+            try(ResultSet resultSet = stmt.executeQuery(sql.toString())){
+
+                while (resultSet.next()) {
+
+                    String username = resultSet.getString("Username");
+                    String name = resultSet.getString("Name");
+                    String password = resultSet.getString("Password");
+                    String email = resultSet.getString("Email");
+                    String userType = resultSet.getString("UserType");
+                    String status = resultSet.getString("Status");
+                    String bio = resultSet.getString("Bio");
+                    byte[] profilePicture = resultSet.getBytes("ProfilePicture");
+
+                    User idol = new User(idolID, username, name, password, email, userType, status, profilePicture, bio);
+
+                    int fanMeetID = resultSet.getInt("FanMeetID");
+                    LocalDate date = resultSet.getDate("Date").toLocalDate();
+                    LocalTime startTime = resultSet.getTime("StartTime").toLocalTime();
+                    LocalTime endTime = resultSet.getTime("EndTime").toLocalTime();
+                    double pricePerMinute = resultSet.getDouble("PricePerMinute");
+
+                    Fanmeet fanmeet = new Fanmeet(fanMeetID,idol,date,startTime,endTime,pricePerMinute,status);
+                    fanmeetList.add(fanmeet);
+                }
+                return fanmeetList;
+            }
+        } catch (SQLException sqlException) {
+            sqlException.getCause().printStackTrace();
+        }
         return null;
-    } // end of getFanMeetList
+    }
 } // end of FanJDBC class
