@@ -58,9 +58,33 @@ public class FanJDBC {
     } // end of getIdolList
 
     public static User getIdol(int userID) {
-        // TODO: retrieve the idol object using the userID
+        // SQL query
+        String sql = "SELECT * FROM users WHERE UserID = ? AND UserType LIKE 'Idol'";
 
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            pstmt.setInt(1, userID);
 
+            try (ResultSet resultSet = pstmt.executeQuery()) {
+                if (resultSet.next()) {
+
+                    int id = resultSet.getInt("UserID");
+                    String username = resultSet.getString("Username");
+                    String name = resultSet.getString("Name");
+                    String password = resultSet.getString("Password");
+                    String email = resultSet.getString("Email");
+                    String userType = resultSet.getString("UserType");
+                    String status = resultSet.getString("Status");
+                    String bio = resultSet.getString("Bio");
+                    byte[] profilePicture = resultSet.getBytes("ProfilePicture");
+
+                    return new User(id, username, name, password, email, userType, status, profilePicture, bio);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     } // end of getIdol
 
