@@ -37,7 +37,6 @@ public class FinishedFanMeetsViewCardController {
                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/idol/FanMeetDetailsIdol.fxml"));
                Parent root = loader.load();
 
-               // I did not create MVC already for FanMeetDetailsIdolView
                FanMeetDetailsIdolView fanMeetDetailsIdolView = loader.getController();
 
                //setting up the image
@@ -58,7 +57,6 @@ public class FinishedFanMeetsViewCardController {
                String durationString = String.valueOf(totalMinutes);
 
                fanMeetDetailsIdolView.getDurationLabel().setText(durationString);
-
 
                Scene scene = new Scene(root);
 

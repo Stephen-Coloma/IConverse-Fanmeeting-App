@@ -21,7 +21,7 @@ public class IdolJDBC {
     static {
         try {
             //changeable
-            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/leonardos", "root", "password");
+            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/leonardos", "LeonardosAdmin", "password");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

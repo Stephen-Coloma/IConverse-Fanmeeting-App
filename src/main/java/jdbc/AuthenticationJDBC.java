@@ -1,6 +1,7 @@
 package jdbc;
 
 import fan.Fan;
+import idol.Idol;
 import shared.User;
 
 import javax.xml.transform.dom.DOMResult;
@@ -39,7 +40,8 @@ public class AuthenticationJDBC {
                 Fan.PROFILE_PICTURE = resultSet.getBytes("ProfilePicture");
                 return true;
             } else {
-                // TODO add the userID in the Idol class
+                Idol.USER_ID = resultSet.getInt("UserID");
+                Idol.PROFILE_PICTURE = resultSet.getBytes("ProfilePicture");
                 return false;
             }
         } else {

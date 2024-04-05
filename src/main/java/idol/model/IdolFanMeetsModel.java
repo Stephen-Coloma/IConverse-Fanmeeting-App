@@ -11,12 +11,12 @@ public class IdolFanMeetsModel {
     private List<Fanmeet> upcomingFanMeets;
 
     public List<Fanmeet> loadFinishedFanMeets() throws Exception{
-        finishedFanMeets = IdolJDBC.loadFinishedFanmeets(Idol.USERID);
+        finishedFanMeets = IdolJDBC.loadFinishedFanmeets(Idol.USER_ID);
         return finishedFanMeets;
     }
 
     public List<Fanmeet> loadUnfinishedFanMeets() throws Exception{
-        upcomingFanMeets = IdolJDBC.loadUnFinishedFanmeets(Idol.USERID);
+        upcomingFanMeets = IdolJDBC.loadUnFinishedFanmeets(Idol.USER_ID);
         return upcomingFanMeets;
     }
 

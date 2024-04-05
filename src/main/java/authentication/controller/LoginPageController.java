@@ -5,6 +5,7 @@ import authentication.model.LoginPageModel;
 import authentication.model.SignUpModel;
 import authentication.view.LoginPageView;
 import fan.Fan;
+import idol.Idol;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -57,7 +58,8 @@ public class LoginPageController {
                     Fan fan = new Fan();
                     fan.start();
                 } else {
-                    // TODO: start the idol side
+                    Idol idol = new Idol();
+                    idol.start();
                 }
             }catch (Exception e){
                 view.getNoticeLabel().setText(e.getMessage());
