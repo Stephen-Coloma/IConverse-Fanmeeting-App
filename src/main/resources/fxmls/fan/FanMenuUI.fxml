@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1013.6" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1013.6" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fan.view.FanMenuView">
    <children>
       <Pane prefHeight="67.2" prefWidth="1013.6" style="-fx-background-color: #1b4994;">
          <children>
@@ -25,10 +19,13 @@
                   </ImageView>
                </graphic>
             </Button>
-            <TextField alignment="TOP_RIGHT" layoutX="640.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.2" prefWidth="357.0" promptText="Search Idol" style="-fx-border-radius: 20; -fx-background-radius: 20;">
+            <TextField id="searchBar" fx:id="searchBar" layoutX="640.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.2" prefWidth="357.0" promptText="Search Idol" style="-fx-border-radius: 20; -fx-background-radius: 20;">
                <font>
                   <Font size="16.0" />
                </font>
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
             </TextField>
          </children>
       </Pane>
@@ -40,9 +37,12 @@
             <Font name="Arial Black" size="27.0" />
          </font>
       </Text>
-      <ScrollPane hbarPolicy="NEVER" prefHeight="619.0" prefWidth="1014.0" style="-fx-background-color: transparent;">
+      <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" prefHeight="619.0" prefWidth="1014.0">
          <content>
-            <FlowPane prefHeight="619.0" prefWidth="999.0" style="-fx-background-color: transparent;" />
+            <FlowPane fx:id="flowPane" columnHalignment="CENTER" hgap="20.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="619.0" prefWidth="999.0" vgap="20.0">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding></FlowPane>
          </content>
       </ScrollPane>
    </children>

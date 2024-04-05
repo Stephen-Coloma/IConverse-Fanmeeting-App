@@ -1,0 +1,11 @@
+#menuBT {
+    -fx-background-color:  #f0f3f7;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-color:  #1b4994;
+}
+
+#menuBT:hover {
+    -fx-background-color: #1b4994;
+    -fx-text-fill: #f0f3f7;
+}

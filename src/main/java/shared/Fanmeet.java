@@ -95,12 +95,11 @@ public class Fanmeet {
     public void setFormatter(DateTimeFormatter formatter) {
         this.formatter = formatter;
     }
+    public void setStatus(String status){
+            this.status = status;
+    }
 
     public String getStatus() {
         return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 }
