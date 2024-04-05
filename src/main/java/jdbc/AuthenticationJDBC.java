@@ -1,5 +1,6 @@
 package jdbc;
 
+import fan.Fan;
 import shared.User;
 
 import javax.xml.transform.dom.DOMResult;
@@ -24,10 +25,7 @@ public class AuthenticationJDBC {
     private static ResultSet resultSet;
     /**This method checks the signs up the user to the database*/
     public static void login(User userLogin ) throws Exception{
-        query = "SELECT Username, Password" +
-                " FROM users" +
-                " WHERE Username = ?" +
-                " AND Password = ?";
+        query = "SELECT UserID, UserType FROM users WHERE Username = ? AND Password = ?";
 
         preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, userLogin.getUsername());
@@ -35,9 +33,14 @@ public class AuthenticationJDBC {
 
         resultSet = preparedStatement.executeQuery();
 
-        while (resultSet.next()){
-            //todo: implement the loading of the main menu
-            System.out.println("LOGIN SUCCESSFUL!!!");
+        if (resultSet.next()) {
+            if (resultSet.getString("UserType").equalsIgnoreCase("Fan")) {
+                Fan.USER_ID = resultSet.getInt("UserID");
+            } else {
+                // TODO add the userID in the Idol class
+            }
+        } else {
+            throw new Exception("Account Does Not Exist");
         }
     }
 

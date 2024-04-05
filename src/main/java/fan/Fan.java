@@ -3,10 +3,12 @@ package fan;
 import fan.controller.MainPage;
 import fan.model.MainPageModel;
 import fan.view.MainPageView;
+import shared.User;
 
 import java.io.IOException;
 
 public class Fan {
+    public static int USER_ID;
 
     public Fan() {}
 

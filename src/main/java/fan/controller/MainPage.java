@@ -46,7 +46,7 @@ public class MainPage {
 
     private void setUpMenuViewControllers() throws IOException {
         bookings = new Bookings(new BookingsModel(), new BookingsView());
-        fanMenu = new FanMenu(new FanMenuModel(), new FanMenuView());
+        fanMenu = new FanMenu(new FanMenuModel(), new FanMenuView(), view.getStackPane());
 
         bookings.init();
         fanMenu.init();

@@ -32,8 +32,6 @@ public class LoginPageController {
 
                 new SignUpPageController(loader.getController(), new SignUpModel());
 
-
-//                Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                 Scene scene = new Scene(root);
 
                 IConverse.STAGE.setScene(scene);
@@ -46,11 +44,12 @@ public class LoginPageController {
             String username = view.getUsernameTextField().getText();
             String password = view.getPasswordField().getText();
 
-            model.setUsername(username);
-            model.setPassword(password);
-
-
             try {
+                if (username.isEmpty() || password.isEmpty()) { throw new Exception("Please fill the details required"); }
+
+                model.setUsername(username);
+                model.setPassword(password);
+
                 model.login();
                 //todo: if it reaches here, load the main menu for which account it is
 

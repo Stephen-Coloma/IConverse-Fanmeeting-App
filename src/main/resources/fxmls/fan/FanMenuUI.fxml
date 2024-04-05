@@ -19,10 +19,13 @@
                   </ImageView>
                </graphic>
             </Button>
-            <TextField id="searchBar" fx:id="searchBar" alignment="TOP_RIGHT" layoutX="640.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.2" prefWidth="357.0" promptText="Search Idol" style="-fx-border-radius: 20; -fx-background-radius: 20;">
+            <TextField id="searchBar" fx:id="searchBar" layoutX="640.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.2" prefWidth="357.0" promptText="Search Idol" style="-fx-border-radius: 20; -fx-background-radius: 20;">
                <font>
                   <Font size="16.0" />
                </font>
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
             </TextField>
          </children>
       </Pane>

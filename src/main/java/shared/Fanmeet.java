@@ -12,15 +12,17 @@ public class Fanmeet {
     private LocalTime startTime;
     private LocalTime endTime;
     private double pricePerMinute;
+    private String status;
 
     // Constructor
-    public Fanmeet(int fanMeetID, User idolName, LocalDate date, LocalTime startTime, LocalTime endTime, double pricePerMinute) {
+    public Fanmeet(int fanMeetID, User idolName, LocalDate date, LocalTime startTime, LocalTime endTime, double pricePerMinute, String status) {
         this.fanMeetID = fanMeetID;
         this.idolName = idolName;
         this.date = date;
         this.startTime = startTime;
         this.endTime = endTime;
         this.pricePerMinute = pricePerMinute;
+        this.status = status;
     }
 
     // Getters and setters
@@ -75,5 +77,13 @@ public class Fanmeet {
     }
     public String getFormattedEndTime(){
         return endTime.format(formatter);
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
     }
 }

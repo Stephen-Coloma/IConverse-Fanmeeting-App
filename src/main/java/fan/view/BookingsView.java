@@ -40,4 +40,15 @@ public class BookingsView {
         });
     } // end of setBTTransitions
 
-} // end of BookingsView
+    public FlowPane getFlowPane() {
+        return flowPane;
+    }
+
+    public Button getFinishedFMBT() {
+        return finishedFMBT;
+    }
+
+    public Button getUnfinishedFMBT() {
+        return unfinishedFMBT;
+    }
+} // end of BookingsView class

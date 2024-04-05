@@ -14,4 +14,8 @@ public class FanMenuView {
     public FlowPane getFlowPane() {
         return flowPane;
     }
+
+    public TextField getSearchBar() {
+        return searchBar;
+    }
 } // end of FanMenuView class
