@@ -52,6 +52,12 @@ public class User {
         this.password = password;
     }
 
+    // Constructor
+    public User(String username, byte[] profilePicture){
+        this.username = username;
+        this.profilePicture = profilePicture;
+    }
+
     // Getters and setters
     public int getUserID() {
         return userID;

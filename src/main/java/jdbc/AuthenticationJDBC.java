@@ -36,7 +36,6 @@ public class AuthenticationJDBC {
         resultSet = preparedStatement.executeQuery();
 
         while (resultSet.next()){
-            //todo: implement the loading of the main menu
             System.out.println("LOGIN SUCCESSFUL!!!");
         }
     }

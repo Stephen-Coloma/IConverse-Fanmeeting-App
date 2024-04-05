@@ -28,19 +28,16 @@ public class MainMenuIdolController {
         });
 
         this.view.setUpActionBookingsButton(event -> {
-            //todo: clear pane
             StackPane stackPane = view.getStackPane();
             stackPane.getChildren().clear();
         });
 
         this.view.setUpActionProfileButton(event -> {
-            //todo: clear pane
             StackPane stackPane = view.getStackPane();
             stackPane.getChildren().clear();
         });
 
         this.view.setUpActionSettingsButton(event -> {
-            //todo: clear pane
             StackPane stackPane = view.getStackPane();
             stackPane.getChildren().clear();
         });

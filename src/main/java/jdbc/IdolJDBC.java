@@ -2,6 +2,7 @@ package jdbc;
 
 import fan.Fan;
 import shared.Fanmeet;
+import shared.Feedback;
 import shared.User;
 
 import java.sql.*;
@@ -86,22 +87,35 @@ public class IdolJDBC {
         return fanmeetList;
     }
 
-    public static void main(String[] args) {
-        try {
-            List<Fanmeet> listOfUnFinishedFanmeets = IdolJDBC.loadUnFinishedFanmeets(2);
-            for(Fanmeet fanmeet: listOfUnFinishedFanmeets) {
-                    System.out.println("ID: " +fanmeet.getFanMeetID());
-                    System.out.println("DATE: " +fanmeet.getDate());
-                    System.out.println("STARTIME: "+fanmeet.getStartTime());
-                    System.out.println("ENDTIME: "+fanmeet.getEndTime());
-                    System.out.println("PRICE: " +fanmeet.getPricePerMinute());
-                    System.out.println("STATUS: " +fanmeet.getStatus());
-                    System.out.println("=========================\n");
-            }
+    public static List<Feedback> loadFeedbacks(int fanmeetID) throws Exception{
+        String query = "SELECT feedbacks.feedback, users.username, users.ProfilePicture " +
+                "FROM feedbacks " +
+                "INNER JOIN users on feedbacks.userID = users.userID " +
+                "WHERE feedbacks.fanmeetID = ?";
 
+        preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1, fanmeetID);
+        resultSet = preparedStatement.executeQuery();
 
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        List<Feedback> feedbackList = new ArrayList<>();
+        while (resultSet.next()){
+            String feedback = resultSet.getString("feedback");
+            String username = resultSet.getString("username");
+            Blob profilePicture = resultSet.getBlob("ProfilePicture");
+            byte[] byteData = profilePicture.getBytes(1, (int) profilePicture.length());
+
+            User user = new User(username, byteData);
+
+            Feedback feedbackObject = new Feedback(user, feedback);
+
+            feedbackList.add(feedbackObject);
         }
+
+        return feedbackList;
+    }
+
+    /**For testing purposes only*/
+    public static void main(String[] args) {
+
     }
 }

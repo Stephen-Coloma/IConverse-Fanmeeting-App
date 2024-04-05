@@ -1,5 +1,6 @@
 package idol.controller;
 
+import fan.Fan;
 import idol.model.FinishedFanMeetsViewCardModel;
 import idol.model.IdolFanMeetsModel;
 import idol.view.FinishedFanMeetsViewCardView;
@@ -14,6 +15,8 @@ import jdbc.IdolJDBC;
 import shared.Fanmeet;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.SortedMap;
 
@@ -33,8 +36,9 @@ public class IdolFanMeetsController {
         });
 
         view.setUpActionFinishedFanmeetsButton(event -> {
-            //todo: populate the scrollpane/flowpane
            try {
+               //setting the label
+               view.getHeadingLabel().setText("List of Finished Fanmeets");
                List<Fanmeet> finishedFanmeets = model.loadFinishedFanMeets();
                populateScrollPaneWithFinishedFanmeet(finishedFanmeets);
            }catch (Exception e){
@@ -45,6 +49,9 @@ public class IdolFanMeetsController {
 
         view.setUpActionUpcomingFanmeetsButton(event -> {
             try {
+                //todo: UNFINISHED FANMEETS
+                //setting the heading label
+                view.getHeadingLabel().setText("List of Unfinished Fanmeets");
                 List<Fanmeet> finishedFanmeets = model.loadUnfinishedFanMeets();
 
             }catch (Exception e){
