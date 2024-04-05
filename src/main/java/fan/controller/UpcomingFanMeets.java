@@ -6,7 +6,6 @@ import fan.view.UpcomingFanMeetsView;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import shared.Fanmeet;
@@ -14,6 +13,7 @@ import shared.Fanmeet;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class UpcomingFanMeets {
     public static Parent UPCOMING_FAN_MEETS_VIEW;
@@ -35,14 +35,14 @@ public class UpcomingFanMeets {
         view = loader.getController(); // assign the fxml controller to the view
 
         // add the external css to the scene
-        // UPCOMING_FAN_MEETS_VIEW TODO: the css for this view
+        UPCOMING_FAN_MEETS_VIEW.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/fan/upcoming-fan-meets-view.css")).toExternalForm());
 
         // set up the details
         setUpIdolDetailsPane();
         setUpUpcomingFanMeets();
     } // end of init
 
-    private void setUpIdolDetailsPane() {
+    private void setUpIdolDetailsPane() throws IOException {
         // TODO: add the idol's details in the idol details panel
     } // end of setUpIdolDetailsPane
 
