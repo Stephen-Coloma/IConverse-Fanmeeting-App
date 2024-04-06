@@ -2,11 +2,8 @@
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-target/
-<<<<<<< HEAD
-=======
+target
 
->>>>>>> b3df1e9cb5d1e89edf68378728b588bcffb208bc
 ### Eclipse ###
 .apt_generated
 .classpath

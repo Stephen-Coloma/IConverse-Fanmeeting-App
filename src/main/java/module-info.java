@@ -13,6 +13,7 @@ module leonardos{
     opens idol.view to javafx.fxml;
     opens fan.view to javafx.fxml;
     opens fan.view.cards to javafx.fxml;
+    opens fan.view.popup to javafx.fxml;
 
     exports authentication;
     exports authentication.view;
@@ -23,4 +24,5 @@ module leonardos{
     exports fan.controller;
     exports fan.view;
     exports fan.view.cards;
+    exports fan.view.popup;
 }

@@ -137,8 +137,6 @@ public class FanJDBC {
         return null;
     } // end of getBookingList
 
-
-    // TODO: obtain the fanmeet list of idol using the idolID
     public static List<Fanmeet> getFanMeetList(int idolID) {
 
         List<Fanmeet> fanmeetList = new ArrayList<>();
@@ -177,5 +175,9 @@ public class FanJDBC {
             sqlException.printStackTrace();
         }
         return null;
-    }
+    } // end of getFanMeetList
+
+    public static void addBookingToDB(int userID) {
+        // TODO: add the booking of the user to the database.
+    } // end of addBookingToDB
 } // end of FanJDBC class
