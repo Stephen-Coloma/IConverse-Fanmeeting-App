@@ -142,6 +142,23 @@ public class IdolJDBC {
         }
         return userTimeStampList;
     }
+    public static void addFanmeetToDB(int userID, LocalDate date, LocalTime startTime, LocalTime endTime, double pricePerMinute, String status) throws Exception{
+        query = "INSERT INTO Fanmeets (IdolName, Date, StartTime, EndTime, PricePerMinute, Status) " +
+                "VALUES ('?', '?', '?', '?', '?', '?')";
+
+        preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1, userID);
+        preparedStatement.setDate(2, Date.valueOf(date));
+        preparedStatement.setDate(3, Date.valueOf(String.valueOf(startTime)));
+        preparedStatement.setDate(4, Date.valueOf(String.valueOf(endTime)));
+        preparedStatement.setDouble(5,pricePerMinute);
+        preparedStatement.setString(6, status);
+        int rowsInserted = preparedStatement.executeUpdate();
+        if (rowsInserted > 0) {
+            System.out.println("A new fanmeet has been added successfully.");
+        }
+
+    }
     /**For testing purposes only*/
     public static void main(String[] args) {
 
