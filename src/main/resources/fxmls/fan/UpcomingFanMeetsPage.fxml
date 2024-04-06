@@ -58,15 +58,15 @@
          </children></Pane>
       <Text id="Upcoming" strokeType="OUTSIDE" strokeWidth="0.0" text="Upcomming Fan Meets">
          <font>
-            <Font name="Arial Black" size="22.0" />
+            <Font name="Arial Black" size="25.0" />
          </font>
          <VBox.margin>
-            <Insets top="15.0" />
+            <Insets bottom="10.0" top="10.0" />
          </VBox.margin>
       </Text>
       <ScrollPane id="scrollPane" fx:id="scrollPane" hbarPolicy="NEVER" prefHeight="500.0" prefWidth="1014.0">
          <content>
-            <FlowPane id="flowPane" fx:id="flowPane" alignment="TOP_CENTER" prefHeight="505.0" prefWidth="1012.0">
+            <FlowPane id="flowPane" fx:id="flowPane" alignment="TOP_CENTER" prefHeight="508.0" prefWidth="1012.0" style="-fx-background-color: #e4e4e4;">
                <padding>
                   <Insets top="15.0" />
                </padding>

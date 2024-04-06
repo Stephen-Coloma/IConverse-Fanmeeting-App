@@ -5,7 +5,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane prefHeight="131.0" prefWidth="770.0" style="-fx-background-color: #f0f3f7; -fx-border-color: #1b4994; -fx-border-radius: 5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fan.view.cards.UpcomingFanMeetsBookNowView">
+<Pane prefHeight="131.0" prefWidth="770.0" style="-fx-background-color: transparent; -fx-border-color: #1b4994; -fx-border-radius: 5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fan.view.cards.UpcomingFanMeetsBookNowView">
    <children>
       <Text fx:id="dateLB" layoutX="31.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FEBRUARY 27, 2025" wrappingWidth="197.07008361816406">
          <font>

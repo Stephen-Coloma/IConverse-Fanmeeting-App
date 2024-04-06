@@ -36,17 +36,17 @@
          <children>
             <HBox alignment="TOP_CENTER" prefHeight="55.0" prefWidth="974.0">
                <children>
-                  <Button id="buttons" fx:id="finishedFMBT" alignment="CENTER" layoutX="492.0" layoutY="48.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="263.0" style="-fx-background-color: #1571b2;" text="Finished Fan Meetings" textFill="WHITE">
+                  <Button id="buttons" fx:id="finishedFMBT" alignment="CENTER" layoutX="492.0" layoutY="48.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="263.0" style="-fx-background-color: #bfeaf5;" text="Finished Fan Meetings" textFill="#1e0000">
                      <HBox.margin>
                         <Insets right="170.0" />
                      </HBox.margin>
                      <font>
-                        <Font name="Arial Bold" size="20.0" />
+                        <Font name="Arial" size="20.0" />
                      </font>
                   </Button>
-                  <Button id="buttons" fx:id="unfinishedFMBT" alignment="CENTER" layoutX="266.0" layoutY="10.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="263.0" style="-fx-background-color: #1571b2;" text="Unfnished Fan Meetings" textFill="WHITE">
+                  <Button id="buttons" fx:id="unfinishedFMBT" alignment="CENTER" layoutX="266.0" layoutY="10.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="263.0" style="-fx-background-color: #bfeaf5;" text="Unfnished Fan Meetings">
                      <font>
-                        <Font name="Arial Bold" size="20.0" />
+                        <Font name="Arial" size="20.0" />
                      </font>
                   </Button>
                </children>
@@ -56,7 +56,7 @@
             </HBox>
             <ScrollPane id="scrollPane" fx:id="scrollPane" hbarPolicy="NEVER" prefHeight="595.0" prefWidth="1014.0">
                <content>
-                  <FlowPane fx:id="flowPane" alignment="TOP_CENTER" prefHeight="599.0" prefWidth="999.0" vgap="15.0">
+                  <FlowPane fx:id="flowPane" alignment="TOP_CENTER" prefHeight="599.0" prefWidth="999.0" style="-fx-background-color: #e4e4e4;" vgap="15.0">
                      <padding>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </padding></FlowPane>

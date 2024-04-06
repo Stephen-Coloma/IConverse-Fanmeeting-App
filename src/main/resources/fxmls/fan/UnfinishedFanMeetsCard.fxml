@@ -9,7 +9,7 @@
 
 <HBox prefHeight="185.0" prefWidth="943.0" style="-fx-border-color: #1b4994; -fx-background-radius: 10; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fan.view.cards.UnfinishedFanMeetCardView">
    <children>
-      <VBox prefHeight="182.0" prefWidth="149.0">
+      <VBox prefHeight="184.0" prefWidth="174.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="MEET ID:">
                <font>
@@ -97,17 +97,17 @@
             </Text>
          </children>
       </VBox>
-      <VBox alignment="TOP_RIGHT" prefHeight="150.0" prefWidth="641.0">
+      <VBox alignment="TOP_RIGHT" prefHeight="184.0" prefWidth="574.0">
          <children>
-            <Text fx:id="timestampLB" strokeType="OUTSIDE" strokeWidth="0.0" text="Booked on 2023 -11-17  15:30:10" wrappingWidth="343.51747703552246">
+            <Text fx:id="timestampLB" strokeType="OUTSIDE" strokeWidth="0.0" text="Booked on 2023 -11-17  15:30:10" wrappingWidth="325.11745262145996">
                <font>
-                  <Font size="22.0" />
+                  <Font name="System Italic" size="22.0" />
                </font>
                <VBox.margin>
                   <Insets right="18.0" top="5.0" />
                </VBox.margin>
             </Text>
-            <Button fx:id="cancelBT" mnemonicParsing="false" prefHeight="46.0" prefWidth="174.0" style="-fx-background-color: #1b4994;" text="Cancel" textFill="WHITE">
+            <Button fx:id="cancelBT" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="42.0" prefWidth="195.0" style="-fx-background-color: #1b4994;" text="Cancel" textFill="WHITE">
                <VBox.margin>
                   <Insets right="18.0" top="87.0" />
                </VBox.margin>
