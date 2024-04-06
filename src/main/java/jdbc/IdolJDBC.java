@@ -142,6 +142,11 @@ public class IdolJDBC {
         }
         return userTimeStampList;
     }
+
+    public static void updateFanmeet(int fanmeetID){
+        System.out.println("hehehehe");
+
+    }
     /**For testing purposes only*/
     public static void main(String[] args) {
 

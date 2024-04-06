@@ -2,7 +2,10 @@ package idol.controller;
 
 import idol.model.EditFanMeetIdolModel;
 import idol.view.EditFanMeetIdolView;
+import javafx.stage.Stage;
+import jdbc.IdolJDBC;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -34,14 +37,41 @@ public class EditFanMeetIdolController {
                 if (comparisonDate < 0) {
                     //accept all time because date is ahead already
                     //todo: save to jdbc
-                    System.out.println(editedDate);
-                    System.out.println(editedStart);
+                    Duration duration = Duration.between(originalStartTime, editedStart);
+                    long minuteDifference = duration.toMinutes();
+
+                    LocalTime newEndTime = editedStart.plusMinutes(minuteDifference);
+
+                    //set into the fanmeet
+                    model.getFanmeet().setStartTime(editedStart);
+                    model.getFanmeet().setEndTime(newEndTime);
+
+                    //todo: saving to the database
+                    IdolJDBC.updateFanmeet(model.getFanmeet().getFanMeetID());
+
+                    //todo: close the stage
+                    Stage stage = (Stage) view.getSaveChangesButton().getScene().getWindow();
+                    stage.close();
                 } else if (comparisonDate == 0){
                     if (comparisonTime < 0){
                         System.out.println("goods");
                         //todo: save to jdbc
-                        System.out.println(editedDate);
-                        System.out.println(editedStart);
+
+                        Duration duration = Duration.between(originalStartTime, editedStart);
+                        long minuteDifference = duration.toMinutes();
+
+                        LocalTime newEndTime = editedStart.plusMinutes(minuteDifference);
+
+                        //set into the fanmeet
+                        model.getFanmeet().setStartTime(editedStart);
+                        model.getFanmeet().setEndTime(newEndTime);
+
+                        //todo: saving to the database
+                        IdolJDBC.updateFanmeet(model.getFanmeet().getFanMeetID());
+
+                        //todo: close the stage
+                        Stage stage = (Stage) view.getSaveChangesButton().getScene().getWindow();
+                        stage.close();
                     }else {
                         view.getNoticeLabel().setText("Only edit start time ahead of original start time");
                         view.getNoticeLabel().setVisible(true);
