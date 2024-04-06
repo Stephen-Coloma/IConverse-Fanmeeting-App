@@ -1,38 +1,41 @@
 package fan.controller.popup;
 
+import fan.Fan;
 import fan.model.BookingFanMeetsModel;
 import fan.view.popup.BookingFanMeetsView;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import shared.Booking;
+import shared.Fanmeet;
+import shared.User;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.format.DateTimeParseException;
-import java.util.Date;
 import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class BookingFanMeets {
-    private BookingFanMeetsModel model;
+    private final BookingFanMeetsModel model;
     private BookingFanMeetsView view;
     private Timer dateDebounceTimer = new Timer(), durationDebounceTimer = new Timer();
     private boolean validTime, validDuration;
-    private DateTimeFormatter formatter = new DateTimeFormatterBuilder()
+    private final DateTimeFormatter formatter = new DateTimeFormatterBuilder()
             .parseCaseInsensitive()
             .appendPattern("[H:mm][h:mm a]")
             .toFormatter(Locale.ENGLISH);
     private LocalTime chosenTime, chosenEndTime;
+    private Timer timer = new Timer();
 
     public BookingFanMeets(BookingFanMeetsModel model, BookingFanMeetsView view) {
         this.model = model;
@@ -49,6 +52,7 @@ public class BookingFanMeets {
 
         setUpComponents();
         setUpTFListeners();
+        setUpConfirmBT();
 
         Stage popupStage = new Stage();
         popupStage.setScene(fanMeetBookingScene);
@@ -65,6 +69,33 @@ public class BookingFanMeets {
         view.getDateLB().setText(model.getFanmeet().getDate().toString());
         view.getPriceLB().setText("P0");
     } // end of setUpComponents
+
+    private void setUpConfirmBT() {
+        view.getConfirmBT().setOnAction(event -> {
+            if (validTime && validDuration) {
+                User user = new User(Fan.USER_ID, null, null, null, null, null, null, null, null);
+                Fanmeet fanmeet = model.getFanmeet();
+                LocalDateTime timestamp = LocalDateTime.now();
+                int duration = Integer.parseInt(view.getDurationTF().getText());
+                double price = Double.parseDouble(view.getPriceLB().getText().substring(1));
+
+                Booking booking = new Booking(0, user, fanmeet, timestamp, chosenTime, duration, price);
+
+                // TODO: use the model to add the booking to the DB
+            } else {
+                view.getNoticeLB().setText("Unable to book the fan meet, please check the time and duration");
+
+                timer.cancel();
+                timer = new Timer();
+                timer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        view.getNoticeLB().setText("");
+                    }
+                }, 5000);
+            }
+        });
+    } // end of setUpConfirmBT
 
     private void setUpTFListeners() {
         view.getTimeTF().textProperty().addListener((observable, oldValue, newValue) -> {
@@ -86,24 +117,24 @@ public class BookingFanMeets {
                             // compute the price
                             computePrice();
                         } else {
+                            setPriceToZero();
                             System.out.println("Invalid Time");
                             validTime = false;
                         }
-                    } catch (DateTimeParseException e) { validTime = false; }
+                    } catch (DateTimeParseException e) {
+                        setPriceToZero();
+                        validTime = false; }
                 }
             }, 500);
         });
 
         view.getDurationTF().textProperty().addListener((observable, oldValue, newValue) -> {
-            // TODO: add a listener for the duration textfield
             durationDebounceTimer.cancel();
             durationDebounceTimer = new Timer();
 
             durationDebounceTimer.schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    // TODO: add the logic for checking if the duration is valid
-
                     try {
                         if (chosenTime != null) {
                             chosenEndTime = chosenTime.plusMinutes(Integer.parseInt(newValue));
@@ -118,23 +149,33 @@ public class BookingFanMeets {
                                 // compute the price
                                 computePrice();
                             } else {
+                                setPriceToZero();
                                 System.out.println("Invalid Duration");
                                 validDuration = false;
                             }
                         }
-                    } catch (NumberFormatException e) { validDuration = false; }
+                    } catch (NumberFormatException e) {
+                        setPriceToZero();
+                        validDuration = false; }
                 }
             }, 500);
         });
     } // end of setUpTFListeners
 
     public void computePrice() {
-        // TODO: compute the price, first check if the time and duration placed are valid
-
         if (validTime && validDuration) {
-            System.out.println("computation succeeded");
+            double pricePerMinute = model.getFanmeet().getPricePerMinute();
+            int duration = Integer.parseInt(view.getDurationTF().getText());
+
+            double price = duration * pricePerMinute;
+
+            Platform.runLater(() -> view.getPriceLB().setText("P" + price));
         } else {
-            System.out.println("computation failed, please check the time and duration");
+            setPriceToZero();
         }
-    }
+    } // end of computePrice
+
+    public void setPriceToZero() {
+        Platform.runLater(() -> view.getPriceLB().setText("P0"));
+    } // end of setPriceToZero
 } // end of BookingFanMeets class

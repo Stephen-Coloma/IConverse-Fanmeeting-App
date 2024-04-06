@@ -86,7 +86,7 @@
             </VBox>
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="55.0" prefWidth="800.0">
+      <HBox alignment="CENTER" prefHeight="48.0" prefWidth="800.0">
          <children>
             <Label alignment="CENTER" prefHeight="27.0" prefWidth="83.0" style="-fx-border-color: black; -fx-border-width: 0 2 0 0;" text="PRICE ">
                <font>
@@ -103,6 +103,11 @@
             </Label>
          </children>
       </HBox>
+      <Text fx:id="noticeLB" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="532.13671875">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Text>
       <Button fx:id="confirmBT" layoutX="58.0" layoutY="371.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="225.0" style="-fx-border-color: #1b4994; -fx-background-color: #f0f3f7; -fx-background-radius: 5; -fx-border-radius: 5;" text="Confirm">
          <font>
             <Font size="18.0" />

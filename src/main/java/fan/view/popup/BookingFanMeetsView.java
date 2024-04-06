@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 
 public class BookingFanMeetsView {
 
@@ -12,6 +13,8 @@ public class BookingFanMeetsView {
     private ImageView profilePicture;
     @FXML
     private Label headingLB, dateLB, priceLB;
+    @FXML
+    private Text noticeLB;
     @FXML
     private TextField timeTF, durationTF;
     @FXML
@@ -43,5 +46,9 @@ public class BookingFanMeetsView {
 
     public Button getConfirmBT() {
         return confirmBT;
+    }
+
+    public Text getNoticeLB() {
+        return noticeLB;
     }
 } // end of BookingFanMeetsView class

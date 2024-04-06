@@ -2,6 +2,7 @@ package fan.model;
 
 import fan.Fan;
 import jdbc.FanJDBC;
+import shared.Booking;
 import shared.Fanmeet;
 import shared.User;
 
@@ -14,8 +15,8 @@ public class BookingFanMeetsModel {
         this.fanmeet = fanmeet;
     }
 
-    public void addBooking(int userID) {
-        FanJDBC.addBookingToDB(userID);
+    public void addBooking(Booking booking) {
+        FanJDBC.addBookingToDB(booking);
     }
 
     public User getIdol() {
