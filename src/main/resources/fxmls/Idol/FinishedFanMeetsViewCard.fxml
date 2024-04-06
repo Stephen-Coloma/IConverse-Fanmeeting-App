@@ -11,12 +11,12 @@
    <children>
       <VBox alignment="CENTER_LEFT" prefHeight="110.0" prefWidth="505.0">
          <children>
-            <Label fx:id="dateLabel" alignment="CENTER" prefHeight="55.0" prefWidth="382.0" text="February 24, 2024">
+            <Label fx:id="dateLabel" alignment="CENTER" prefHeight="55.0" prefWidth="340.0" text="Date: February 24, 2024">
                <font>
                   <Font name="Arial Black" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="timeLabel" alignment="CENTER" prefHeight="55.0" prefWidth="382.0" text="9: 00 - 10: 30 AM">
+            <Label fx:id="timeLabel" alignment="CENTER" prefHeight="55.0" prefWidth="320.0" text="Time: 9: 00 - 10: 30 AM">
                <font>
                   <Font name="Arial Black" size="24.0" />
                </font>
