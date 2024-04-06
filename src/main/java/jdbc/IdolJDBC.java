@@ -182,17 +182,20 @@ public class IdolJDBC {
     }
 
     public static void updateFanmeetDetails(Fanmeet fanmeet) throws Exception{
-        query = "UPDATE fanmeets "+
+        /*query = "UPDATE fanmeets "+
                 "SET IdolName = ?, Date = ?, StartTime = ?, EndTime = ?, PricePerMinute = ?, Status = ? "+
                 "WHERE FanmeetID = ?";
+
+         */
+
+        query = "UPDATE fanmeets "+
+                "SET Date = ?, StartTime = ?, EndTime = ? "+
+                "WHERE FanmeetID = ?";
         preparedStatement = connection.prepareStatement(query);
-        preparedStatement.setInt(1,fanmeet.getIdolName().getUserID());
-        preparedStatement.setDate(2, Date.valueOf(fanmeet.getDate()));
-        preparedStatement.setTime(3, Time.valueOf(fanmeet.getStartTime()));
-        preparedStatement.setTime(4, Time.valueOf(fanmeet.getEndTime()));
-        preparedStatement.setDouble(5, fanmeet.getPricePerMinute());
-        preparedStatement.setString(6, fanmeet.getStatus());
-        preparedStatement.setInt(7, fanmeet.getFanMeetID());
+        preparedStatement.setDate(1, Date.valueOf(fanmeet.getDate()));
+        preparedStatement.setTime(2, Time.valueOf(fanmeet.getStartTime()));
+        preparedStatement.setTime(3, Time.valueOf(fanmeet.getEndTime()));
+        preparedStatement.setInt(4, fanmeet.getFanMeetID());
         if(preparedStatement.executeUpdate()> 0){
             System.out.println("Fanmeet " +fanmeet.getFanMeetID() +" has been successfully updated");
 
