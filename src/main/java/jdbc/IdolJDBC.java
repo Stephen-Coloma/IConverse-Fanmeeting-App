@@ -192,7 +192,12 @@ public class IdolJDBC {
         preparedStatement.setTime(4, Time.valueOf(fanmeet.getEndTime()));
         preparedStatement.setDouble(5, fanmeet.getPricePerMinute());
         preparedStatement.setString(6, fanmeet.getStatus());
+        if(preparedStatement.executeUpdate()> 0){
+            System.out.println("Fanmeet " +fanmeet.getFanMeetID() +" has been successfully updated");
 
+        }else{
+            System.out.println("Fanmeet failed to update");
+        }
 
 
     }
