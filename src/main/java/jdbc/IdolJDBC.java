@@ -39,7 +39,7 @@ public class IdolJDBC {
                 "WHERE status = \"Finished\" " +
                 "AND idolname = ?";
 
-        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement = connection.prepareStatement(query);
         //java.sql.Date currentDate = new java.sql.Date(System.currentTimeMillis());
         preparedStatement.setInt(1, userID);
         resultSet = preparedStatement.executeQuery();
@@ -67,7 +67,7 @@ public class IdolJDBC {
                 "AND idolname = ?";
 
 
-        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement = connection.prepareStatement(query);
         //java.sql.Date currentDate = new java.sql.Date(System.currentTimeMillis());
 
         preparedStatement.setInt(1, userID);
@@ -143,8 +143,47 @@ public class IdolJDBC {
         return userTimeStampList;
     }
 
-    public static void updateFanmeet(int fanmeetID){
-        System.out.println("hehehehe");
+    public static void addFanmeetToDB(Fanmeet fanmeet) throws Exception{
+        query = "INSERT INTO fanmeets (IdolName, Date, StartTime, EndTime, PricePerMinute, Status) " +
+                "VALUES ('?', '?', '?', '?', '?', '?')";
+
+        preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1, fanmeet.getIdolName().getUserID());
+        preparedStatement.setDate(2, Date.valueOf(fanmeet.getDate()));
+        preparedStatement.setTime(3, Time.valueOf(fanmeet.getStartTime()));
+        preparedStatement.setTime(4, Time.valueOf(fanmeet.getEndTime()));
+        preparedStatement.setDouble(5,fanmeet.getPricePerMinute());
+        preparedStatement.setString(6, fanmeet.getStatus());
+
+        if (preparedStatement.executeUpdate() > 0) {
+            System.out.println("A new fanmeet has been added successfully.");
+        } else{
+            System.err.println("Adding fanmeet failed.");
+        }
+
+    }
+
+    public static void updateFanmeetDetails(Fanmeet fanmeet) throws Exception{
+        /*query = "UPDATE fanmeets "+
+                "SET IdolName = ?, Date = ?, StartTime = ?, EndTime = ?, PricePerMinute = ?, Status = ? "+
+                "WHERE FanmeetID = ?";
+
+         */
+
+        query = "UPDATE fanmeets "+
+                "SET Date = ?, StartTime = ?, EndTime = ? "+
+                "WHERE FanmeetID = ?";
+        preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setDate(1, Date.valueOf(fanmeet.getDate()));
+        preparedStatement.setTime(2, Time.valueOf(fanmeet.getStartTime()));
+        preparedStatement.setTime(3, Time.valueOf(fanmeet.getEndTime()));
+        preparedStatement.setInt(4, fanmeet.getFanMeetID());
+        if(preparedStatement.executeUpdate()> 0){
+            System.out.println("Fanmeet " +fanmeet.getFanMeetID() +" has been successfully updated");
+
+        }else{
+            System.out.println("Fanmeet failed to update");
+        }
 
     }
     /**For testing purposes only*/

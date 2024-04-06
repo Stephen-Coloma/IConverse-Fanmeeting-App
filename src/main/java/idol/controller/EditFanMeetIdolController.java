@@ -47,7 +47,7 @@ public class EditFanMeetIdolController {
                     model.getFanmeet().setEndTime(newEndTime);
 
                     //todo: saving to the database
-                    IdolJDBC.updateFanmeet(model.getFanmeet().getFanMeetID());
+                    IdolJDBC.updateFanmeetDetails(model.getFanmeet());
 
                     //todo: close the stage
                     Stage stage = (Stage) view.getSaveChangesButton().getScene().getWindow();
@@ -67,7 +67,7 @@ public class EditFanMeetIdolController {
                         model.getFanmeet().setEndTime(newEndTime);
 
                         //todo: saving to the database
-                        IdolJDBC.updateFanmeet(model.getFanmeet().getFanMeetID());
+                        IdolJDBC.updateFanmeetDetails(model.getFanmeet());
 
                         //todo: close the stage
                         Stage stage = (Stage) view.getSaveChangesButton().getScene().getWindow();
@@ -86,6 +86,9 @@ public class EditFanMeetIdolController {
                 view.getNoticeLabel().setText("Date or Time format is invalid");
                 view.getNoticeLabel().setVisible(true);
                 setData();//resetting the data
+            } catch (Exception e) {
+                System.out.println("Error in SQL");
+                throw new RuntimeException(e);
             }
         });
     }
