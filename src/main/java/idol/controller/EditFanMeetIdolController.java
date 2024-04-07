@@ -5,6 +5,7 @@ import idol.view.EditFanMeetIdolView;
 import javafx.stage.Stage;
 import jdbc.IdolJDBC;
 
+import java.sql.SQLOutput;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -25,6 +26,7 @@ public class EditFanMeetIdolController {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("h:mm a");
 
                 LocalTime originalStartTime = model.getFanmeet().getStartTime();
+                LocalTime originalEndTime = model.getFanmeet().getEndTime();
                 LocalTime editedStart    = LocalTime.parse(view.getEditStartTimeTextField().getText(), formatter);
                 LocalDate originalDate = model.getFanmeet().getDate();
                 LocalDate editedDate = LocalDate.parse(view.getEditDateTextField().getText());
@@ -37,12 +39,13 @@ public class EditFanMeetIdolController {
                 if (comparisonDate < 0) {
                     //accept all time because date is ahead already
                     //todo: save to jdbc
-                    Duration duration = Duration.between(originalStartTime, editedStart);
+                    Duration duration = Duration.between(originalStartTime, originalEndTime);
                     long minuteDifference = duration.toMinutes();
 
                     LocalTime newEndTime = editedStart.plusMinutes(minuteDifference);
 
                     //set into the fanmeet
+                    model.getFanmeet().setDate(editedDate);
                     model.getFanmeet().setStartTime(editedStart);
                     model.getFanmeet().setEndTime(newEndTime);
 
@@ -57,7 +60,7 @@ public class EditFanMeetIdolController {
                         System.out.println("goods");
                         //todo: save to jdbc
 
-                        Duration duration = Duration.between(originalStartTime, editedStart);
+                        Duration duration = Duration.between(originalStartTime, originalEndTime);
                         long minuteDifference = duration.toMinutes();
 
                         LocalTime newEndTime = editedStart.plusMinutes(minuteDifference);
