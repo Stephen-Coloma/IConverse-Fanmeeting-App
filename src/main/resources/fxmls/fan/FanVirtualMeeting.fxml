@@ -6,7 +6,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
@@ -57,5 +56,15 @@
                 <Font size="19.0" />
             </font>
         </Text>
+      <Text fill="#1b4994" layoutX="76.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MEET ID: ">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text fill="#1b4994" layoutX="174.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="220000202020">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
     </children>
 </Pane>
