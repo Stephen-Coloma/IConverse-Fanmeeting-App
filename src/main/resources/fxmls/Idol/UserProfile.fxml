@@ -14,12 +14,12 @@
 
 <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1013.6" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fan.controller">
     <children>
-        <Pane prefHeight="82.0" prefWidth="1014.0">
+        <Pane prefHeight="86.0" prefWidth="1014.0">
             <children>
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1b4994" height="81.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: blue;" width="1013.0" />
-                <Label layoutX="28.0" layoutY="21.0" prefHeight="38.0" prefWidth="158.0" text="PROFILE" textFill="WHITE">
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1b4994" height="67.0" stroke="WHITE" strokeType="INSIDE" style="-fx-stroke: transparent;" width="1013.0" />
+                <Label layoutX="28.0" layoutY="10.0" prefHeight="38.0" prefWidth="158.0" text="Profile" textFill="WHITE">
                     <font>
-                        <Font name="Arial Black" size="28.0" />
+                        <Font name="Arial Black" size="25.0" />
                     </font>
                 </Label>
             </children>
@@ -28,16 +28,16 @@
          <children>
             <HBox alignment="CENTER_LEFT" layoutX="404.0" layoutY="11.0" prefHeight="248.0" prefWidth="567.0">
                <children>
-                  <ImageView fitHeight="204.0" fitWidth="673.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="179.0" fitWidth="193.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../idol/images/profile-user.png" />
                      </image>
                   </ImageView>
                   <VBox prefHeight="248.0" prefWidth="365.0">
                      <children>
-                        <Button fx:id="DeleteProfileButton" alignment="CENTER" mnemonicParsing="false" onMouseEntered="#homePageButtonEntered" onMouseExited="#homePageButtonExited" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: #1b4994; -fx-background-radius: 5; -fx-border-radius: 5;" text="Delete Profile" textAlignment="CENTER" textFill="WHITE">
+                        <Button fx:id="DeleteProfileButton" alignment="CENTER" mnemonicParsing="false" onMouseEntered="#homePageButtonEntered" onMouseExited="#homePageButtonExited" prefHeight="50.0" prefWidth="242.0" style="-fx-background-color: transparent; -fx-border-color: #1b4994; -fx-background-radius: 5; -fx-border-radius: 5;" text="Delete Profile" textAlignment="CENTER">
                            <font>
-                              <Font name="Arial" size="15.0" />
+                              <Font name="Arial" size="19.0" />
                            </font>
                            <VBox.margin>
                               <Insets left="60.0" top="20.0" />
@@ -49,65 +49,74 @@
             </HBox>
          </children>
       </Pane>
-      <Pane prefHeight="334.0" prefWidth="1014.0">
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="334.0" prefWidth="1014.0">
          <children>
-            <VBox layoutX="148.0" prefHeight="330.0" prefWidth="734.0">
+            <VBox layoutX="148.0" prefHeight="340.0" prefWidth="734.0">
                <children>
                   <Label text="Username">
                      <font>
-                        <Font name="Arial Black" size="28.0" />
+                        <Font name="Arial Bold" size="25.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="usernameTextField1" prefHeight="63.0" prefWidth="724.0" promptText="Enter Username">
+                  <TextField fx:id="usernameTextField1" prefHeight="63.0" prefWidth="724.0" promptText="Enter Username" style="-fx-border-color: #bfeaf5;">
                      <font>
                         <Font size="22.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
                   </TextField>
                   <Label text="Name">
                      <font>
-                        <Font name="Arial Black" size="28.0" />
+                        <Font name="Arial Bold" size="25.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="usernameTextField11" prefHeight="63.0" prefWidth="724.0" promptText="Enter Name">
+                  <TextField fx:id="usernameTextField11" prefHeight="63.0" prefWidth="724.0" promptText="Enter Name" style="-fx-border-color: #bfeaf5;">
                      <font>
                         <Font size="22.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
                   </TextField>
                   <Label layoutX="10.0" layoutY="99.0" text="Email">
                      <font>
-                        <Font name="Arial Black" size="28.0" />
+                        <Font name="Arial Bold" size="25.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="usernameTextField111" layoutX="10.0" layoutY="141.0" prefHeight="63.0" prefWidth="724.0" promptText="Enter Email">
+                  <TextField fx:id="usernameTextField111" layoutX="10.0" layoutY="141.0" prefHeight="63.0" prefWidth="724.0" promptText="Enter Email" style="-fx-border-color: #bfeaf5;">
                      <font>
                         <Font size="22.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
                   </TextField>
                </children>
             </VBox>
          </children>
       </Pane>
-      <HBox alignment="CENTER" prefHeight="131.0" prefWidth="1014.0">
-          <Button fx:id="ChangePasswordButton" alignment="CENTER" mnemonicParsing="false" onMouseEntered="#homePageButtonEntered" onMouseExited="#homePageButtonExited" prefHeight="50.0" prefWidth="298.0" style="-fx-background-color: #1b4994; -fx-background-radius: 5; -fx-border-radius: 5;" text="Change Password" textAlignment="CENTER" textFill="WHITE">
+      <HBox alignment="CENTER" prefHeight="99.0" prefWidth="1014.0">
+          <Button fx:id="ChangePasswordButton" alignment="CENTER" mnemonicParsing="false" onMouseEntered="#homePageButtonEntered" onMouseExited="#homePageButtonExited" prefHeight="50.0" prefWidth="344.0" style="-fx-background-color: #1b4994; -fx-background-radius: 5; -fx-border-radius: 5;" text="Change Password" textAlignment="CENTER" textFill="WHITE">
               <font>
-                  <Font name="Arial" size="15.0" />
+                  <Font name="Arial" size="19.0" />
               </font>
             <HBox.margin>
                <Insets right="40.0" />
             </HBox.margin>
           </Button>
-         <Button fx:id="EditProfileButton" alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseEntered="#homePageButtonEntered" onMouseExited="#homePageButtonExited" prefHeight="50.0" prefWidth="298.0" style="-fx-background-color: #1b4994; -fx-background-radius: 5; -fx-border-radius: 5;" text="Edit Profile" textFill="WHITE">
+         <Button fx:id="EditProfileButton" alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseEntered="#homePageButtonEntered" onMouseExited="#homePageButtonExited" prefHeight="50.0" prefWidth="343.0" style="-fx-background-color: #1b4994; -fx-background-radius: 5; -fx-border-radius: 5;" text="Edit Profile" textFill="WHITE">
             <font>
-               <Font name="Arial" size="15.0" />
+               <Font name="Arial" size="19.0" />
             </font>
          </Button>
       </HBox>
