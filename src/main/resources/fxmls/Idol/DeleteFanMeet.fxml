@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="idol.controller.BookingFanmeets">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="idol.view.DeleteFanMeetView">
    <children>
       <Pane>
          <children>
@@ -36,12 +36,12 @@
             <Font name="System Italic" size="16.0" />
          </font>
       </Text>
-      <Button contentDisplay="CENTER" layoutX="343.0" layoutY="204.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="159.0" style="-fx-background-color: #1b4994; -fx-border-color: #1b4994; -fx-border-radius: 5;" text="YES" textFill="WHITE">
+      <Button fx:id="yesButton" contentDisplay="CENTER" layoutX="343.0" layoutY="204.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="159.0" style="-fx-background-color: #1b4994; -fx-border-color: #1b4994; -fx-border-radius: 5;" text="YES" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="158.0" style="-fx-background-color: transparent; -fx-border-color: #1b4994; -fx-border-radius: 5;" text="NO">
+      <Button fx:id="noButton" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="158.0" style="-fx-background-color: transparent; -fx-border-color: #1b4994; -fx-border-radius: 5;" text="NO">
          <VBox.margin>
             <Insets top="15.0" />
          </VBox.margin>

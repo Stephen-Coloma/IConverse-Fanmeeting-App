@@ -51,7 +51,6 @@ public class IdolFanMeetsController {
 
         view.setUpActionUpcomingFanmeetsButton(event -> {
             try {
-                //todo: UNFINISHED FANMEETS
                 //setting the heading label
                 view.getHeadingLabel().setText("List of Unfinished Fanmeets");
                 List<Fanmeet> unfinishedFanMeets = model.loadUnfinishedFanMeets();

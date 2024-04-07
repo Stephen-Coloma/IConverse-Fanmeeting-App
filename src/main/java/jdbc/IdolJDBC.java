@@ -164,12 +164,6 @@ public class IdolJDBC {
     }
 
     public static void updateFanmeetDetails(Fanmeet fanmeet) throws Exception{
-        /*query = "UPDATE fanmeets "+
-                "SET IdolName = ?, Date = ?, StartTime = ?, EndTime = ?, PricePerMinute = ?, Status = ? "+
-                "WHERE FanmeetID = ?";
-
-         */
-
         query = "UPDATE fanmeets "+
                 "SET Date = ?, StartTime = ?, EndTime = ? "+
                 "WHERE FanmeetID = ?";
@@ -184,8 +178,25 @@ public class IdolJDBC {
         }else{
             System.out.println("Fanmeet failed to update");
         }
-
     }
+
+    public static void deleteFanmeet(Fanmeet fanmeet){
+      try {
+          query = "DELETE FROM fanmeets " +
+                  "WHERE fanmeetID = ?";
+
+          preparedStatement = connection.prepareStatement(query);
+          preparedStatement.setInt(1, fanmeet.getFanMeetID());
+          int temp1 = preparedStatement.executeUpdate();
+
+      }catch (Exception e){
+          e.printStackTrace();
+      }
+    }
+
+
+
+
     /**For testing purposes only*/
     public static void main(String[] args) {
 

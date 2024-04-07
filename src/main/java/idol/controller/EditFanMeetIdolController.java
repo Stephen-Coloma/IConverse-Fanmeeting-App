@@ -38,7 +38,6 @@ public class EditFanMeetIdolController {
                 // Output the comparison result
                 if (comparisonDate < 0) {
                     //accept all time because date is ahead already
-                    //todo: save to jdbc
                     Duration duration = Duration.between(originalStartTime, originalEndTime);
                     long minuteDifference = duration.toMinutes();
 
@@ -49,16 +48,13 @@ public class EditFanMeetIdolController {
                     model.getFanmeet().setStartTime(editedStart);
                     model.getFanmeet().setEndTime(newEndTime);
 
-                    //todo: saving to the database
                     IdolJDBC.updateFanmeetDetails(model.getFanmeet());
 
-                    //todo: close the stage
                     Stage stage = (Stage) view.getSaveChangesButton().getScene().getWindow();
                     stage.close();
                 } else if (comparisonDate == 0){
                     if (comparisonTime < 0){
                         System.out.println("goods");
-                        //todo: save to jdbc
 
                         Duration duration = Duration.between(originalStartTime, originalEndTime);
                         long minuteDifference = duration.toMinutes();
@@ -69,10 +65,8 @@ public class EditFanMeetIdolController {
                         model.getFanmeet().setStartTime(editedStart);
                         model.getFanmeet().setEndTime(newEndTime);
 
-                        //todo: saving to the database
                         IdolJDBC.updateFanmeetDetails(model.getFanmeet());
 
-                        //todo: close the stage
                         Stage stage = (Stage) view.getSaveChangesButton().getScene().getWindow();
                         stage.close();
                     }else {
