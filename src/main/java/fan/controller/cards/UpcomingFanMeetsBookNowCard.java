@@ -34,8 +34,6 @@ public class UpcomingFanMeetsBookNowCard {
 
         addBTTransition(view.getBookNowBT());
 
-
-        // TODO: add button event to open book now function
         // add event for booking
         view.getBookNowBT().setOnAction(event -> {
             try {

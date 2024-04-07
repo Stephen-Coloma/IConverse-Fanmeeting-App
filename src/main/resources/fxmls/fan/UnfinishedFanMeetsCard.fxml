@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<HBox prefHeight="185.0" prefWidth="943.0" style="-fx-border-color: #1b4994; -fx-background-radius: 10; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fan.view.cards.UnfinishedFanMeetCardView">
+<HBox prefHeight="185.0" prefWidth="943.0" style="-fx-border-color: #1b4994; -fx-background-radius: 10; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fan.view.cards.UnfinishedFanMeetCardView">
    <children>
-      <VBox prefHeight="184.0" prefWidth="174.0">
+      <VBox prefHeight="184.0" prefWidth="133.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="MEET ID:">
                <font>
@@ -40,7 +38,7 @@
                   <Font size="22.0" />
                </font>
                <VBox.margin>
-                  <Insets left="10.0" top="5.0" />
+                  <Insets left="8.0" top="5.0" />
                </VBox.margin>
             </Text>
             <Text layoutX="10.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IDOL:">
@@ -84,7 +82,7 @@
                   <Font size="22.0" />
                </font>
                <VBox.margin>
-                  <Insets left="10.0" top="5.0" />
+                  <Insets left="8.0" top="5.0" />
                </VBox.margin>
             </Text>
             <Text fx:id="idolNameLB" layoutX="10.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Leonhard Leung">
@@ -97,7 +95,7 @@
             </Text>
          </children>
       </VBox>
-      <VBox alignment="TOP_RIGHT" prefHeight="184.0" prefWidth="574.0">
+      <VBox alignment="TOP_RIGHT" prefHeight="183.0" prefWidth="615.0">
          <children>
             <Text fx:id="timestampLB" strokeType="OUTSIDE" strokeWidth="0.0" text="Booked on 2023 -11-17  15:30:10" wrappingWidth="325.11745262145996">
                <font>

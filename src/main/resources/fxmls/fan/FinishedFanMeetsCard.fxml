@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<HBox prefHeight="185.0" prefWidth="943.0" style="-fx-border-color: #1b4994; -fx-background-radius: 10; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fan.view.cards.FinishedFanMeetCardView">
+<HBox prefHeight="185.0" prefWidth="943.0" style="-fx-border-color: #1b4994; -fx-background-radius: 10; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fan.view.cards.FinishedFanMeetCardView">
    <children>
       <VBox prefHeight="184.0" prefWidth="146.0">
          <children>
@@ -39,7 +37,7 @@
                   <Font size="22.0" />
                </font>
                <VBox.margin>
-                  <Insets left="10.0" top="5.0" />
+                  <Insets left="8.0" top="5.0" />
                </VBox.margin>
             </Text>
             <Text layoutX="10.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IDOL:">
@@ -52,7 +50,7 @@
             </Text>
          </children>
       </VBox>
-      <VBox layoutX="11.0" layoutY="11.0" prefHeight="184.0" prefWidth="186.0">
+      <VBox layoutX="11.0" layoutY="11.0" prefHeight="184.0" prefWidth="194.0">
          <children>
             <Text fx:id="meetIDLB" strokeType="OUTSIDE" strokeWidth="0.0" text="220000202020">
                <font>
@@ -83,7 +81,7 @@
                   <Font size="22.0" />
                </font>
                <VBox.margin>
-                  <Insets left="10.0" top="5.0" />
+                  <Insets left="8.0" top="5.0" />
                </VBox.margin>
             </Text>
             <Text fx:id="idolNameLB" layoutX="10.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Leonhard Leung">
@@ -98,7 +96,7 @@
       </VBox>
       <VBox alignment="TOP_RIGHT" prefHeight="150.0" prefWidth="641.0">
          <children>
-            <Text fx:id="timestampLB" strokeType="OUTSIDE" strokeWidth="0.0" text="Booked on 2023 -11-17  15:30:10" wrappingWidth="343.51747703552246">
+            <Text fx:id="timestampLB" strokeType="OUTSIDE" strokeWidth="0.0" text="Booked on 2023 -11-17  15:30:10" wrappingWidth="325.11745262145996">
                <font>
                   <Font name="System Italic" size="22.0" />
                </font>
@@ -106,7 +104,7 @@
                   <Insets right="18.0" top="5.0" />
                </VBox.margin>
             </Text>
-            <Text fx:id="priceLB" layoutX="290.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="P1000" wrappingWidth="80.05086326599121">
+            <Text fx:id="priceLB" layoutX="290.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="P1000" textAlignment="RIGHT" wrappingWidth="80.05086326599121">
                <font>
                   <Font size="22.0" />
                </font>

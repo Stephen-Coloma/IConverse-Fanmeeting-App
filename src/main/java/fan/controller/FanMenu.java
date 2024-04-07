@@ -59,7 +59,6 @@ public class FanMenu {
             idolCards.add(node);
 
             node.setOnMouseClicked(event -> {
-                // TODO: open the idol page section
                 try {
                     UpcomingFanMeets upcomingFanMeets = new UpcomingFanMeets(new UpcomingFanMeetsModel(idol.getUserID()), new UpcomingFanMeetsView(), stackPane);
                     upcomingFanMeets.init();

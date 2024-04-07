@@ -9,7 +9,7 @@ public class MainPageView {
     @FXML
     private StackPane stackPane;
     @FXML
-    private Button profileBT, bookingsBT, settingsBT, fanmeetsBT;
+    private Button profileBT, bookingsBT, browseIdolsBT, fanmeetsBT;
     @FXML
     private ImageView profilePicture;
 
@@ -28,8 +28,8 @@ public class MainPageView {
         return bookingsBT;
     }
 
-    public Button getSettingsBT() {
-        return settingsBT;
+    public Button getBrowseIdolsBT() {
+        return browseIdolsBT;
     }
 
     public Button getFanmeetsBT() {

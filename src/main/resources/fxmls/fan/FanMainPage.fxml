@@ -20,12 +20,12 @@
                   <Font name="Arial" size="19.0" />
                </font>
             </Button>
-            <Button id="menuBT" fx:id="bookingsBT" layoutX="58.0" layoutY="268.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="189.0" text="Bookings">
+            <Button id="menuBT" fx:id="browseIdolsBT" layoutX="58.0" layoutY="371.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="189.0" text="Browse Idols">
                <font>
                   <Font name="Arial" size="19.0" />
                </font>
             </Button>
-            <Button id="menuBT" fx:id="settingsBT" layoutX="58.0" layoutY="371.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="189.0" text="Settings">
+            <Button id="menuBT" fx:id="bookingsBT" layoutX="58.0" layoutY="268.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="189.0" text="Bookings">
                <font>
                   <Font name="Arial" size="19.0" />
                </font>

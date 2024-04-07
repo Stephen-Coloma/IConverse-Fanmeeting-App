@@ -61,9 +61,12 @@ public class MainPage {
     private void setUpMenuBTEvents() {
         Platform.runLater(() -> {
             view.getBookingsBT().setOnAction(event -> view.getStackPane().getChildren().setAll(Bookings.BOOKINGS_VIEW));
-            view.getFanmeetsBT().setOnAction(event -> {
+            view.getBrowseIdolsBT().setOnAction(event -> {
                 view.getStackPane().getChildren().setAll(FanMenu.FAN_MENU_VIEW);
                 fanMenu.loadFlowPaneCatalogue();
+            });
+            view.getFanmeetsBT().setOnAction(event -> {
+                // TODO: load the fanmeets that are available to join
             });
         });
     } // end of setUpMenuBTEvents

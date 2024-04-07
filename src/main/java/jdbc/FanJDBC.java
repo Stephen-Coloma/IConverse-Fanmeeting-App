@@ -178,8 +178,6 @@ public class FanJDBC {
     } // end of getFanMeetList
 
     public static void addBookingToDB(Booking booking) {
-        // TODO: add the booking of the user to the database.
-
         String sql = "INSERT INTO bookings (userID, fanMeetID, timeStamp, startTime, duration, price) " +
         "VALUES (?, ?, ?, ?, ?, ?) ";
 
