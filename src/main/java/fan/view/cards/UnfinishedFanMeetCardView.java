@@ -12,6 +12,8 @@ public class UnfinishedFanMeetCardView {
     @FXML
     private Button cancelBT;
 
+    public UnfinishedFanMeetCardView() {}
+
     @FXML
     public void initialize() {
         setUpButtonTransition();

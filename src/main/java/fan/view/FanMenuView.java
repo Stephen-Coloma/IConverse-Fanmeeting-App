@@ -11,6 +11,8 @@ public class FanMenuView {
     @FXML
     private TextField searchBar;
 
+    public FanMenuView() {}
+
     public FlowPane getFlowPane() {
         return flowPane;
     }

@@ -13,6 +13,8 @@ public class MainPageView {
     @FXML
     private ImageView profilePicture;
 
+    public MainPageView() {}
+
     public StackPane getStackPane() {
         return stackPane;
     }

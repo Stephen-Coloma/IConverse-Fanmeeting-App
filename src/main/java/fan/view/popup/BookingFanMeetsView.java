@@ -20,6 +20,8 @@ public class BookingFanMeetsView {
     @FXML
     private Button confirmBT;
 
+    public BookingFanMeetsView() {}
+
     public ImageView getProfilePicture() {
         return profilePicture;
     }

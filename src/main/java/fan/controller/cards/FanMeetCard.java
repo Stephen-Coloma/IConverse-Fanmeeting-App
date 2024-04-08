@@ -26,7 +26,7 @@ public class FanMeetCard {
         view.getDateLB().setText(booking.getFanMeetID().getDate().toString());
         view.getTimeLB().setText(booking.getStartTime().toString());
         view.getDurationLB().setText(booking.getDuration() + "");
-        view.getIdolNameLB().setText(booking.getUserID().getName());
+        view.getIdolNameLB().setText(booking.getFanMeetID().getIdolName().getName());
         view.getTimestampLB().setText("Booked on " + booking.getTimeStamp().toLocalDate() + " " + booking.getTimeStamp().toLocalTime());
         view.getPriceLB().setText(booking.getPrice() + "");
 
@@ -49,7 +49,7 @@ public class FanMeetCard {
         view.getDateLB().setText(booking.getFanMeetID().getDate().toString());
         view.getTimeLB().setText(booking.getStartTime().toString());
         view.getDurationLB().setText(booking.getDuration() + "");
-        view.getIdolNameLB().setText(booking.getUserID().getName());
+        view.getIdolNameLB().setText(booking.getFanMeetID().getIdolName().getName());
         view.getTimestampLB().setText("Booked on " + booking.getTimeStamp().toLocalDate() + " " + booking.getTimeStamp().toLocalTime());
 
 //        view.getCancelBT().setOnAction(event -> {}); TODO: add the cancel button event when clicked

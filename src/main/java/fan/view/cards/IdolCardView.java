@@ -15,6 +15,8 @@ public class IdolCardView {
     @FXML
     private Text idolName;
 
+    public IdolCardView() {}
+
     @FXML
     public void initialize() {
         setUpDropShadow();

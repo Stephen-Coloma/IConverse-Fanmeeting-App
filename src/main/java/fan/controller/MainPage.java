@@ -4,9 +4,11 @@ import authentication.IConverse;
 import fan.Fan;
 import fan.model.BookingsModel;
 import fan.model.FanMenuModel;
+import fan.model.JoinFanMeetsModel;
 import fan.model.MainPageModel;
 import fan.view.BookingsView;
 import fan.view.FanMenuView;
+import fan.view.JoinFanMeetsView;
 import fan.view.MainPageView;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -24,6 +26,7 @@ public class MainPage {
     private MainPageView view;
     private Bookings bookings;
     private FanMenu fanMenu;
+    private JoinFanMeets joinFanMeets;
 
     public MainPage(MainPageModel model, MainPageView view) {
         this.model = model;
@@ -53,9 +56,11 @@ public class MainPage {
     private void setUpMenuViewControllers() throws IOException {
         bookings = new Bookings(new BookingsModel(), new BookingsView());
         fanMenu = new FanMenu(new FanMenuModel(), new FanMenuView(), view.getStackPane());
+        joinFanMeets = new JoinFanMeets(new JoinFanMeetsModel(), new JoinFanMeetsView());
 
         bookings.init();
         fanMenu.init();
+        joinFanMeets.init();
     } // setUpMenuViewControllers
 
     private void setUpMenuBTEvents() {
@@ -66,7 +71,8 @@ public class MainPage {
                 fanMenu.loadFlowPaneCatalogue();
             });
             view.getFanmeetsBT().setOnAction(event -> {
-                // TODO: load the fanmeets that are available to join
+                view.getStackPane().getChildren().setAll(JoinFanMeets.JOIN_FAN_MEETS_VIEW);
+                joinFanMeets.loadBookedFanMeets();
             });
         });
     } // end of setUpMenuBTEvents

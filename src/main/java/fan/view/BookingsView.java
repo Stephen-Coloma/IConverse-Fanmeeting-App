@@ -13,6 +13,8 @@ public class BookingsView {
     @FXML
     private Button finishedFMBT, unfinishedFMBT;
 
+    public BookingsView () {}
+
     @FXML
     public void initialize() {
         setBTTransition(finishedFMBT);

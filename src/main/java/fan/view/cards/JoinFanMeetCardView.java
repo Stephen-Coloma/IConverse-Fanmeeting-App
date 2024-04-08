@@ -1,14 +1,18 @@
 package fan.view.cards;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
-public class FinishedFanMeetCardView {
+public class JoinFanMeetCardView {
+
+    public JoinFanMeetCardView() {}
 
     @FXML
-    private Text meetIDLB, dateLB, timeLB, durationLB, idolNameLB, timestampLB, priceLB;
+    private Text meetIDLB, dateLB, timeLB, durationLB, idolNameLB;
 
-    public FinishedFanMeetCardView() {}
+    @FXML
+    private Button joinBT;
 
     public Text getMeetIDLB() {
         return meetIDLB;
@@ -30,11 +34,7 @@ public class FinishedFanMeetCardView {
         return idolNameLB;
     }
 
-    public Text getTimestampLB() {
-        return timestampLB;
+    public Button getJoinBT() {
+        return joinBT;
     }
-
-    public Text getPriceLB() {
-        return priceLB;
-    }
-} // end of FinishedFanMeetCardView class
+} // end of JoinFanMeetCardView class

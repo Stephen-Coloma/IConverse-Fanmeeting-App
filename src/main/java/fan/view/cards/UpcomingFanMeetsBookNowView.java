@@ -11,6 +11,8 @@ public class UpcomingFanMeetsBookNowView {
     @FXML
     private Button bookNowBT;
 
+    public UpcomingFanMeetsBookNowView() {}
+
     public Text getDateLB() {
         return dateLB;
     }

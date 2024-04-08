@@ -7,17 +7,17 @@ import shared.User;
 import java.util.List;
 
 public class UpcomingFanMeetsModel {
-    private int userID;
+    private int idolID;
 
-    public UpcomingFanMeetsModel(int userID) {
-        this.userID = userID;
+    public UpcomingFanMeetsModel(int idolID) {
+        this.idolID = idolID;
     }
 
     public User getIdol() {
-        return FanJDBC.getIdol(userID);
+        return FanJDBC.getIdol(idolID);
     } // end of getIdol
 
     public List<Fanmeet> getFanMeetList() {
-        return FanJDBC.getFanMeetList(userID);
+        return FanJDBC.getFanMeetList(idolID);
     } // end of getFanMeetList
 } // end of UpcomingFanMeetsModel class

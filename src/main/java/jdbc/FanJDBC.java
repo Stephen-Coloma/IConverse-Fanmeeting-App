@@ -105,10 +105,13 @@ public class FanJDBC {
             try (ResultSet resultSet = pstmt.executeQuery()) {
 
                 while (resultSet.next()) {
-                    // idol user
-                    String name = resultSet.getString("Name");
+                    // fan user
+                    User user = new User(userID, null, null, null, null, null, null, null, null);
 
-                    User idol = new User(userID, null, name, null, null, null, null, null, null);
+                    // idol user
+                    int idolID = resultSet.getInt("IdolName");
+                    String name = resultSet.getString("Name");
+                    User idol = new User(idolID, null, name, null, null, null, null, null, null);
 
                     // fanmeet
                     int fanMeetID = resultSet.getInt("FanMeetID");
@@ -124,7 +127,7 @@ public class FanJDBC {
                     int duration = resultSet.getInt("Duration");
                     double price = resultSet.getDouble("Price");
 
-                    Booking booking = new Booking(bookingID, idol, fanmeet, timeStamp, startTime2, duration, price);
+                    Booking booking = new Booking(bookingID, user, fanmeet, timeStamp, startTime2, duration, price);
                     bookings.add(booking);
                 }
                 return bookings;
@@ -179,7 +182,7 @@ public class FanJDBC {
 
     public static void addBookingToDB(Booking booking) {
         String sql = "INSERT INTO bookings (userID, fanMeetID, timeStamp, startTime, duration, price) " +
-        "VALUES (?, ?, ?, ?, ?, ?) ";
+                "VALUES (?, ?, ?, ?, ?, ?) ";
 
         try(PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setInt(1 , booking.getUserID().getUserID());
@@ -197,4 +200,49 @@ public class FanJDBC {
             throw new RuntimeException(e);
         }
     } // end of addBookingToDB
+
+    public static List<Booking> getOngoingFanMeets(int userID) {
+        List<Booking> bookingList = new ArrayList<>();
+
+        String sql = "SELECT b.BookingID, b.UserID, b.FanMeetID, b.StartTime, b.Duration, " +
+                "f.FanMeetID, f.IdolName, f.Date, f.Status, " +
+                "u.UserID, u.Name " +
+                "FROM bookings b JOIN fanmeets f ON b.FanMeetID = f.FanMeetID " +
+                "JOIN users u ON f.IdolName = u.UserID " +
+                "WHERE b.UserID = ? AND f.Status LIKE 'Unfinished'";
+
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            pstmt.setInt(1, userID);
+
+            try (ResultSet resultSet = pstmt.executeQuery()) {
+                while (resultSet.next()) {
+                    // user object for the fan
+                    User user = new User(userID, null, null, null, null, null, null, null, null);
+
+                    // user object for the idol
+                    int idolID = resultSet.getInt("IdolName");
+                    String idolName = resultSet.getString("Name");
+                    User idol = new User(idolID, null, idolName, null, null, null, null, null, null);
+
+                    // fanmeet object
+                    int fanMeetID = resultSet.getInt("FanMeetID");
+                    LocalDate date = resultSet.getDate("Date").toLocalDate();
+                    Fanmeet fanmeet = new Fanmeet(fanMeetID, idol, date, null, null, 0, null);
+
+                    // booking object
+                    int bookingID = resultSet.getInt("BookingID");
+                    LocalTime startTime = resultSet.getTime("StartTime").toLocalTime();
+                    int duration = resultSet.getInt("Duration");
+                    Booking booking = new Booking(bookingID, user, fanmeet, null, startTime, duration, 0);
+
+                    bookingList.add(booking);
+                }
+            } catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        } catch (SQLException exception) {
+            exception.getCause().printStackTrace();
+        }
+        return bookingList;
+    } // end of getOngoingFanMeets
 } // end of FanJDBC class
