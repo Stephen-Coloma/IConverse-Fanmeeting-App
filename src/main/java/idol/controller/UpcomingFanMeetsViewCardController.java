@@ -1,11 +1,10 @@
 package idol.controller;
 
 import idol.Idol;
+import idol.model.DeleteFanMeetModel;
+import idol.model.EditFanMeetIdolModel;
 import idol.model.UpcomingFanMeetsViewCardModel;
-import idol.view.FeedbackCardView;
-import idol.view.ListOfBookedFansCardView;
-import idol.view.ListOfBookedFansPopupViewView;
-import idol.view.UpcomingFanMeetsViewCardView;
+import idol.view.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -56,15 +55,50 @@ public class UpcomingFanMeetsViewCardController {
            }catch (Exception e){
                e.printStackTrace();
            }
-
         });
 
         this.view.setUpActionEditDetailsButton(event -> {
-            //todo: action for edit details
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/idol/EditFanMeetIdol.fxml"));
+                Parent root = loader.load();
+
+                EditFanMeetIdolView editFanMeetIdolView = loader.getController();
+                EditFanMeetIdolModel editFanMeetIdolModel = new EditFanMeetIdolModel(model.getFanmeet());
+                EditFanMeetIdolController editFanMeetIdolController = new EditFanMeetIdolController(editFanMeetIdolView, editFanMeetIdolModel);
+                editFanMeetIdolController.setData();
+
+
+                Scene scene = new Scene(root);
+
+                Stage stage = new Stage();
+
+                stage.setScene(scene);
+                stage.setTitle("Booked Fans");
+                stage.showAndWait();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         });
 
         this.view.setUpActionDeleteButton(event -> {
-            //todo: action for delete fanmeet
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/idol/DeleteFanMeet.fxml"));
+                Parent root = loader.load();
+
+                DeleteFanMeetView deleteFanMeetView = loader.getController();
+                DeleteFanMeetModel deleteFanMeetModel = new DeleteFanMeetModel(model.getFanmeet());
+                DeleteFanMeetController deleteFanMeetController = new DeleteFanMeetController(deleteFanMeetView, deleteFanMeetModel);
+
+                Scene scene = new Scene(root);
+
+                Stage stage = new Stage();
+
+                stage.setScene(scene);
+                stage.setTitle("Booked Fans");
+                stage.showAndWait();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         });
     }
 

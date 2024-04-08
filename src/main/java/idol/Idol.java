@@ -34,7 +34,7 @@ public class Idol {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/idol/MainMenuIdolPage.fxml"));
             Parent root = loader.load();
-            MainMenuIdolModel model = new MainMenuIdolModel(new User(USER_ID, PROFILE_PICTURE)); //todo: LOGIN TO IDOL PAGE change to userID to the account being logged in change to whole user object
+            MainMenuIdolModel model = new MainMenuIdolModel(new User(USER_ID, PROFILE_PICTURE));
             //
             MainMenuIdolController mainMenuIdolController = new MainMenuIdolController(loader.getController(), model);
             IConverse.STAGE.setTitle("IConverse");
@@ -47,10 +47,4 @@ public class Idol {
             ioException.getCause().printStackTrace();
         }
     } // end of start
-    public void start(Stage stage) throws Exception {
-        //todo: TEMPORARY IMAGE AND USERID
-        File file = new File("src/main/resources/idol/images/profile-user.png");
-        PROFILE_PICTURE = Files.readAllBytes(file.toPath());
-        USER_ID = 2;
-    }
 }

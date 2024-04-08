@@ -7,25 +7,25 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="880.0" style="-fx-background-color: #f0f3f7; -fx-border-color: #1571b2; -fx-background-radius: 10; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="idol.view.FinishedFanMeetsViewCardView">
+<HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="922.0" style="-fx-background-color: #f0f3f7; -fx-border-color: #1571b2; -fx-background-radius: 10; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="idol.view.FinishedFanMeetsViewCardView">
    <children>
       <VBox alignment="CENTER_LEFT" prefHeight="110.0" prefWidth="505.0">
          <children>
-            <Label fx:id="dateLabel" alignment="CENTER" prefHeight="55.0" prefWidth="382.0" text="February 24, 2024">
+            <Label fx:id="dateLabel" alignment="CENTER" prefHeight="55.0" prefWidth="340.0" text="Date: February 24, 2024">
                <font>
-                  <Font name="Arial Black" size="24.0" />
+                  <Font name="Arial Bold" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="timeLabel" alignment="CENTER" prefHeight="55.0" prefWidth="382.0" text="9: 00 - 10: 30 AM">
+            <Label fx:id="timeLabel" alignment="CENTER" prefHeight="55.0" prefWidth="330.0" text="Time: 9: 00 - 10: 30 AM">
                <font>
-                  <Font name="Arial Black" size="24.0" />
+                  <Font name="Arial Bold" size="24.0" />
                </font>
             </Label>
          </children>
       </VBox>
-      <VBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="505.0">
+      <VBox alignment="CENTER_RIGHT" prefHeight="149.0" prefWidth="467.0">
          <children>
-            <Button fx:id="viewDetailsButton" mnemonicParsing="false" prefHeight="41.0" prefWidth="260.0" style="-fx-background-color: #1571b2; -fx-border-color: #1b4994; -fx-background-radius: 20; -fx-border-radius: 20;" text="View Details" textFill="WHITE">
+            <Button fx:id="viewDetailsButton" mnemonicParsing="false" prefHeight="41.0" prefWidth="260.0" style="-fx-background-color: #1b4994; -fx-border-color: #1b4994; -fx-background-radius: 20; -fx-border-radius: 20;" text="View Details" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
@@ -33,7 +33,7 @@
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="viewFeedbacksButton" mnemonicParsing="false" prefHeight="41.0" prefWidth="260.0" style="-fx-background-color: #1571b2; -fx-border-color: #1b4994; -fx-background-radius: 20; -fx-border-radius: 20;" text="View Feedbacks" textFill="WHITE">
+            <Button fx:id="viewFeedbacksButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="260.0" style="-fx-background-color: #1571b2; -fx-border-color: #1571b2; -fx-background-radius: 20; -fx-border-radius: 20;" text="View Feedbacks" textFill="WHITE">
                <font>
                   <Font name="Arial" size="20.0" />
                </font>
