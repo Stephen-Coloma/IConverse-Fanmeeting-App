@@ -25,7 +25,6 @@ public class JoinFanMeets {
     }
 
     public void init() throws IOException {
-        // TODO: initialize the join fan meets pane
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/fan/JoinFanmeets.fxml")); // obtain the fxml loader
 
         JOIN_FAN_MEETS_VIEW = loader.load(); // establish the view

@@ -81,6 +81,7 @@ public class BookingFanMeets {
                 Booking booking = new Booking(0, user, fanmeet, timestamp, chosenTime, duration, price);
 
                 // TODO: use the model to add the booking to the DB
+                model.addBooking(booking);
             } else {
                 view.getNoticeLB().setText("Unable to book the fan meet, please check the time and duration");
 
