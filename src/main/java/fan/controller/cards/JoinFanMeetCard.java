@@ -1,6 +1,9 @@
 package fan.controller.cards;
 
+import fan.controller.popup.FanVirtualMeeting;
+import fan.model.FanVirtualMeetingModel;
 import fan.view.cards.JoinFanMeetCardView;
+import fan.view.popup.FanVirtualMeetingView;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import shared.Booking;
@@ -29,6 +32,12 @@ public class JoinFanMeetCard {
 
         view.getJoinBT().setOnAction(event -> {
             // TODO: add the function to load the video call
+            try {
+                FanVirtualMeeting virtualMeeting = new FanVirtualMeeting(new FanVirtualMeetingModel(booking), new FanVirtualMeetingView());
+                virtualMeeting.init();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
         });
 
         return joinFanMeetCard;

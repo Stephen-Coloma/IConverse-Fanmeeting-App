@@ -25,4 +25,5 @@ module leonardos{
     exports fan.view;
     exports fan.view.cards;
     exports fan.view.popup;
+    exports fan.controller.popup;
 }
