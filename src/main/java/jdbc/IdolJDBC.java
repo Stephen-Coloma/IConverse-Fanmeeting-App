@@ -1,11 +1,13 @@
 package jdbc;
 
 import fan.Fan;
+import shared.Booking;
 import shared.Fanmeet;
 import shared.Feedback;
 import shared.User;
 
 import java.sql.*;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -166,6 +168,28 @@ public class IdolJDBC {
     }
 
     public static void updateFanmeetDetails(Fanmeet fanmeet) throws Exception{
+        //getting first the old start time of the fanmeet
+
+        query =  " SELECT bookings.BookingID, bookings.StartTime AS BookingStartTime, fanmeets.StartTime AS FanMeetStartTime" +
+                " FROM bookings" +
+                " INNER JOIN fanmeets ON fanmeets.FanMeetID = bookings.FanMeetID" +
+                " WHERE fanmeets.FanMeetID = ?";
+        preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1, fanmeet.getFanMeetID());
+        resultSet = preparedStatement.executeQuery();
+
+        List<Booking> affectedBookings = new ArrayList<>();
+        LocalTime oldFanmeetStartTime = null;
+        while (resultSet.next()){
+            Booking booking = new Booking();
+            booking.setBookingID(resultSet.getInt("BookingID"));
+            booking.setStartTime(resultSet.getTime("BookingStartTime").toLocalTime());
+            oldFanmeetStartTime = resultSet.getTime("FanMeetStartTime").toLocalTime();
+            affectedBookings.add(booking);
+        }
+
+        System.out.println(affectedBookings);
+        //updating now the fanmeet with its new date, start time and end time
         query = "UPDATE fanmeets "+
                 "SET Date = ?, StartTime = ?, EndTime = ? "+
                 "WHERE FanmeetID = ?";
@@ -179,6 +203,27 @@ public class IdolJDBC {
 
         }else{
             System.out.println("Fanmeet failed to update");
+        }
+
+        //preparing the statement to be done
+        query = "UPDATE bookings " +
+                "SET StartTime = ? " +
+                "WHERE BookingID = ?";
+
+
+        //compute the minute difference of the booking start time to the original fanmeet start time and store it to a variable
+        for (Booking booking: affectedBookings) {
+            Duration duration = Duration.between(oldFanmeetStartTime, booking.getStartTime());
+            long minuteDifference = duration.toMinutes();
+
+            LocalTime newStartTimeForAffectedBookings = fanmeet.getStartTime().plusMinutes(minuteDifference);
+            booking.setStartTime(newStartTimeForAffectedBookings);
+
+            //updating the start time to the database
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setTime(1, Time.valueOf(booking.getStartTime()));
+            preparedStatement.setInt(2, booking.getBookingID());
+            preparedStatement.executeUpdate();
         }
     }
 

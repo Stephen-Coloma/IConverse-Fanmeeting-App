@@ -99,7 +99,7 @@
                   <Font size="25.0" />
                </font>
             </Label>
-            <Label fx:id="priceLB" alignment="CENTER" layoutX="368.0" layoutY="22.0" prefHeight="27.0" prefWidth="83.0" text="P5000" textFill="#1b4994">
+            <Label fx:id="priceLB" alignment="CENTER" layoutX="368.0" layoutY="22.0" prefHeight="27.0" prefWidth="160.0" text="P5000" textFill="#1b4994">
                <font>
                   <Font name="Arial Bold" size="24.0" />
                </font>

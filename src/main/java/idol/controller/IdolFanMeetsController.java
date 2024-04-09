@@ -36,7 +36,12 @@ public class IdolFanMeetsController {
 
         //set up action for buttons
         view.setUpActionCreateFanmeetButton(event -> {
-            //todo: @leonard about sa calendar
+            try {
+                CreateFanMeetController fanMeetController = new CreateFanMeetController(new CreateFanMeetModel(), new CreateFanMeetView());
+                fanMeetController.init();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
         });
 
         view.setUpActionFinishedFanmeetsButton(event -> {
@@ -59,16 +64,6 @@ public class IdolFanMeetsController {
                 populateScrollPaneWithUnfinishedFanmeet(unfinishedFanMeets);
             }catch (Exception e){
                 e.printStackTrace();
-            }
-        });
-
-        view.getCreateFanmeetButton().setOnAction(event -> {
-            // TODO: create fanmeet
-            try {
-                CreateFanMeetController fanMeetController = new CreateFanMeetController(new CreateFanMeetModel(), new CreateFanMeetView());
-                fanMeetController.init();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
             }
         });
     }
