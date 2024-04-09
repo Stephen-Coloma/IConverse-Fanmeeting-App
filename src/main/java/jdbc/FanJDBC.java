@@ -182,8 +182,8 @@ public class FanJDBC {
     } // end of getFanMeetList
 
     public static void addBookingToDB(Booking booking) {
-        String sql = "INSERT INTO bookings (userID, fanMeetID, timeStamp, startTime, duration, price) " +
-                "VALUES (?, ?, ?, ?, ?, ?) ";
+        String sql = "INSERT INTO bookings (userID, fanMeetID, timeStamp, startTime, duration, price, status) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?) ";
 
         try(PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setInt(1 , booking.getUserID().getUserID());
@@ -192,6 +192,7 @@ public class FanJDBC {
             stmt.setTime(4, new Time(booking.getStartTime().getHour(), booking.getStartTime().getMinute(), booking.getStartTime().getSecond()));
             stmt.setInt(5, booking.getDuration());
             stmt.setDouble(6, booking.getDuration());
+            stmt.setString(7, booking.getStatus());
             if(stmt.executeUpdate() > 0) {
                 System.out.println("Booking creation successful");
             } else {

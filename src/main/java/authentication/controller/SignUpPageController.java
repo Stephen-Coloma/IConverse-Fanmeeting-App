@@ -40,9 +40,8 @@ public class SignUpPageController {
 
             try {
                 model.signUp();
-                loadLoginPage(event);  //todo: if it reaches here, load the login page
+                loadLoginPage(event);
             } catch (Exception e) {
-                //todo: catch where the account cannot be created due to duplicates from username
                 view.getNoticeLabel().setText(e.getMessage());
                 view.getNoticeLabel().setVisible(true);
             }
@@ -65,10 +64,8 @@ public class SignUpPageController {
 
             try {
                 model.signUp();
-                //todo: if it reaches here, load the login page
                 loadLoginPage(event);
             } catch (Exception e) {
-                //todo: catch where the account cannot be created due to duplicates from username
                 view.getNoticeLabel().setText(e.getMessage());
                 view.getNoticeLabel().setVisible(true);
             }

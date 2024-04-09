@@ -62,7 +62,7 @@ public class FanVirtualMeeting {
             if (duration >= 0) {
                 view.getTimeRemainingLB().setText("Time left: " + duration + " minutes");
             } else {
-                // TODO: set the fanmeet status in the DB as finished
+                //updating the database on finished fanmeets
                 FanJDBC.updateJoinedFanmeetStatus(model.getBooking().getBookingID());
                 view.getTimeRemainingLB().setText("Virtual Meet has Ended");
                 timeline.stop();

@@ -31,7 +31,7 @@ public class JoinFanMeetCard {
         view.getIdolNameLB().setText(booking.getFanMeetID().getIdolName().getName());
 
         view.getJoinBT().setOnAction(event -> {
-            // TODO: add the function to load the video call
+           //loading the video call
             try {
                 FanVirtualMeeting virtualMeeting = new FanVirtualMeeting(new FanVirtualMeetingModel(booking), new FanVirtualMeetingView());
                 virtualMeeting.init();

@@ -62,11 +62,14 @@ public class Bookings {
 
         for (Booking booking : bookings) {
             boolean status = booking.getStatus().equalsIgnoreCase("finished");
+            boolean cancelled = booking.getStatus().equalsIgnoreCase("Null");
 
-            if (status) {
+            if (status && !cancelled) {
                 finFMCards.add(FanMeetCard.createFinishedFMCard(booking));
-            } else {
+            } else if (!cancelled){
                 unFinFMCards.add(FanMeetCard.createUnfinishedFMCard(booking));
+            }else { //todo: for cancelled bookings by the fan
+
             }
         }
 

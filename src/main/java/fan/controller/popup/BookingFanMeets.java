@@ -5,6 +5,7 @@ import fan.model.BookingFanMeetsModel;
 import fan.view.popup.BookingFanMeetsView;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
@@ -59,7 +60,7 @@ public class BookingFanMeets {
         popupStage.setResizable(false);
         popupStage.setTitle("Booking");
         popupStage.initModality(Modality.APPLICATION_MODAL);
-        popupStage.show();
+        popupStage.showAndWait();
     } // end of init
 
     private void setUpComponents() {
@@ -80,8 +81,14 @@ public class BookingFanMeets {
 
                 Booking booking = new Booking(0, user, fanmeet, timestamp, chosenTime, duration, price, "Unfinished");
 
-                // TODO: use the model to add the booking to the DB
+                //adding bookings to database
                 model.addBooking(booking);
+
+                // Getting the stage
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+                // Now you can access methods and properties of the stage, for example, to close it
+                stage.close();
             } else {
                 view.getNoticeLB().setText("Unable to book the fan meet, please check the time and duration");
 
