@@ -1,7 +1,6 @@
 package idol.controller;
 
-import idol.Idol;
-import idol.model.DeleteFanMeetModel;
+import idol.model.CancelConfirmationModel;
 import idol.model.EditFanMeetIdolModel;
 import idol.model.UpcomingFanMeetsViewCardModel;
 import idol.view.*;
@@ -14,17 +13,12 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 import jdbc.IdolJDBC;
-import shared.Feedback;
 import shared.User;
 
 import java.io.ByteArrayInputStream;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.time.Duration;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
-import java.util.List;
 
 public class UpcomingFanMeetsViewCardController {
     private UpcomingFanMeetsViewCardView view;
@@ -85,9 +79,9 @@ public class UpcomingFanMeetsViewCardController {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/idol/DeleteFanMeet.fxml"));
                 Parent root = loader.load();
 
-                DeleteFanMeetView deleteFanMeetView = loader.getController();
-                DeleteFanMeetModel deleteFanMeetModel = new DeleteFanMeetModel(model.getFanmeet());
-                DeleteFanMeetController deleteFanMeetController = new DeleteFanMeetController(deleteFanMeetView, deleteFanMeetModel);
+                CancelConfirmationView cancelConfirmationView = loader.getController();
+                CancelConfirmationModel deleteFanMeetModel = new CancelConfirmationModel(model.getFanmeet());
+                CancelFanMeetController deleteFanMeetController = new CancelFanMeetController(cancelConfirmationView, deleteFanMeetModel);
 
                 Scene scene = new Scene(root);
 

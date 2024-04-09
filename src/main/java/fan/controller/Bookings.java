@@ -61,15 +61,18 @@ public class Bookings {
         List<Node> unFinFMCards = new ArrayList<>();
 
         for (Booking booking : bookings) {
-            boolean status = booking.getStatus().equalsIgnoreCase("finished");
-            boolean cancelled = booking.getStatus().equalsIgnoreCase("Null");
+            boolean status = false;
 
-            if (status && !cancelled) {
+            if (booking.getStatus() != null){
+                status = booking.getStatus().equalsIgnoreCase("finished");
+            }
+
+            boolean cancelled = (booking.getStatus() == null || booking.getFanMeetID().getStatus() == null);
+
+            if (status || cancelled) {
                 finFMCards.add(FanMeetCard.createFinishedFMCard(booking));
-            } else if (!cancelled){
+            }else  { //todo: for cancelled bookings by the fan
                 unFinFMCards.add(FanMeetCard.createUnfinishedFMCard(booking));
-            }else { //todo: for cancelled bookings by the fan
-
             }
         }
 

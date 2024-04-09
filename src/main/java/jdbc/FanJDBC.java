@@ -6,6 +6,7 @@ import shared.Fanmeet;
 import shared.User;
 
 import javax.xml.transform.Result;
+import javax.xml.xpath.XPathEvaluationResult;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -91,8 +92,8 @@ public class FanJDBC {
     public static List<Booking> getBookingList(int userID) {
         List<Booking> bookings = new ArrayList<>();
 
-        String sql = "SELECT b.BookingID, b.UserID, b.FanMeetID, b.TimeStamp, b.StartTime, b.Duration, b.Price, b.Status, " +
-                "f.FanMeetID, f.IdolName, f.Date, " +
+        String sql = "SELECT b.BookingID, b.UserID, b.FanMeetID, b.TimeStamp, b.StartTime, b.Duration, b.Price, b.Status AS bStatus, " +
+                "f.FanMeetID, f.IdolName, f.Date, f.Status AS fStatus, " +
                 "u.UserID, u.Name " +
                 "FROM bookings b JOIN fanmeets f ON b.FanMeetID = f.FanMeetID " +
                 "JOIN users u ON f.IdolName = u.UserID " +
@@ -116,7 +117,7 @@ public class FanJDBC {
                     // fanmeet
                     int fanMeetID = resultSet.getInt("FanMeetID");
                     LocalDate date = resultSet.getDate("Date").toLocalDate();
-                    String fanmeetStatus = resultSet.getString("Status");
+                    String fanmeetStatus = resultSet.getString("fStatus");
 
                     Fanmeet fanmeet = new Fanmeet(fanMeetID, idol, date, null, null, 0.0, fanmeetStatus);
 
@@ -126,7 +127,7 @@ public class FanJDBC {
                     LocalTime startTime2 = resultSet.getTime("StartTime").toLocalTime();
                     int duration = resultSet.getInt("Duration");
                     double price = resultSet.getDouble("Price");
-                    String bookingStatus = resultSet.getString("Status");
+                    String bookingStatus = resultSet.getString("bStatus");
 
                     Booking booking = new Booking(bookingID, user, fanmeet, timeStamp, startTime2, duration, price, bookingStatus);
                     bookings.add(booking);
@@ -252,6 +253,21 @@ public class FanJDBC {
             PreparedStatement pstmt = connection.prepareStatement(query);
             pstmt.setInt(1, bookingID);
             int rowsUpdated = pstmt.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void cancelBooking(Booking booking) {
+        String query = "UPDATE bookings " +
+                "SET Status = ? " +
+                "WHERE BookingID = ?";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setNull(1, Types.VARCHAR);
+            preparedStatement.setInt(2, booking.getBookingID());
+            int rowsAffected = preparedStatement.executeUpdate();
         }catch (Exception e){
             e.printStackTrace();
         }

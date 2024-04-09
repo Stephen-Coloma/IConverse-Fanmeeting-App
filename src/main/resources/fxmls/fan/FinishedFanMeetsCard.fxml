@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<HBox prefHeight="185.0" prefWidth="943.0" style="-fx-border-color: #1b4994; -fx-background-radius: 10; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fan.view.cards.FinishedFanMeetCardView">
+<HBox prefHeight="185.0" prefWidth="943.0" style="-fx-border-color: #1b4994; -fx-background-radius: 10; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fan.view.cards.FinishedFanMeetCardView">
    <children>
       <VBox prefHeight="184.0" prefWidth="146.0">
          <children>
@@ -104,12 +106,20 @@
                   <Insets right="18.0" top="5.0" />
                </VBox.margin>
             </Text>
+            <Text fx:id="cancelLabel" fill="RED" layoutX="295.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cancelled by:" visible="false" wrappingWidth="325.11745262145996">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="18.0" top="20.0" />
+               </VBox.margin>
+            </Text>
             <Text fx:id="priceLB" layoutX="290.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="P1000" textAlignment="RIGHT" wrappingWidth="80.05086326599121">
                <font>
                   <Font size="22.0" />
                </font>
                <VBox.margin>
-                  <Insets right="18.0" top="110.0" />
+                  <Insets right="18.0" top="70.0" />
                </VBox.margin>
             </Text>
          </children>

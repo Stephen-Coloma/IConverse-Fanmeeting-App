@@ -1,15 +1,15 @@
 package idol.controller;
 
-import idol.model.DeleteFanMeetModel;
-import idol.view.DeleteFanMeetView;
+import idol.model.CancelConfirmationModel;
+import idol.view.CancelConfirmationView;
 import javafx.stage.Stage;
 import jdbc.IdolJDBC;
 
-public class DeleteFanMeetController {
-    private DeleteFanMeetView view;
-    private DeleteFanMeetModel model;
+public class CancelFanMeetController {
+    private CancelConfirmationView view;
+    private CancelConfirmationModel model;
 
-    public DeleteFanMeetController(DeleteFanMeetView view, DeleteFanMeetModel model){
+    public CancelFanMeetController(CancelConfirmationView view, CancelConfirmationModel model){
         this.view = view;
         this.model = model;
 
@@ -26,19 +26,19 @@ public class DeleteFanMeetController {
         });
     }
 
-    public DeleteFanMeetModel getModel() {
+    public CancelConfirmationModel getModel() {
         return model;
     }
 
-    public void setModel(DeleteFanMeetModel model) {
+    public void setModel(CancelConfirmationModel model) {
         this.model = model;
     }
 
-    public DeleteFanMeetView getView() {
+    public CancelConfirmationView getView() {
         return view;
     }
 
-    public void setView(DeleteFanMeetView view) {
+    public void setView(CancelConfirmationView view) {
         this.view = view;
     }
 }
