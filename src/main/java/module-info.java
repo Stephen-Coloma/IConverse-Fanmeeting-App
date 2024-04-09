@@ -19,9 +19,11 @@ module leonardos{
     exports authentication.view;
     exports authentication.controller;
     exports idol;
+    exports idol.model;
     exports idol.view;
     exports idol.controller;
     exports fan.controller;
+    exports fan.model;
     exports fan.view;
     exports fan.view.cards;
     exports fan.view.popup;

@@ -1,9 +1,11 @@
 package idol.controller;
 
 import fan.Fan;
+import idol.model.CreateFanMeetModel;
 import idol.model.FinishedFanMeetsViewCardModel;
 import idol.model.IdolFanMeetsModel;
 import idol.model.UpcomingFanMeetsViewCardModel;
+import idol.view.CreateFanMeetView;
 import idol.view.FinishedFanMeetsViewCardView;
 import idol.view.IdolFanMeetsView;
 import idol.view.UpcomingFanMeetsViewCardView;
@@ -57,6 +59,16 @@ public class IdolFanMeetsController {
                 populateScrollPaneWithUnfinishedFanmeet(unfinishedFanMeets);
             }catch (Exception e){
                 e.printStackTrace();
+            }
+        });
+
+        view.getCreateFanmeetButton().setOnAction(event -> {
+            // TODO: create fanmeet
+            try {
+                CreateFanMeetController fanMeetController = new CreateFanMeetController(new CreateFanMeetModel(), new CreateFanMeetView());
+                fanMeetController.init();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
             }
         });
     }

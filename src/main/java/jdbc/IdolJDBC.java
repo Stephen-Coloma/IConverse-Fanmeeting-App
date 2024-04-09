@@ -37,7 +37,8 @@ public class IdolJDBC {
         query= "SELECT FanmeetID, IdolName, Date, StartTime, EndTime, PricePerMinute, Status " +
                 "from fanmeets " +
                 "WHERE status = \"Finished\" " +
-                "AND idolname = ?";
+                "AND idolname = ? " +
+                "ORDER BY Date";
 
         preparedStatement = connection.prepareStatement(query);
         //java.sql.Date currentDate = new java.sql.Date(System.currentTimeMillis());
@@ -64,7 +65,8 @@ public class IdolJDBC {
         query= "SELECT FanmeetID, IdolName, Date, StartTime, EndTime, PricePerMinute, Status " +
                 "from fanmeets " +
                 "WHERE status = \"Unfinished\" " +
-                "AND idolname = ?";
+                "AND idolname = ? " +
+                "ORDER BY Date";
 
 
         preparedStatement = connection.prepareStatement(query);
@@ -145,7 +147,7 @@ public class IdolJDBC {
 
     public static void addFanmeetToDB(Fanmeet fanmeet) throws Exception{
         query = "INSERT INTO fanmeets (IdolName, Date, StartTime, EndTime, PricePerMinute, Status) " +
-                "VALUES ('?', '?', '?', '?', '?', '?')";
+                "VALUES (?, ?, ?, ?, ?, ?)";
 
         preparedStatement = connection.prepareStatement(query);
         preparedStatement.setInt(1, fanmeet.getIdolName().getUserID());
