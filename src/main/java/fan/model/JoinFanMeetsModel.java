@@ -11,6 +11,6 @@ public class JoinFanMeetsModel {
     public JoinFanMeetsModel() {}
 
     public List<Booking> getBookedFanMeetList(int userID) {
-        return FanJDBC.getOngoingFanMeets(userID);
+        return FanJDBC.getOngoingBookedFanMeets(userID);
     } // end of getBookedFanMeetList
 } // end of JoinFanMeetsModel class

@@ -78,7 +78,7 @@ public class BookingFanMeets {
                 int duration = Integer.parseInt(view.getDurationTF().getText());
                 double price = Double.parseDouble(view.getPriceLB().getText().substring(1));
 
-                Booking booking = new Booking(0, user, fanmeet, timestamp, chosenTime, duration, price);
+                Booking booking = new Booking(0, user, fanmeet, timestamp, chosenTime, duration, price, "Unfinished");
 
                 // TODO: use the model to add the booking to the DB
                 model.addBooking(booking);

@@ -61,7 +61,7 @@
                               <Insets top="82.0" />
                            </VBox.margin>
                            <children>
-                                      <Button id="logInBT" fx:id="loginButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseEntered="#loginPageButtonEntered" onMouseExited="#loginPageButtonExited" prefHeight="60.0" prefWidth="287.0" text="LOG IN" textAlignment="CENTER" textFill="#1b4994">
+                                      <Button id="logInBT" fx:id="loginButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseEntered="#loginPageButtonEntered" onMouseExited="#loginPageButtonExited" prefHeight="60.0" prefWidth="287.0" text="LOG IN" textAlignment="CENTER">
                                           <font>
                                               <Font name="Arial" size="15.0" />
                                           </font>

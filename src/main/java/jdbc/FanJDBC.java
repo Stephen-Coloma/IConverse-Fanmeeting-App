@@ -91,8 +91,8 @@ public class FanJDBC {
     public static List<Booking> getBookingList(int userID) {
         List<Booking> bookings = new ArrayList<>();
 
-        String sql = "SELECT b.BookingID, b.UserID, b.FanMeetID, b.TimeStamp, b.StartTime, b.Duration, b.Price, " +
-                "f.FanMeetID, f.IdolName, f.Date, f.Status, " +
+        String sql = "SELECT b.BookingID, b.UserID, b.FanMeetID, b.TimeStamp, b.StartTime, b.Duration, b.Price, b.Status, " +
+                "f.FanMeetID, f.IdolName, f.Date, " +
                 "u.UserID, u.Name " +
                 "FROM bookings b JOIN fanmeets f ON b.FanMeetID = f.FanMeetID " +
                 "JOIN users u ON f.IdolName = u.UserID " +
@@ -116,9 +116,9 @@ public class FanJDBC {
                     // fanmeet
                     int fanMeetID = resultSet.getInt("FanMeetID");
                     LocalDate date = resultSet.getDate("Date").toLocalDate();
-                    String status = resultSet.getString("Status");
+                    String fanmeetStatus = resultSet.getString("Status");
 
-                    Fanmeet fanmeet = new Fanmeet(fanMeetID, idol, date, null, null, 0.0, status);
+                    Fanmeet fanmeet = new Fanmeet(fanMeetID, idol, date, null, null, 0.0, fanmeetStatus);
 
                     // booking
                     int bookingID = resultSet.getInt("BookingID");
@@ -126,13 +126,14 @@ public class FanJDBC {
                     LocalTime startTime2 = resultSet.getTime("StartTime").toLocalTime();
                     int duration = resultSet.getInt("Duration");
                     double price = resultSet.getDouble("Price");
+                    String bookingStatus = resultSet.getString("Status");
 
-                    Booking booking = new Booking(bookingID, user, fanmeet, timeStamp, startTime2, duration, price);
+                    Booking booking = new Booking(bookingID, user, fanmeet, timeStamp, startTime2, duration, price, bookingStatus);
                     bookings.add(booking);
                 }
                 return bookings;
-            } catch (SQLException sqlException) {
-                sqlException.getCause().printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         } catch (SQLException sqlException) {
             sqlException.getCause().printStackTrace();
@@ -201,48 +202,57 @@ public class FanJDBC {
         }
     } // end of addBookingToDB
 
-    public static List<Booking> getOngoingFanMeets(int userID) {
+    public static List<Booking> getOngoingBookedFanMeets(int userID) {
         List<Booking> bookingList = new ArrayList<>();
 
-        String sql = "SELECT b.BookingID, b.UserID, b.FanMeetID, b.StartTime, b.Duration, " +
-                "f.FanMeetID, f.IdolName, f.Date, f.Status, " +
-                "u.UserID, u.Name " +
-                "FROM bookings b JOIN fanmeets f ON b.FanMeetID = f.FanMeetID " +
-                "JOIN users u ON f.IdolName = u.UserID " +
-                "WHERE b.UserID = ? AND f.Status LIKE 'Unfinished'";
+        String sql = " SELECT bookings.BookingID, bookings.FanMeetID, fanmeets.Date, bookings.StartTime, bookings.Duration, users.Name" +
+                " FROM bookings" +
+                " INNER JOIN fanmeets ON fanmeets.FanMeetID = bookings.FanMeetID" +
+                " INNER JOIN users ON fanmeets.IdolName = users.UserID" +
+                " WHERE bookings.status = \"Unfinished\" AND bookings.UserID = ? ";
 
-        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setInt(1, userID);
+            ResultSet resultSet = pstmt.executeQuery();
 
-            try (ResultSet resultSet = pstmt.executeQuery()) {
-                while (resultSet.next()) {
-                    // user object for the fan
-                    User user = new User(userID, null, null, null, null, null, null, null, null);
+            while (resultSet.next()){
+                Booking booking = new Booking();
+                booking.setBookingID(resultSet.getInt("BookingID"));
 
-                    // user object for the idol
-                    int idolID = resultSet.getInt("IdolName");
-                    String idolName = resultSet.getString("Name");
-                    User idol = new User(idolID, null, idolName, null, null, null, null, null, null);
+                User idolName = new User();
+                idolName.setName(resultSet.getString("Name"));
 
-                    // fanmeet object
-                    int fanMeetID = resultSet.getInt("FanMeetID");
-                    LocalDate date = resultSet.getDate("Date").toLocalDate();
-                    Fanmeet fanmeet = new Fanmeet(fanMeetID, idol, date, null, null, 0, null);
+                Fanmeet fanmeet = new Fanmeet();
+                fanmeet.setFanMeetID(resultSet.getInt("FanMeetID"));
+                fanmeet.setDate(resultSet.getDate("Date").toLocalDate());
+                fanmeet.setIdolName(idolName);
+                booking.setFanMeetID(fanmeet);
 
-                    // booking object
-                    int bookingID = resultSet.getInt("BookingID");
-                    LocalTime startTime = resultSet.getTime("StartTime").toLocalTime();
-                    int duration = resultSet.getInt("Duration");
-                    Booking booking = new Booking(bookingID, user, fanmeet, null, startTime, duration, 0);
+                booking.setStartTime(resultSet.getTime("StartTime").toLocalTime());
 
-                    bookingList.add(booking);
-                }
-            } catch (SQLException exception) {
-                exception.printStackTrace();
+                booking.setDuration(resultSet.getInt("Duration"));
+
+                bookingList.add(booking);
             }
-        } catch (SQLException exception) {
-            exception.getCause().printStackTrace();
+        }catch (Exception e){
+            e.printStackTrace();
+
         }
         return bookingList;
     } // end of getOngoingFanMeets
+
+    public static void updateJoinedFanmeetStatus(int bookingID) {
+        String query = "UPDATE bookings " +
+                "SET status = \"Finished\" " +
+                "WHERE BookingID = ?";
+
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(query);
+            pstmt.setInt(1, bookingID);
+            int rowsUpdated = pstmt.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 } // end of FanJDBC class

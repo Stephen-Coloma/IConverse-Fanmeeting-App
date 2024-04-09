@@ -61,7 +61,7 @@ public class Bookings {
         List<Node> unFinFMCards = new ArrayList<>();
 
         for (Booking booking : bookings) {
-            boolean status = booking.getFanMeetID().getStatus().equalsIgnoreCase("finished");
+            boolean status = booking.getStatus().equalsIgnoreCase("finished");
 
             if (status) {
                 finFMCards.add(FanMeetCard.createFinishedFMCard(booking));

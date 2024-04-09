@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import jdbc.FanJDBC;
 
 import java.io.IOException;
 import java.sql.Time;
@@ -62,6 +63,7 @@ public class FanVirtualMeeting {
                 view.getTimeRemainingLB().setText("Time left: " + duration + " minutes");
             } else {
                 // TODO: set the fanmeet status in the DB as finished
+                FanJDBC.updateJoinedFanmeetStatus(model.getBooking().getBookingID());
                 view.getTimeRemainingLB().setText("Virtual Meet has Ended");
                 timeline.stop();
             }
