@@ -27,6 +27,9 @@ public class Booking {
         this.status = status;
     }
 
+    public Booking() {
+    }
+
     public void setBookingID(int bookingID) {
         this.bookingID = bookingID;
     }
@@ -83,19 +86,19 @@ public class Booking {
         return this.price;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getStatus() {
-        return this.status;
-    }
-
     public String getFormattedTimeStamp() {
         return this.timeStamp.format(DATE_TIME_FORMATTER);
     }
 
     public String getFormattedStartTime() {
         return this.startTime.format(TIME_FORMATTER);
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

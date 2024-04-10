@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="193.0" prefWidth="943.0" style="-fx-border-color: #1b4994; -fx-background-radius: 10; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fan.view.cards.JoinFanMeetCardView">
+   <children>
+      <VBox prefHeight="184.0" prefWidth="146.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="MEET ID:">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="8.0" top="5.0" />
+               </VBox.margin>
+            </Text>
+            <Text layoutX="18.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DATE:">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="8.0" top="5.0" />
+               </VBox.margin>
+            </Text>
+            <Text layoutX="10.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TIME:">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="8.0" top="5.0" />
+               </VBox.margin>
+            </Text>
+            <Text layoutX="18.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DURATION:">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="8.0" top="5.0" />
+               </VBox.margin>
+            </Text>
+            <Text layoutX="10.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IDOL:">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="8.0" top="5.0" />
+               </VBox.margin>
+            </Text>
+         </children>
+      </VBox>
+      <VBox layoutX="11.0" layoutY="11.0" prefHeight="170.0" prefWidth="185.0">
+         <children>
+            <Text fx:id="meetIDLB" strokeType="OUTSIDE" strokeWidth="0.0" text="220000202020">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="8.0" top="5.0" />
+               </VBox.margin>
+            </Text>
+            <Text fx:id="dateLB" layoutX="18.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="February 27, 2024">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="8.0" top="5.0" />
+               </VBox.margin>
+            </Text>
+            <Text fx:id="timeLB" layoutX="10.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9:00 AM">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="8.0" top="5.0" />
+               </VBox.margin>
+            </Text>
+            <Text fx:id="durationLB" layoutX="18.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15 minutes">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="8.0" top="5.0" />
+               </VBox.margin>
+            </Text>
+            <Text fx:id="idolNameLB" layoutX="10.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Leonhard Leung">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="8.0" top="5.0" />
+               </VBox.margin>
+            </Text>
+         </children>
+      </VBox>
+      <VBox alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="197.0" prefWidth="618.0">
+         <children>
+            <Button fx:id="joinBT" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" style="-fx-background-color: #1b4994;" text="Join " textFill="WHITE">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="20.0" top="110.0" />
+               </VBox.margin>
+            </Button>
+            <Text fx:id="priceLB" layoutX="290.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="80.05086326599121">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="18.0" top="110.0" />
+               </VBox.margin>
+            </Text>
+         </children>
+      </VBox>
+   </children>
+</HBox>

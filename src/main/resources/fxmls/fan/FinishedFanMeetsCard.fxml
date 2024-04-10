@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox prefHeight="185.0" prefWidth="943.0" style="-fx-border-color: #1b4994; -fx-background-radius: 10; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<HBox prefHeight="185.0" prefWidth="943.0" style="-fx-border-color: #1b4994; -fx-background-radius: 10; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fan.view.cards.FinishedFanMeetCardView">
    <children>
       <VBox prefHeight="184.0" prefWidth="146.0">
          <children>
@@ -39,7 +39,7 @@
                   <Font size="22.0" />
                </font>
                <VBox.margin>
-                  <Insets left="10.0" top="5.0" />
+                  <Insets left="8.0" top="5.0" />
                </VBox.margin>
             </Text>
             <Text layoutX="10.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IDOL:">
@@ -52,9 +52,9 @@
             </Text>
          </children>
       </VBox>
-      <VBox layoutX="11.0" layoutY="11.0" prefHeight="150.0" prefWidth="194.0">
+      <VBox layoutX="11.0" layoutY="11.0" prefHeight="184.0" prefWidth="194.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="220000202020">
+            <Text fx:id="meetIDLB" strokeType="OUTSIDE" strokeWidth="0.0" text="220000202020">
                <font>
                   <Font size="22.0" />
                </font>
@@ -62,7 +62,7 @@
                   <Insets left="8.0" top="5.0" />
                </VBox.margin>
             </Text>
-            <Text layoutX="18.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="February 27, 2024">
+            <Text fx:id="dateLB" layoutX="18.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="February 27, 2024">
                <font>
                   <Font size="22.0" />
                </font>
@@ -70,7 +70,7 @@
                   <Insets left="8.0" top="5.0" />
                </VBox.margin>
             </Text>
-            <Text layoutX="10.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9:00 AM">
+            <Text fx:id="timeLB" layoutX="10.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9:00 AM">
                <font>
                   <Font size="22.0" />
                </font>
@@ -78,15 +78,15 @@
                   <Insets left="8.0" top="5.0" />
                </VBox.margin>
             </Text>
-            <Text layoutX="18.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15 minutes">
+            <Text fx:id="durationLB" layoutX="18.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15 minutes">
                <font>
                   <Font size="22.0" />
                </font>
                <VBox.margin>
-                  <Insets left="10.0" top="5.0" />
+                  <Insets left="8.0" top="5.0" />
                </VBox.margin>
             </Text>
-            <Text layoutX="10.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Leonhard Leung">
+            <Text fx:id="idolNameLB" layoutX="10.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Leonhard Leung">
                <font>
                   <Font size="22.0" />
                </font>
@@ -98,20 +98,28 @@
       </VBox>
       <VBox alignment="TOP_RIGHT" prefHeight="150.0" prefWidth="641.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Booked on 2023 -11-17  15:30:10" wrappingWidth="343.51747703552246">
+            <Text fx:id="timestampLB" strokeType="OUTSIDE" strokeWidth="0.0" text="Booked on 2023 -11-17  15:30:10" wrappingWidth="325.11745262145996">
                <font>
-                  <Font size="22.0" />
+                  <Font name="System Italic" size="22.0" />
                </font>
                <VBox.margin>
                   <Insets right="18.0" top="5.0" />
                </VBox.margin>
             </Text>
-            <Text layoutX="290.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="P1000" wrappingWidth="80.05086326599121">
+            <Text fx:id="cancelLabel" fill="RED" layoutX="295.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cancelled by:" visible="false" wrappingWidth="325.11745262145996">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="18.0" top="20.0" />
+               </VBox.margin>
+            </Text>
+            <Text fx:id="priceLB" layoutX="290.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="P1000" textAlignment="RIGHT" wrappingWidth="80.05086326599121">
                <font>
                   <Font size="22.0" />
                </font>
                <VBox.margin>
-                  <Insets right="18.0" top="110.0" />
+                  <Insets right="18.0" top="70.0" />
                </VBox.margin>
             </Text>
          </children>

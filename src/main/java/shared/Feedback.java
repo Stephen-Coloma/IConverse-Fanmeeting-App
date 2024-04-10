@@ -11,6 +11,12 @@ public class Feedback {
         this.feedback = feedback;
     }
 
+    public Feedback(User user, String feedback){
+        this.usersID = user;
+        this.feedback = feedback;
+    }
+
+
     public void setUsersID(User usersID) {
         this.usersID = usersID;
     }

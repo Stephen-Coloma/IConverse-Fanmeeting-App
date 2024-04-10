@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fan.view.popup.FanVirtualMeetingView">
     <children>
         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
         <Pane layoutX="-4.0" layoutY="-2.0" prefHeight="67.0" prefWidth="1306.0" style="-fx-background-color: #1b4994;">
             <children>
-                <Text fill="WHITE" layoutX="41.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IDOL NAME'S FAN MEETING">
+                <Text fx:id="headingLB" fill="WHITE" layoutX="41.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IDOL NAME'S FAN MEETING">
                     <font>
                         <Font name="Arial Black" size="19.0" />
                     </font>
@@ -52,10 +49,20 @@
                 </Pane>
             </children>
         </Pane>
-        <Text fill="#ff0c0c" layoutX="1045.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time left: 48 minutes">
+        <Text fx:id="timeRemainingLB" fill="#ff0c0c" layoutX="1045.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time left: 48 minutes">
             <font>
                 <Font size="19.0" />
             </font>
         </Text>
+      <Text fill="#1b4994" layoutX="76.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MEET ID: ">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text fx:id="meetIDLB" fill="#1b4994" layoutX="174.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="220000202020">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
     </children>
 </Pane>

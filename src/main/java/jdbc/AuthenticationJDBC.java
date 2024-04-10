@@ -1,5 +1,7 @@
 package jdbc;
 
+import fan.Fan;
+import idol.Idol;
 import shared.User;
 
 import javax.xml.transform.dom.DOMResult;
@@ -12,7 +14,7 @@ public class AuthenticationJDBC {
     static {
         try {
             //changeable
-            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/leonardos", "root", "password");
+            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/leonardos", "LeonardosAdmin", "password");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -23,11 +25,8 @@ public class AuthenticationJDBC {
     private static PreparedStatement preparedStatement;
     private static ResultSet resultSet;
     /**This method checks the signs up the user to the database*/
-    public static void login(User userLogin ) throws Exception{
-        query = "SELECT Username, Password" +
-                " FROM users" +
-                " WHERE Username = ?" +
-                " AND Password = ?";
+    public static boolean login(User userLogin ) throws Exception{
+        query = "SELECT UserID, UserType, ProfilePicture FROM users WHERE Username = ? AND Password = ?";
 
         preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, userLogin.getUsername());
@@ -35,9 +34,18 @@ public class AuthenticationJDBC {
 
         resultSet = preparedStatement.executeQuery();
 
-        while (resultSet.next()){
-            //todo: implement the loading of the main menu
-            System.out.println("LOGIN SUCCESSFUL!!!");
+        if (resultSet.next()) {
+            if (resultSet.getString("UserType").equalsIgnoreCase("Fan")) {
+                Fan.USER_ID = resultSet.getInt("UserID");
+                Fan.PROFILE_PICTURE = resultSet.getBytes("ProfilePicture");
+                return true;
+            } else {
+                Idol.USER_ID = resultSet.getInt("UserID");
+                Idol.PROFILE_PICTURE = resultSet.getBytes("ProfilePicture");
+                return false;
+            }
+        } else {
+            throw new Exception("Account Does Not Exist");
         }
     }
 

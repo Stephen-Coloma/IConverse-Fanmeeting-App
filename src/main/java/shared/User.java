@@ -10,7 +10,17 @@ public class User {
     private String status;
     private String bio;
     private byte[] profilePicture;
-
+    public User(){
+        this.userID = 0;
+        this.username = null;
+        this.name = null;
+        this.password = null;
+        this.email = null;
+        this.userType = null;
+        this.status = null;
+        this.profilePicture = null;
+        this.bio = null;
+    }
     // Constructor
     public User(int userID, String username, String name, String password, String email, String userType, String status, byte[] profilePicture, String bio) {
         this.userID = userID;
@@ -40,6 +50,18 @@ public class User {
     public User(String username, String password){
         this.username = username;
         this.password = password;
+    }
+
+    // Constructor
+    public User(int userID, byte[] profilePicture){
+        this.userID = userID;
+        this.profilePicture = profilePicture;
+    }
+
+    // Constructor
+    public User(String username, byte[] profilePicture){
+        this.username = username;
+        this.profilePicture = profilePicture;
     }
 
     // Getters and setters

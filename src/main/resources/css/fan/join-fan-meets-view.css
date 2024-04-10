@@ -1,0 +1,27 @@
+#flowPane {
+    -fx-background-color: #e4e4e4;
+}
+
+#scollPane {
+    -fx-background-color: transparent;
+}
+
+#scrollPane > .viewport {
+    -fx-background-color: transparent;
+}
+
+#scrollPane .scroll-bar:vertical,
+#scrollPane .scroll-bar:vertical .track,
+#scrollPane .scroll-bar:vertical, track-background {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+#scrollPane .scroll-bar:vertical .thumb {
+    -fx-background-color: #1b4994;
+}
+
+#scrollPane .scroll-bar .increment-button,
+#scrollPane .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+}

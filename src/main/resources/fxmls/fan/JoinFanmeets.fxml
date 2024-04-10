@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="TOP_CENTER" prefHeight="760.0" prefWidth="1013.6" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fan.view.JoinFanMeetsView">
+   <children>
+      <Pane prefHeight="67.2" prefWidth="1014.0" style="-fx-background-color: #1b4994;">
+         <children>
+            <ImageView fx:id="backBT" fitHeight="50.0" fitWidth="57.0" layoutX="21.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../fan/images/back-button.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="902.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filter Date">
+               <font>
+                  <Font name="Arial" size="19.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="840.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../fan/images/filter.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane minHeight="-Infinity" prefHeight="63.0" prefWidth="1014.0">
+         <children>
+            <Text id="Upcoming" layoutX="33.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Join Fan Meets">
+               <font>
+                  <Font name="Arial Black" size="25.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <ScrollPane id="scrollPane" fx:id="scrollPane" hbarPolicy="NEVER" prefHeight="632.0" prefWidth="1011.0">
+         <content>
+            <FlowPane id="flowPane" fx:id="flowPane" alignment="TOP_CENTER" prefHeight="629.0" prefWidth="1012.0" vgap="15.0">
+               <padding>
+                  <Insets bottom="20.0" top="20.0" />
+               </padding>
+            </FlowPane>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>

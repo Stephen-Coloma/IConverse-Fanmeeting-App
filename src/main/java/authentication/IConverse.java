@@ -10,6 +10,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 public class IConverse extends Application {
     public static Stage STAGE;
     public FXMLLoader loader;
@@ -26,6 +28,7 @@ public class IConverse extends Application {
 
             loader = new FXMLLoader(getClass().getResource("/fxmls/authentication/LoginPage.fxml"));
             root = loader.load();
+            root.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/landing-page.css")).toExternalForm());
 
             loginPageController  = new LoginPageController(loader.getController(), new LoginPageModel());
             STAGE.setTitle("IConverse");

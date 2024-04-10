@@ -12,8 +12,7 @@ public class LoginPageModel {
     public boolean login() throws Exception{
         User userLogin = new User(username, password);
 
-        AuthenticationJDBC.login(userLogin);
-        return false; //todo: to be changed the return type
+        return AuthenticationJDBC.login(userLogin);
     }
 
     public String getUsername() {

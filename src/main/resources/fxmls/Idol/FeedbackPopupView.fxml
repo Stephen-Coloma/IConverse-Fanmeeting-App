@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="idol.view.FeedbackPopupView">
+   <children>
+      <HBox prefHeight="51.0" prefWidth="800.0" style="-fx-background-color: #1b4994;">
+         <children>
+            <Label fx:id="dateLabel" alignment="CENTER" prefHeight="50.0" prefWidth="463.0" text="February 14, 2024 Fanmeet Feedbacks" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="19.0" />
+               </font>
+            </Label>
+            <Pane prefHeight="51.0" prefWidth="221.0">
+               <padding>
+                  <Insets bottom="20.0" top="20.0" />
+               </padding>
+            </Pane>
+         </children></HBox>
+      <ScrollPane fx:id="scrollpane" hbarPolicy="NEVER" prefHeight="461.0" prefWidth="800.0">
+         <content>
+            <FlowPane fx:id="flowpane" prefHeight="459.0" prefWidth="800.0" />
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>

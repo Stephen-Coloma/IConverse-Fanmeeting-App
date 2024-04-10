@@ -1,0 +1,21 @@
+#logInBT {
+    -fx-background-color: transparent;
+    -fx-border-color: #1b4994;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+#signUpBT {
+    -fx-background-color: #bfeaf5;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+#logInBT:hover {
+    -fx-background-color: #1b4994;
+    -fx-text-fill: #f0f3f7;
+}
+
+#signUpBT:hover {
+    -fx-background-color: #89cfe0;
+}

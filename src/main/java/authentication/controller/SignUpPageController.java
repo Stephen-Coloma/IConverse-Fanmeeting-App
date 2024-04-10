@@ -11,6 +11,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.controlsfx.control.action.Action;
 
+import java.util.Objects;
+
 public class SignUpPageController {
     private SignUpPageView view;
     private SignUpModel model;
@@ -38,9 +40,8 @@ public class SignUpPageController {
 
             try {
                 model.signUp();
-                loadLoginPage(event);  //todo: if it reaches here, load the login page
+                loadLoginPage(event);
             } catch (Exception e) {
-                //todo: catch where the account cannot be created due to duplicates from username
                 view.getNoticeLabel().setText(e.getMessage());
                 view.getNoticeLabel().setVisible(true);
             }
@@ -63,10 +64,8 @@ public class SignUpPageController {
 
             try {
                 model.signUp();
-                //todo: if it reaches here, load the login page
                 loadLoginPage(event);
             } catch (Exception e) {
-                //todo: catch where the account cannot be created due to duplicates from username
                 view.getNoticeLabel().setText(e.getMessage());
                 view.getNoticeLabel().setVisible(true);
             }
@@ -84,6 +83,7 @@ public class SignUpPageController {
         try {
             loader = new FXMLLoader(getClass().getResource("/fxmls/authentication/LoginPage.fxml"));
             root = loader.load();
+            root.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/landing-page.css")).toExternalForm());
 
             new LoginPageController(loader.getController(), new LoginPageModel());
 
