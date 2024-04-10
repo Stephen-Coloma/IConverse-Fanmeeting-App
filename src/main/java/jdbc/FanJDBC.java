@@ -104,7 +104,6 @@ public class FanJDBC {
             pstmt.setInt(1, userID);
 
             try (ResultSet resultSet = pstmt.executeQuery()) {
-
                 while (resultSet.next()) {
                     // fan user
                     User user = new User(userID, null, null, null, null, null, null, null, null);

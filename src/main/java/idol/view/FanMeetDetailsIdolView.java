@@ -1,4 +1,4 @@
-package idol.controller;
+package idol.view;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -20,6 +20,9 @@ public class FanMeetDetailsIdolView {
 
     @FXML
     private Label timeLabel;
+
+    @FXML
+    private Label cancelledLB;
 
     public Label getDateLabel() {
         return dateLabel;
@@ -59,5 +62,9 @@ public class FanMeetDetailsIdolView {
 
     public void setTimeLabel(Label timeLabel) {
         this.timeLabel = timeLabel;
+    }
+
+    public Label getCancelledLB() {
+        return cancelledLB;
     }
 }

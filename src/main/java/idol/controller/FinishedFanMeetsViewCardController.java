@@ -1,6 +1,6 @@
 package idol.controller;
 
-import idol.controller.FanMeetDetailsIdolView;
+import idol.view.FanMeetDetailsIdolView;
 import idol.model.FinishedFanMeetsViewCardModel;
 import idol.view.FeedbackCardView;
 import idol.view.FeedbackPopupView;
@@ -48,6 +48,10 @@ public class FinishedFanMeetsViewCardController {
                fanMeetDetailsIdolView.getImageView().setImage(userImage);
                fanMeetDetailsIdolView.getDateLabel().setText(model.getFanmeet().getDate().toString());
                fanMeetDetailsIdolView.getPricePerMinuteLabel().setText("P " + model.getFanmeet().getPricePerMinute() + "0");
+
+               if (model.getFanmeet().getStatus() == null) {
+                   fanMeetDetailsIdolView.getCancelledLB().setText("Cancelled");
+               }
 
                //logic to calculate the duration
                Duration duration = Duration.between(model.getFanmeet().getStartTime(), model.getFanmeet().getEndTime());

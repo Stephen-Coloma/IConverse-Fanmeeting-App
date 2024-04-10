@@ -14,8 +14,7 @@ public class CancelFanMeetController {
         this.model = model;
 
         this.view.setUpActionYesButton(event -> {
-            //todo: delete into the database
-            IdolJDBC.deleteFanmeet(model.getFanmeet());
+            IdolJDBC.cancelFanMeet(model.getFanmeet());
             Stage stage = (Stage) view.getNoButton().getScene().getWindow();
             stage.close();
         });

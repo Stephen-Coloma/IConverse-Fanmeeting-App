@@ -76,12 +76,12 @@ public class UpcomingFanMeetsViewCardController {
 
         this.view.setUpActionDeleteButton(event -> {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/idol/DeleteFanMeet.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/Idol/CancelFanMeet.fxml"));
                 Parent root = loader.load();
 
                 CancelConfirmationView cancelConfirmationView = loader.getController();
-                CancelConfirmationModel deleteFanMeetModel = new CancelConfirmationModel(model.getFanmeet());
-                CancelFanMeetController deleteFanMeetController = new CancelFanMeetController(cancelConfirmationView, deleteFanMeetModel);
+                CancelConfirmationModel cancelConfirmationModel = new CancelConfirmationModel(model.getFanmeet());
+                CancelFanMeetController cancelFanMeetController = new CancelFanMeetController(cancelConfirmationView, cancelConfirmationModel);
 
                 Scene scene = new Scene(root);
 

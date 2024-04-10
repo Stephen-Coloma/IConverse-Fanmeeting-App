@@ -36,15 +36,15 @@ public class IdolJDBC {
 
     public static List<Fanmeet> loadFinishedFanmeets(int userID)throws Exception{
         List<Fanmeet> fanmeetList = new ArrayList<>();
-        query= "SELECT FanmeetID, IdolName, Date, StartTime, EndTime, PricePerMinute, Status " +
-                "from fanmeets " +
-                "WHERE status = \"Finished\" " +
-                "AND idolname = ? " +
+        query = "SELECT FanmeetID, IdolName, Date, StartTime, EndTime, PricePerMinute, Status " +
+                "FROM fanmeets " +
+                "WHERE (IdolName = ? AND status = 'Finished') OR (IdolName = ? AND status IS NULL) " +
                 "ORDER BY Date";
 
         preparedStatement = connection.prepareStatement(query);
         //java.sql.Date currentDate = new java.sql.Date(System.currentTimeMillis());
         preparedStatement.setInt(1, userID);
+        preparedStatement.setInt(2, userID);
         resultSet = preparedStatement.executeQuery();
 
         while(resultSet.next()){
@@ -227,22 +227,21 @@ public class IdolJDBC {
         }
     }
 
-    public static void deleteFanmeet(Fanmeet fanmeet){
-      try {
-          query = "DELETE FROM fanmeets " +
-                  "WHERE fanmeetID = ?";
+    public static void cancelFanMeet(Fanmeet fanmeet){
+        try {
+            query = "UPDATE fanmeets " +
+                    "SET Status = ? " +
+                    "WHERE fanmeetID = ?";
 
-          preparedStatement = connection.prepareStatement(query);
-          preparedStatement.setInt(1, fanmeet.getFanMeetID());
-          int temp1 = preparedStatement.executeUpdate();
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setNull(1, Types.VARCHAR);
+            preparedStatement.setInt(2, fanmeet.getFanMeetID());
+            int temp1 = preparedStatement.executeUpdate();
 
-      }catch (Exception e){
-          e.printStackTrace();
-      }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
-
-
-
 
     /**For testing purposes only*/
     public static void main(String[] args) {

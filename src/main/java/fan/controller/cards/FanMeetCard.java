@@ -1,8 +1,10 @@
 package fan.controller.cards;
 
+import fan.controller.popup.CancelBooking;
+import fan.model.CancelBookingModel;
 import fan.view.cards.FinishedFanMeetCardView;
 import fan.view.cards.UnfinishedFanMeetCardView;
-import idol.controller.CancelFanMeetController;
+import fan.view.popup.CancelBookingView;
 import idol.model.CancelConfirmationModel;
 import idol.view.CancelConfirmationView;
 import javafx.fxml.FXMLLoader;
@@ -43,7 +45,7 @@ public class FanMeetCard {
             view.getCancelLabel().setText("Cancelled by: " + "You");
             view.getCancelLabel().setVisible(true);
         }else if (booking.getFanMeetID().getStatus() == null){
-            view.getCancelLabel().setText("Cancelled by: " + booking.getUserID().getName());
+            view.getCancelLabel().setText("Cancelled by: " + booking.getFanMeetID().getIdolName().getName());
             view.getCancelLabel().setVisible(true);
         }
 
@@ -72,20 +74,8 @@ public class FanMeetCard {
         //loading the confirmation
         view.getCancelBT().setOnAction(event -> {
             try {
-                FXMLLoader cancelLoader = new FXMLLoader(FanMeetCard.class.getResource("/fxmls/idol/DeleteFanMeet.fxml"));
-                Parent root = cancelLoader.load();
-
-                CancelConfirmationView cancelConfirmationView = cancelLoader.getController();
-                CancelConfirmationModel cancelConfirmationModel = new CancelConfirmationModel(booking);
-                CancelBookingController cancelBookingController = new CancelBookingController(cancelConfirmationView, cancelConfirmationModel);
-
-                Scene scene = new Scene(root);
-
-                Stage stage = new Stage();
-
-                stage.setScene(scene);
-                stage.setTitle("Cancel Confirmation");
-                stage.showAndWait();
+                CancelBooking cancelBooking = new CancelBooking(new CancelBookingModel(booking), new CancelBookingView());
+                cancelBooking.init();
             }catch (Exception e){
                 e.printStackTrace();
             }
