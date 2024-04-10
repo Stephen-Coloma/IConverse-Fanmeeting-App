@@ -13,9 +13,11 @@ public class SignUpModel {
     private String email;
     private String password;
     private String userType;
+    private byte[] profilePicture;
+    private String bio;
 
     public boolean signUp() throws Exception{
-        User userSignUp = new User(username, name, password, email, userType, "Active", null, null);
+        User userSignUp = new User(username, name, password, email, userType, "Active", profilePicture, bio);
 
         AuthenticationJDBC.signUp(userSignUp);
         return false;
@@ -59,5 +61,21 @@ public class SignUpModel {
 
     public void setUserType(String userType) {
         this.userType = userType;
+    }
+
+    public byte[] getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(byte[] profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
     }
 }

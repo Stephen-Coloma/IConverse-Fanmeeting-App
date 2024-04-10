@@ -37,7 +37,7 @@
                <children>
                   <Pane layoutX="-2.0" prefHeight="116.0" prefWidth="974.0" style="-fx-background-color: #f0f3f7; -fx-border-color: #1b4994; -fx-border-radius: 5;">
                      <children>
-                        <Text fx:id="idolNameLB" layoutX="17.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IdolName" wrappingWidth="126.67007446289062">
+                        <Text fx:id="idolNameLB" layoutX="17.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IdolName" wrappingWidth="706.6700744628906">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>

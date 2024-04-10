@@ -34,6 +34,13 @@ public class SignUpPageView {
 
     @FXML
     private TextField userNameTextField;
+    @FXML
+    private Button chooseImageButton;
+    @FXML
+    private Label imageNameLabel;
+
+    @FXML
+    private TextField bioTextField;
 
     public void setActionCreateFanAccountButton(EventHandler<ActionEvent> event){
         this.createFanAccount.setOnAction(event);
@@ -119,5 +126,29 @@ public class SignUpPageView {
 
     public void setUserNameTextField(TextField userNameTextField) {
         this.userNameTextField = userNameTextField;
+    }
+
+    public Button getChooseImageButton() {
+        return chooseImageButton;
+    }
+
+    public void setChooseImageButton(Button chooseImageButton) {
+        this.chooseImageButton = chooseImageButton;
+    }
+
+    public Label getImageNameLabel() {
+        return imageNameLabel;
+    }
+
+    public void setImageNameLabel(Label imageNameLabel) {
+        this.imageNameLabel = imageNameLabel;
+    }
+
+    public TextField getBioTextField() {
+        return bioTextField;
+    }
+
+    public void setBioTextField(TextField bioTextField) {
+        this.bioTextField = bioTextField;
     }
 }
