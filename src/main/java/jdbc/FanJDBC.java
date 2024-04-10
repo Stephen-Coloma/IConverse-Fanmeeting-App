@@ -148,7 +148,7 @@ public class FanJDBC {
         String sql = "SELECT f.FanMeetID, f.IdolName, f.Date, f.StartTime, f.EndTime, f.PricePerMinute, f.Status, " +
                 "u.UserID, u.Name, u.Bio, u.ProfilePicture " +
                 "FROM fanmeets f JOIN users u ON f.IdolName = u.UserID " +
-                "WHERE f.IdolName = ?";
+                "WHERE f.IdolName = ? AND f.status = \"Unfinished\"";
 
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setInt(1,idolID);
