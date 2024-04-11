@@ -66,7 +66,7 @@
       </Text>
       <ScrollPane id="scrollPane" fx:id="scrollPane" hbarPolicy="NEVER" prefHeight="500.0" prefWidth="1014.0">
          <content>
-            <FlowPane id="flowPane" fx:id="flowPane" alignment="TOP_CENTER" prefHeight="508.0" prefWidth="1012.0" style="-fx-background-color: #e4e4e4;">
+            <FlowPane id="flowPane" fx:id="flowPane" alignment="TOP_CENTER" prefHeight="508.0" prefWidth="1012.0" style="-fx-background-color: WHITE;">
                <padding>
                   <Insets top="15.0" />
                </padding>

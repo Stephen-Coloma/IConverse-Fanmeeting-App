@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<VBox alignment="TOP_CENTER" prefHeight="760.0" prefWidth="1013.6" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fan.view.JoinFanMeetsView">
+<VBox alignment="TOP_CENTER" prefHeight="760.0" prefWidth="1013.6" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fan.view.JoinFanMeetsView">
    <children>
       <Pane prefHeight="67.2" prefWidth="1014.0" style="-fx-background-color: #1b4994;">
          <children>
@@ -36,9 +40,9 @@
             </Text>
          </children>
       </Pane>
-      <ScrollPane id="scrollPane" fx:id="scrollPane" hbarPolicy="NEVER" prefHeight="632.0" prefWidth="1011.0">
+      <ScrollPane id="scrollPane" fx:id="scrollPane" hbarPolicy="NEVER" prefHeight="632.0" prefWidth="1011.0" style="-fx-background-color: white;">
          <content>
-            <FlowPane id="flowPane" fx:id="flowPane" alignment="TOP_CENTER" prefHeight="629.0" prefWidth="1012.0" vgap="15.0">
+            <FlowPane id="flowPane" fx:id="flowPane" alignment="TOP_CENTER" prefHeight="629.0" prefWidth="1012.0" style="-fx-background-color: white;" vgap="15.0">
                <padding>
                   <Insets bottom="20.0" top="20.0" />
                </padding>
