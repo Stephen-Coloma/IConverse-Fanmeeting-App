@@ -70,6 +70,7 @@ public class FanMeetCard {
         view.getDurationLB().setText(booking.getDuration() + "");
         view.getIdolNameLB().setText(booking.getFanMeetID().getIdolName().getName());
         view.getTimestampLB().setText("Booked on " + booking.getTimeStamp().toLocalDate() + " " + booking.getTimeStamp().toLocalTime());
+        view.getPriceLabel().setText("P: " + booking.getPrice());
 
         //loading the confirmation
         view.getCancelBT().setOnAction(event -> {

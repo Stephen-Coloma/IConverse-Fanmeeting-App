@@ -3,10 +3,13 @@ package fan.view.cards;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 public class UnfinishedFanMeetCardView {
+    @FXML
+    private Label priceLabel;
     @FXML
     private Text meetIDLB, dateLB, timeLB, durationLB, idolNameLB, timestampLB;
     @FXML
@@ -66,5 +69,9 @@ public class UnfinishedFanMeetCardView {
 
     public Button getCancelBT() {
         return cancelBT;
+    }
+
+    public Label getPriceLabel() {
+        return priceLabel;
     }
 } // end of UnfinishedFanMeetCardView class
